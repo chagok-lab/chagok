@@ -273,7 +273,13 @@ def main():
     odo = {'km': 12480.2}
 
     def set_odo(km, quiet=True):
+        """누적거리를 씀. 주행가능거리도 함께 보내 계기판 표시가 0 km 로 바뀌지 않게 함"""
         odo['km'] = round(km, 1)
+        if odo.get('with_range', True):
+            status = put('/vehicle/odometer', quiet=quiet, traveled_distance_km=odo['km'], remaining_range_m=412000)
+            if status == 200:
+                return status
+            odo['with_range'] = False
         return put('/vehicle/odometer', quiet=quiet, traveled_distance_km=odo['km'])
 
     def park():
@@ -416,10 +422,17 @@ def main():
         tap(nodes, '일반업무')
         ev('gap_purpose')
         time.sleep(3)
+    nodes = snap('r3_gap_confirmed')
+    result('real_gap_confirmed', 'yes' if has(nodes, '용도 확정: 일반업무') else 'no')
+    # 같은 구간이 두 번 기록되지 않는지: 확정 대기 시간(60초)이 지난 뒤에도 운행이 3건인지 확인
+    time.sleep(64)
+    ev('after_grace')
 
     # 4) 리포트와 서식 내보내기
     nodes = snap('r4_report')
     result('real_report_three_trips', 'yes' if has(nodes, '오늘 운행 3건') else 'no')
+    result('real_no_double_count', 'yes' if has(nodes, '54.5 km') and not has(nodes, '오늘 운행 4건') else 'no')
+    result('real_final_ratio', next((t for t, _ in nodes if t.endswith('%')), 'none'))
     ev('report')
     time.sleep(3)
     if tap(nodes, '서식 내보내기'):
@@ -436,7 +449,10 @@ def main():
     hb.finish()
 
     # 내보낸 CSV (사용자 10 의 앱 전용 폴더)
-    for base in ('/storage/emulated/10', '/sdcard', '/storage/emulated/0'):
+    for base in ('/storage/emulated/10', '/mnt/user/10/emulated/10', '/mnt/pass_through/10/emulated/10', '/data/media/10',
+                 '/sdcard', '/storage/emulated/0'):
+        listing = adb('shell', f'ls -la {base}/Android/data/{PKG}/files/ 2>&1').strip()
+        log(f'csv path {base}: {listing[:160]}')
         csv = adb('shell', f'cat {base}/Android/data/{PKG}/files/*.csv 2>/dev/null')
         if csv.strip():
             with open(os.path.join(OUT, 'export_real.csv'), 'w') as f:

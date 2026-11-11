@@ -36,6 +36,20 @@ object ContinuityChecker {
         }
     }
 
+    /**
+     * 새 운행 구간이 직전에 기록한 구간과 겹치면 겹치지 않는 부분만 남깁니다(서식 ⑤는 직전 운행의 ⑥보다 작을 수 없음).
+     * 돌려주는 값은 새 운행의 시작 누적거리이며, 남는 거리가 0.1 km 미만이면 null(기록하지 않음)입니다.
+     * 직전 구간과 전혀 겹치지 않는 값(계기판 교체 등)은 그대로 둡니다.
+     */
+    fun nonOverlappingStart(lastStartOdoKm: Double?, lastEndOdoKm: Double?, startOdoKm: Double, endOdoKm: Double): Double? {
+        var start = startOdoKm
+        if (lastStartOdoKm != null && lastEndOdoKm != null) {
+            val overlaps = startOdoKm < lastEndOdoKm - EPS && endOdoKm > lastStartOdoKm + EPS
+            if (overlaps) start = lastEndOdoKm
+        }
+        return if (endOdoKm - start >= MIN_GAP_KM - EPS) start else null
+    }
+
     private const val EPS = 1e-6
 
     private fun round1(v: Double): Double = (v * 10.0).roundToLong() / 10.0

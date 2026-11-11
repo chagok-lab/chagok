@@ -12,6 +12,7 @@ import com.chagok.app.data.TripStore
 import com.chagok.app.engine.CarText
 import com.chagok.app.engine.ContinuityChecker
 import com.chagok.app.engine.LogbookCalculator
+import com.chagok.app.engine.OdometerFilter
 import com.chagok.app.engine.PurposeAdvisor
 import com.chagok.app.engine.TripDetector
 import com.chagok.app.export.NtsLogbookExporter
@@ -62,6 +63,7 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
     private val main = Handler(Looper.getMainLooper())
     private val store = TripStore(File(context.filesDir, "chagok_ledger.json"))
     private var detector = TripDetector()
+    private val odometerFilter = OdometerFilter()
     private var continuityChecked = false
 
     // 도어 열림 직후의 잠정 운행(아직 봉인 전): 카드를 바로 띄우고, 정차가 확인되면 봉인
@@ -112,6 +114,7 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
         // 실차: 문을 연 뒤 60초 동안 움직이지 않으면 종료 확정 / 시뮬레이터: 시연용으로 3초
         detector = TripDetector(doorGraceMs = if (target == Mode.SIMULATOR) SIM_DOOR_GRACE_MS else DOOR_GRACE_MS)
         continuityChecked = false
+        odometerFilter.reset()
         clearProvisional()
         driving = false
         tripStartOdoKm = null
@@ -163,8 +166,9 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
 
     // ---- VehicleSignals.Listener
     override fun onOdometerKm(km: Double) {
-        odometerKm = km
         noSignal = false
+        val accepted = odometerFilter.accept(km) ?: return     // 직전보다 작은 지연 값은 버림
+        odometerKm = accepted
         if (!continuityChecked && mode == Mode.PLEOS) {   // 실차 값을 처음 받았을 때 1회
             continuityChecked = true
             reconcileGap(km)
@@ -218,13 +222,18 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
                 driving = true
                 tripStartOdoKm = event.startOdoKm
             }
-            is TripDetector.Event.Arrived -> {       // 문이 열린 순간: 용도 확인 카드를 바로 표시
+            is TripDetector.Event.Arrived -> {       // 기어 P·문 열림: 용도 확인 카드를 바로 표시
                 driving = false
-                provisional = draftTrip(
-                    nextTripId(), event.startOdoKm, event.endOdoKm, event.startEpochMs, event.endEpochMs, event.destination,
-                )
-                provisionalPurpose = null
-                provisionalSkipped = false
+                val start = guardedStart(event.startOdoKm, event.endOdoKm)
+                if (start == null) {                 // 이미 기록된 구간이면 카드를 띄우지 않음
+                    clearProvisional()
+                } else {
+                    provisional = draftTrip(
+                        nextTripId(), start, event.endOdoKm, event.startEpochMs, event.endEpochMs, event.destination,
+                    )
+                    provisionalPurpose = null
+                    provisionalSkipped = false
+                }
             }
             TripDetector.Event.Resumed -> {          // 잠깐 정차 후 다시 출발: 같은 운행으로 이어감
                 driving = true
@@ -262,13 +271,31 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
      * 운행 종료 확정: 차량 원천 값을 revision 0 으로 봉인합니다.
      * 문이 열린 순간 카드에서 이미 고른 용도가 있으면 revision 1 로 이어서 기록합니다.
      */
+    /**
+     * 실차 신호로 만든 운행이 직전에 기록한 구간과 겹치지 않도록 시작 누적거리를 맞춥니다(서식 ⑤ ≥ 직전 ⑥).
+     * 남는 거리가 없으면 null. 시뮬레이터 시연 기록에는 적용하지 않습니다.
+     */
+    private fun guardedStart(startKm: Double, endKm: Double): Double? {
+        if (mode != Mode.PLEOS) return startKm
+        val last = LogbookCalculator.latest(ledger)
+            .filter { it.source == Mode.PLEOS.name || it.source == SOURCE_GAP }
+            .maxByOrNull { it.endEpochMs }
+        return ContinuityChecker.nonOverlappingStart(last?.startOdoKm, last?.endOdoKm, startKm, endKm)
+    }
+
     private fun sealNewTrip(e: TripDetector.Event.Ended) {
+        val start = guardedStart(e.startOdoKm, e.endOdoKm)
+        if (start == null) {
+            clearProvisional()
+            status = "이미 기록된 구간이어서 새 운행으로 추가하지 않았습니다"
+            return
+        }
         val tripId = nextTripId()
-        appendAndSave(TripStore.append(ledger, draftTrip(tripId, e.startOdoKm, e.endOdoKm, e.startEpochMs, e.endEpochMs, e.destination)))
+        appendAndSave(TripStore.append(ledger, draftTrip(tripId, start, e.endOdoKm, e.startEpochMs, e.endEpochMs, e.destination)))
         val chosen = provisionalPurpose
         val skipped = provisionalSkipped
         clearProvisional()
-        val km = String.format(Locale.ROOT, "%.1f", e.endOdoKm - e.startOdoKm)
+        val km = String.format(Locale.ROOT, "%.1f", e.endOdoKm - start)
         if (chosen != null) {
             TripStore.revise(ledger, tripId, chosen, note = null)?.let(::appendAndSave)
             if (pendingTripId == tripId) pendingTripId = null

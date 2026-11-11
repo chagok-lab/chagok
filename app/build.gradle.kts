@@ -13,8 +13,8 @@ android {
         // Pleos Connect는 Android 14(API 34) 기반. NaviHelper 공식 샘플과 같은 minSdk 33 사용
         minSdk = 33
         targetSdk = 35
-        versionCode = 3
-        versionName = "0.2.1"
+        versionCode = 4
+        versionName = "0.2.2"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
