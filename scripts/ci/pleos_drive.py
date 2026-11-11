@@ -5,6 +5,13 @@
 사용: pleos_drive.py <결과 폴더>
 흐름: 누적거리 설정 → 앱 실행 → 기어 D·주행 → 기어 P(용도 확인 카드) → 1탭 → 운전석 도어 열림 → 60초 뒤 확정
       → 두 번째 운행 → 앱 종료 중 주행(누락 구간) → 재실행 시 자동 보완 → 리포트 → 서식 내보내기
+
+Virtual Console 이 쓰는 주소 (에뮬레이터 2.1.0 의 /vehicle/catalog 에서 확인):
+  PUT /vehicle/odometer?traveled_distance_km=<km>     누적거리 (PERF_ODOMETER)
+  PUT /vehicle/gear?gear=Park|Reverse|Neutral|Drive    기어
+  PUT /vehicle/body?door_fl=true|false                 운전석 도어
+  PUT /vehicle/controls?speed=<kph>&accelerator=&brake= 속도·페달
+  POST /browser/session?client=<id>                    콘솔 화면이 1초마다 보내는 접속 신호
 """
 import json
 import os
@@ -90,32 +97,37 @@ def walk(obj, path=''):
 
 
 def features(catalog):
-    """catalog 안에서 write_endpoint 를 가진 항목(조작 가능한 신호)을 모두 찾음"""
-    found = []
-
-    def visit(o):
-        if isinstance(o, dict):
-            if 'write_endpoint' in o or 'control' in o:
-                found.append(o)
-            for v in o.values():
-                visit(v)
-        elif isinstance(o, list):
-            for v in o:
-                visit(v)
-    visit(catalog)
-    return found
+    """catalog 에서 조작 가능한 신호(write_endpoint 가 있는 항목) 목록"""
+    items = catalog.get('features') if isinstance(catalog, dict) else None
+    return [f for f in (items or []) if isinstance(f, dict) and f.get('write_endpoint')]
 
 
-def write_feature(feature, value, area=None, quiet=False):
-    control = feature.get('control') or {}
-    params = dict(control.get('params') or {})
-    field = (control.get('field_by_area') or {}).get(str(area)) or control.get('field')
-    if not field or not feature.get('write_endpoint'):
-        return 0
-    params[field] = value
-    if control.get('area_field') and area is not None:
-        params[control['area_field']] = area
-    return put(feature['write_endpoint'], quiet=quiet, **params)
+class Heartbeat(threading.Thread):
+    """Virtual Console 웹 화면이 열려 있는 것처럼 1초마다 접속 신호를 보냄"""
+
+    def __init__(self):
+        super().__init__(daemon=True)
+        self.client = f'chagok-ci-{int(T0)}'
+        self.stop_flag = False
+
+    def run(self):
+        while not self.stop_flag:
+            http('POST', '/browser/session?client=' + self.client, timeout=3)
+            time.sleep(1)
+
+    def finish(self):
+        self.stop_flag = True
+        http('POST', '/browser/session?client=' + self.client + '&closing=1', timeout=3)
+
+
+def flags(state):
+    """신호 전달 통로(DDS) 준비 상태 요약"""
+    out = {}
+    for key in ('gear', 'odometer', 'body', 'controls', 'ev_battery'):
+        part = state.get(key) or {}
+        out[key] = {k: part.get(k) for k in ('bridge_ready', 'emulator_active', 'source') if k in part}
+    out['browser'] = state.get('browser')
+    return out
 
 
 # ---------- 기기 (adb)
@@ -232,6 +244,9 @@ class Recorder(threading.Thread):
 
 # ---------- 시나리오
 def main():
+    hb = Heartbeat()
+    hb.start()
+    time.sleep(3)
     state = get_json('/vehicle/state')
     catalog = get_json('/vehicle/catalog')
     result('vc_state', 'yes' if state else 'no')
@@ -241,33 +256,38 @@ def main():
     save('vc_state_start.json', state)
     if catalog is not None:
         save('vc_catalog.json', catalog)
-    log('state keys: ' + ', '.join(list(state.keys())[:40]) if isinstance(state, dict) else str(type(state)))
-    for path, value in walk(state):
-        if re.search(r'odo|distance|mileage|gear|door', path, re.I):
-            log(f'  state {path} = {value}')
-
+    log('bridge: ' + json.dumps(flags(state), ensure_ascii=False))
     feats = features(catalog) if catalog else []
     with open(os.path.join(OUT, 'vc_features.txt'), 'w') as f:
         for ft in feats:
             c = ft.get('control') or {}
-            f.write(' | '.join(str(x) for x in [ft.get('id') or ft.get('key') or ft.get('name'), ft.get('label') or ft.get('title'),
-                                                ft.get('domain'), ft.get('write_endpoint'), c.get('type'), c.get('field'),
-                                                c.get('params'), ft.get('unit'), c.get('min'), c.get('max')]) + '\n')
+            prop = ft.get('car_property') or {}
+            f.write(' | '.join(str(x) for x in [ft.get('id'), ft.get('label'), ft.get('write_endpoint'), c.get('kind'),
+                                                c.get('field') or c.get('field_by_area'), ft.get('unit'), prop.get('name'), prop.get('hex_id')]) + '\n')
     log(f'catalog features: {len(feats)}')
-    odo_feats = [ft for ft in feats if re.search(r'odomet|distance.?driven|mileage', json.dumps(ft), re.I)]
-    for ft in odo_feats[:6]:
-        log('  odometer feature: ' + json.dumps(ft, ensure_ascii=False)[:900])
-    writable = [ft for ft in odo_feats if ft.get('write_endpoint') and (ft.get('control') or {}).get('field')]
-    # 누적거리(총 주행거리)를 가리키는 항목을 우선
-    writable.sort(key=lambda ft: 0 if re.search(r'PERF_ODOMETER|current.?distance|odometer', json.dumps(ft), re.I) else 1)
-    odo_feature = writable[0] if writable else None
-    result('odometer_writable', 'yes' if odo_feature else 'no')
+    odo_ok = any(ft.get('id') == 'perf-odometer' for ft in feats)
+    result('odometer_writable', 'yes' if odo_ok else 'no')
+    if not odo_ok:
+        return
 
     odo = {'km': 12480.2}
 
     def set_odo(km, quiet=True):
         odo['km'] = round(km, 1)
-        return write_feature(odo_feature, odo['km'], quiet=quiet)
+        return put('/vehicle/odometer', quiet=quiet, traveled_distance_km=odo['km'])
+
+    def park():
+        """속도를 0 으로 만든 뒤 기어 P (콘솔 화면의 동작 순서와 같음)"""
+        put('/vehicle/controls', quiet=True, speed=0, accelerator=0, brake=0)
+        time.sleep(0.5)
+        status = put('/vehicle/gear', gear='Park')
+        gear = (get_json('/vehicle/state') or {}).get('gear') or {}
+        log(f'console gear actual: {gear.get("actual")} bridge_ready={gear.get("bridge_ready")}')
+        return status
+
+    def console_odo():
+        st = get_json('/vehicle/state') or {}
+        return (st.get('odometer') or {}).get('traveled_distance_km')
 
     def drive_km(distance, step=0.8, pause=0.35):
         """누적거리를 조금씩 올려 주행을 재현 (콘솔의 속도 값도 함께 올림)"""
@@ -277,17 +297,19 @@ def main():
             set_odo(min(target, odo['km'] + step))
             time.sleep(pause)
         put('/vehicle/controls', quiet=True, speed=0, accelerator=0, brake=100)
-        log(f'drove to odometer {odo["km"]}')
+        time.sleep(0.5)
+        put('/vehicle/controls', quiet=True, speed=0, accelerator=0, brake=0)
+        log(f'drove to odometer {odo["km"]} (console {console_odo()})')
 
     # 0) 차를 세운 상태로 맞추고, 앱을 켜기 전에 누적거리를 정함 (앱의 첫 값이 기준점이 됨)
     app_stop()
     put('/vehicle/controls', speed=0, accelerator=0, brake=0)
     put('/vehicle/gear', gear='Park')
     put('/vehicle/body', door_fl='false')
-    if odo_feature:
-        status = set_odo(12480.2, quiet=False)
-        result('odometer_write_status', status)
+    result('odometer_write_status', set_odo(12480.2, quiet=False))
     time.sleep(2)
+    result('odometer_console_value', console_odo())
+    log('bridge: ' + json.dumps(flags(get_json('/vehicle/state') or {}), ensure_ascii=False))
     adb('shell', 'pm', 'clear', PKG)
     adb('logcat', '-c')
     rec = Recorder()
@@ -295,30 +317,20 @@ def main():
     time.sleep(2)
     app_start()
     ev('launch')
-    nodes = wait_for('Vehicle SDK Odometer', 25) or dump()
-    time.sleep(3)
+    nodes = wait_for('12,480.2', 25)
+    if nodes is None:
+        # 값이 앱까지 오지 않으면: 다시 한 번 써 보고 상태를 남김
+        log('odometer not shown yet; writing again')
+        set_odo(12480.2, quiet=False)
+        nodes = wait_for('12,480.2', 20)
+    time.sleep(2)
     nodes = snap('r0_idle')
     result('real_idle_shows_odometer', 'yes' if has(nodes, '12,480.2') else 'no')
     result('real_signal_line', next((t for t, _ in nodes if t.startswith('차량 신호')), 'none'))
-
-    if not odo_feature:
-        # 누적거리를 직접 쓸 수 없으면: 콘솔에서 실제로 주행시켜 값이 오르는지 확인만 함
-        put('/vehicle/gear', gear='Drive')
-        put('/vehicle/controls', speed=180, accelerator=80, brake=0)
-        before = dict(walk(get_json('/vehicle/state') or {}))
-        got = wait_for('기록 중', 60)
-        after = dict(walk(get_json('/vehicle/state') or {}))
-        for k in after:
-            if isinstance(after[k], (int, float)) and after.get(k) != before.get(k):
-                log(f'  changed while driving: {k}: {before.get(k)} -> {after[k]}')
-        result('real_drive_detected', 'yes' if got else 'no')
-        snap('r1_driving')
-        put('/vehicle/controls', speed=0, accelerator=0, brake=100)
-        put('/vehicle/gear', gear='Park')
-        nodes = wait_for('용도를 확인', 15)
-        result('real_confirm_card_on_park', 'yes' if nodes else 'no')
-        snap('r1_confirm')
+    if not has(nodes, '12,480.2'):
+        save('vc_state_no_signal.json', get_json('/vehicle/state') or {})
         rec.finish()
+        hb.finish()
         return
 
     # 1) 첫 번째 운행: 기어 D → 18.4 km → 기어 P → 카드 → 추천 용도 1탭 → 문 열림 → 60초 뒤 확정
@@ -336,7 +348,7 @@ def main():
     nodes = wait_for('18.4 km', 15)                 # 앱이 마지막 누적거리까지 받은 뒤에 주차
     result('real_trip1_distance_while_driving', 'yes' if nodes else 'no')
     snap('r1_driving_end')
-    put('/vehicle/gear', gear='Park')
+    park()
     ev('trip1_gear_p')
     nodes = wait_for('용도를 확인', 15)
     result('real_trip1_card_on_park', 'yes' if nodes else 'no')
@@ -371,7 +383,7 @@ def main():
         time.sleep(0.5)
     wait_for('23.7 km', 15)
     snap('r2_driving_end')
-    put('/vehicle/gear', gear='Park')
+    park()
     ev('trip2_gear_p')
     nodes = wait_for('용도를 확인', 15)
     result('real_trip2_card_on_park', 'yes' if nodes else 'no')
@@ -390,7 +402,7 @@ def main():
     ev('app_stopped')
     put('/vehicle/gear', gear='Drive')
     drive_km(12.4, step=1.6, pause=0.2)
-    put('/vehicle/gear', gear='Park')
+    park()
     time.sleep(2)
     app_start()
     ev('app_restarted')
@@ -421,6 +433,7 @@ def main():
         time.sleep(2)
     ev('end')
     rec.finish()
+    hb.finish()
 
     # 내보낸 CSV (사용자 10 의 앱 전용 폴더)
     for base in ('/storage/emulated/10', '/sdcard', '/storage/emulated/0'):
