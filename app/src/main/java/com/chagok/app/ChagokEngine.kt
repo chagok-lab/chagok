@@ -15,6 +15,7 @@ import com.chagok.app.engine.ContinuityChecker
 import com.chagok.app.engine.LogbookCalculator
 import com.chagok.app.engine.OdometerFilter
 import com.chagok.app.engine.PurposeAdvisor
+import com.chagok.app.engine.StartupSettle
 import com.chagok.app.engine.TripDetector
 import com.chagok.app.export.NtsLogbookExporter
 import com.chagok.app.model.Purpose
@@ -65,9 +66,10 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
     private val store = TripStore(File(context.filesDir, "chagok_ledger.json"))
     private var detector = TripDetector()
     private val odometerFilter = OdometerFilter()
+    private val startupSettle = StartupSettle()
     private var continuityChecked = false
 
-    // 도어 열림 직후의 잠정 운행(아직 봉인 전): 카드를 바로 띄우고, 정차가 확인되면 봉인
+    // 정차 신호 직후의 확정 전 운행(아직 봉인 전): 카드를 바로 띄우고, 정차가 확인되면 봉인
     private var provisional: Trip? = null
     private var provisionalPurpose: Purpose? = null
     private var provisionalSkipped = false
@@ -116,6 +118,7 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
         detector = TripDetector(doorGraceMs = if (target == Mode.SIMULATOR) SIM_DOOR_GRACE_MS else DOOR_GRACE_MS)
         continuityChecked = false
         odometerFilter.reset()
+        startupSettle.reset()
         clearProvisional()
         driving = false
         tripStartOdoKm = null
@@ -167,14 +170,16 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
 
     // ---- VehicleSignals.Listener
     override fun onOdometerKm(km: Double) {
+        val accepted = odometerFilter.accept(km) ?: return     // 잘못된 값, 직전보다 작은 지연 값은 버림
         noSignal = false
-        val accepted = odometerFilter.accept(km) ?: return     // 직전보다 작은 지연 값은 버림
         odometerKm = accepted
-        if (!continuityChecked && mode == Mode.PLEOS) {   // 실차 값을 처음 받았을 때 1회
+        // 신호를 받기 시작한 직후에는 이전에 보관된 값이 먼저 올 수 있어, 잠시 동안은 화면에만 보여 주고 판단은 미룸
+        if (mode == Mode.PLEOS && !startupSettle.ready()) return
+        if (!continuityChecked && mode == Mode.PLEOS) {   // 실차 값이 자리 잡은 뒤 1회
             continuityChecked = true
-            reconcileGap(km)
+            reconcileGap(accepted)
         }
-        detector.onOdometer(km)?.let(::handle)
+        detector.onOdometer(accepted)?.let(::handle)
     }
 
     override fun onDriverDoor(open: Boolean) {

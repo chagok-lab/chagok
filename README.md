@@ -30,7 +30,7 @@ adb shell am start -n com.chagok.app/.MainActivity
 ### B. 소스 빌드
 ```bash
 ./gradlew assembleRelease      # 제출용 release APK (디버그 키로 서명되어 바로 설치 가능)
-./gradlew testDebugUnitTest    # 단위 테스트 20개
+./gradlew testDebugUnitTest    # 단위 테스트 22개
 adb install -r app/build/outputs/apk/release/app-release.apk
 ```
 Android Studio(최신 버전, JDK 17)에서 저장소를 열어 `app` 을 실행해도 됩니다. Pleos SDK 저장소(`https://nexus-playground.pleos.ai/repository/maven-releases/`)는 `settings.gradle.kts` 에 등록되어 있습니다.
@@ -83,7 +83,7 @@ Android Studio(최신 버전, JDK 17)에서 저장소를 열어 `app` 을 실행
 | 구분 | 내용 | 확인 방법 |
 |---|---|---|
 | Pleos Connect 에뮬레이터에서 확인 | Vehicle SDK 로 누적거리·기어·운전석 도어 수신, 누적거리 증가로 운행 시작, 기어 P 에서 용도 확인 카드, 1탭 확정, 60초 정지 후 확정, 앱 미실행 구간 자동 보완, 리포트(서식 ⑪⑫⑬), CSV 내보내기, 화면 비례 확대 | `scripts/ci/pleos_run.sh` (Pleos Connect Emulator 2.1.0 + Virtual Console) |
-| 로직 단위 테스트 | 운행 판정 상태 기계(기어 P·도어·재출발·늦게 도착한 값), 누락 구간 보완, 해시 체인 원장, 서식 계산·CSV, 용도 추천, 화면 배율 | 단위 테스트 20개 통과 (`./gradlew testDebugUnitTest`) |
+| 로직 단위 테스트 | 운행 판정 상태 기계(기어 P·도어·재출발·늦게 도착한 값·비정상적으로 큰 변화), 누락 구간 보완, 차량 신호 값 걸러내기, 해시 체인 원장, 서식 계산·CSV, 용도 추천, 화면 배율 | 단위 테스트 22개 통과 (`./gradlew testDebugUnitTest`) |
 | 연결만 확인 | NaviHelper SDK 초기화(`NaviHelper 연결됨`). 목적지·도착 이벤트는 내비 앱에서 경로를 설정한 상태의 실측이 남아 있음. 목적지에 따른 용도 추천과 비업무 목적지 미저장은 앱 내 시뮬레이터로 확인 | `scripts/ci/smoke.sh` |
 | 개발 예정 | 차종·등록번호·사용자 입력 화면, QR 파일 전달, PDF 출력, 포그라운드 서비스 상시 기록, 확정 후 수정 화면, 계기판 값 수동 보정, Fleet 관리자 웹, 음성 확인(TTS·STT·Gleo AI), 연료·전기 비용 추정(Fuel·EvBattery) | 1차 결과 후~2차 PT |
 
@@ -101,6 +101,7 @@ NaviHelper 목적지/도착 ─┘        IDLE ⇄ DRIVING
 - **운행 시작**: 누적거리가 기준점 대비 0.1 km 이상 증가
 - **운행 종료**: 기어를 P 에 두거나 운전석 도어가 열리면 용도 카드를 바로 띄우고, 60초 동안 움직이지 않을 때 운행을 확정. 그 사이 다시 출발하면 같은 운행으로 이어감. 내비 도착 후 2분 정지, 장시간 10분 정지도 종료로 판정. 기어·도어 신호가 없는 차량에서도 누적거리와 정지 시간만으로 동작
 - **늦게 도착한 값 처리**: 기어 P 뒤에 들어온 누적거리 값은 재출발로 보지 않고 운행 끝 값(서식 ⑥)에만 반영. 직전 값보다 작은 누적거리 값은 버리고, 이미 기록된 구간과 겹치는 구간은 새 운행으로 만들지 않음
+- **실행 직후 값 처리**: 차량 서비스가 이전에 보관한 값을 먼저 보내는 경우가 있어, 신호를 받기 시작한 뒤 3초 동안은 값을 화면에만 보여 주고 그 뒤의 값부터 기준점으로 사용. 정차 중 한 번에 2,000 km 넘게 늘어난 값은 운행으로 보지 않고 기준점만 다시 잡음
 - **누락 구간 보완**: 앱이 꺼져 있던 동안 달린 거리는 마지막 운행의 ⑥과 현재 계기판 값의 차이로 찾아 `용도 확인 필요` 운행으로 채움(0.1 km 미만 무시, 값이 줄거나 2,000 km 넘게 바뀌면 자동 보완 대신 확인 요청)
 - **용도 추천**: 주말 → 비업무, 목적지가 회사·집 → 출퇴근, 그 밖의 목적지 → 일반업무, 목적지 없음 → 시간대 규칙
 - **수정 이력 추적·무결성 검증**: 차량 원천 값(누적거리·시각)을 revision 0 으로 기록하고, 용도 확정·수정은 새 revision 으로 쌓습니다. 한 줄만 고쳐도 이후 해시 검증이 실패합니다. 로컬 해시 체인은 사후 수정을 드러내는 장치이며 모든 조작을 막는다고 보장하지는 않습니다.
@@ -116,7 +117,7 @@ NaviHelper 목적지/도착 ─┘        IDLE ⇄ DRIVING
 | `vehicle/SimulatedVehicleSignals.kt` | 차량 신호가 없는 기기에서 시연하는 시뮬레이터 (같은 인터페이스) |
 | `engine/TripDetector.kt` | 운행 판정 상태 기계 |
 | `engine/ContinuityChecker.kt` | 계기판 누적거리 연속성 검사(앱 미실행 구간 보완, 기록 구간 겹침 방지) |
-| `engine/OdometerFilter.kt` | 직전 값보다 작게 들어온 누적거리 값 걸러내기 |
+| `engine/OdometerFilter.kt`, `engine/StartupSettle.kt` | 직전 값보다 작게 들어온 누적거리 값 걸러내기, 실행 직후 값이 자리 잡을 때까지 대기 |
 | `engine/PurposeAdvisor.kt` | 용도 추천 규칙 |
 | `engine/LogbookCalculator.kt` | 서식 ⑪⑫⑬, 비용 인정 계산 사례 |
 | `engine/DisplayScale.kt` | 차량 디스플레이 크기에 맞춘 화면 배율 |

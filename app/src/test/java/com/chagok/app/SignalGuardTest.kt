@@ -2,8 +2,10 @@ package com.chagok.app
 
 import com.chagok.app.engine.ContinuityChecker
 import com.chagok.app.engine.OdometerFilter
+import com.chagok.app.engine.StartupSettle
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class SignalGuardTest {
@@ -18,6 +20,28 @@ class SignalGuardTest {
         repeat(4) { assertNull(f.accept(120.0)) }                // 작은 값이 이어지면
         assertEquals(120.0, f.accept(120.0)!!, 1e-9)             // 다섯 번째에 계기판 교체·초기화로 보고 받아들임
         assertEquals(120.4, f.accept(120.4)!!, 1e-9)
+    }
+
+    @Test
+    fun staleValueSentFirstIsReplacedBeforeTheBaselineIsTaken() {
+        // 앱 실행 직후: 이전에 보관된 값(0.0)이 먼저 오고 곧이어 현재 값(12,480.2)이 옴
+        var now = 1_000L
+        val settle = StartupSettle(windowMs = 3_000L, clock = { now })
+        val f = OdometerFilter()
+        assertNull(f.accept(-1.0))                               // 음수, 숫자가 아닌 값은 버림
+        assertNull(f.accept(Double.NaN))
+        assertEquals(0.0, f.accept(0.0)!!, 1e-9)
+        assertTrue(!settle.ready())                              // 첫 값: 화면 표시만
+        now += 100
+        assertEquals(12_480.2, f.accept(12_480.2)!!, 1e-9)
+        assertTrue(!settle.ready())                              // 아직 대기 시간 안: 기준점으로 쓰지 않음
+        now += 2_000
+        assertNull(f.accept(0.0))                                // 늦게 다시 온 이전 값은 버림
+        now += 1_000
+        assertEquals(12_480.2, f.accept(12_480.2)!!, 1e-9)       // 주기 조회 값
+        assertTrue(settle.ready())                               // 3초 경과: 이 값(12,480.2)이 기준점이 됨
+        settle.reset()
+        assertTrue(!settle.ready())                              // 신호를 다시 연결하면 처음부터
     }
 
     @Test

@@ -312,11 +312,33 @@ def main():
         put('/vehicle/controls', quiet=True, speed=0, accelerator=0, brake=0)
         log(f'drove to odometer {odo["km"]} (console {console_odo()})')
 
-    # 0) 차를 세운 상태로 맞추고, 앱을 켜기 전에 누적거리를 정함 (앱의 첫 값이 기준점이 됨)
+    # 0) 차를 세운 상태로 맞춤
     app_stop()
     put('/vehicle/controls', speed=0, accelerator=0, brake=0)
     put('/vehicle/gear', gear='Park')
     put('/vehicle/body', door_fl='false')
+
+    # 0-1) 실행 직후 확인: 앱이 꺼져 있는 동안 누적거리를 바꾼 뒤 켰을 때, 차량 서비스가 이전 값을 먼저 보내더라도
+    #      운행이 잘못 시작되지 않고 현재 값을 정차 상태로 보여 주는지 (기록이 없는 상태에서 3회)
+    startup_ok = 0
+    for k, km in enumerate((800.4, 1900.6, 2700.9), 1):
+        app_stop()
+        set_odo(km)
+        time.sleep(1.5)
+        adb('shell', 'pm', 'clear', PKG)
+        app_start()
+        text = f'{km:,.1f}'
+        nodes = wait_for(text, 20) or []
+        time.sleep(7)                       # 신호 수신 직후 대기(3초)와 다음 주기 조회(2초)가 지난 뒤의 상태를 봄
+        nodes = dump() or nodes
+        ok = (has(nodes, text) and has(nodes, '현재 계기판 누적거리') and has(nodes, '오늘 운행 0건')
+              and not has(nodes, '기록 중'))
+        log(f'startup check {k}: odometer {km} -> {"ok" if ok else "NOT ok"}: ' + ' / '.join(t for t, _ in nodes[:9]))
+        startup_ok += 1 if ok else 0
+    result('real_startup_idle', f'{startup_ok}/3')
+    app_stop()
+
+    # 0-2) 앱을 켜기 전에 누적거리를 정함 (자리 잡은 첫 값이 기준점이 됨)
     result('odometer_write_status', set_odo(12480.2, quiet=False))
     time.sleep(2)
     result('odometer_console_value', console_odo())
@@ -334,9 +356,10 @@ def main():
         log('odometer not shown yet; writing again')
         set_odo(12480.2, quiet=False)
         shown = wait_for('12,480.2', 20)
-    time.sleep(2)
+    time.sleep(6)                           # 신호 수신 직후 대기 시간이 지난 뒤 화면을 확인
     nodes = snap('r0_idle') or shown or []
-    result('real_idle_shows_odometer', 'yes' if shown is not None else 'no')
+    idle_ok = shown is not None and has(nodes, '현재 계기판 누적거리') and not has(nodes, '기록 중')
+    result('real_idle_shows_odometer', 'yes' if idle_ok else 'no')
     result('real_signal_line', next((t for t, _ in nodes if t.startswith('차량 신호')), 'none'))
     if shown is None:
         save('vc_state_no_signal.json', get_json('/vehicle/state') or {})
@@ -438,6 +461,7 @@ def main():
     result('real_report_three_trips', 'yes' if has(nodes, '오늘 운행 3건') else 'no')
     result('real_no_double_count', 'yes' if has(nodes, '37.1 km') and not has(nodes, '오늘 운행 4건') else 'no')
     result('real_final_ratio', next((t for t, _ in nodes if t.endswith('%')), 'none'))
+    result('real_benefit_example', next((t for t, _ in nodes if t.startswith('+') and t.endswith('만원')), 'none'))
     ev('report')
     time.sleep(3)
     if tap(nodes, '서식 내보내기'):

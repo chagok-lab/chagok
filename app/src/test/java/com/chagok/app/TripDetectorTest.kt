@@ -21,7 +21,7 @@ class TripDetectorTest {
         d.onNaviDestination("회사")
         now += 60_000; d.onOdometer(12_498.6)
         val doorAt = now
-        val arrived = d.onDriverDoor(true) as TripDetector.Event.Arrived   // 문 열림: 카드용 잠정 도착
+        val arrived = d.onDriverDoor(true) as TripDetector.Event.Arrived   // 문 열림: 카드용 도착 후보
         assertEquals(12_498.6, arrived.endOdoKm, 1e-9)
         assertEquals(TripDetector.State.DRIVING, d.state)        // 도어만으로는 종료하지 않음
         now += 59_000; assertNull(d.tick())
@@ -32,6 +32,17 @@ class TripDetectorTest {
         assertEquals(doorAt, ended.endEpochMs)                   // 종료 시각 = 문을 연 시각
         assertEquals("회사", ended.destination)
         assertEquals(TripDetector.State.IDLE, d.state)
+    }
+
+    @Test
+    fun hugeJumpWhileIdleSetsANewBaselineInsteadOfStartingATrip() {
+        val d = detector()
+        assertNull(d.onOdometer(0.4))                            // 잘못 들어온 첫 값
+        assertNull(d.onOdometer(12_480.2))                       // 한 번에 2,000 km 넘게 증가: 운행으로 보지 않고 기준점만 다시 잡음
+        assertEquals(TripDetector.State.IDLE, d.state)
+        assertEquals(12_480.2, d.baselineOdoKm!!, 1e-9)
+        val started = d.onOdometer(12_480.4) as TripDetector.Event.Started
+        assertEquals(12_480.2, started.startOdoKm, 1e-9)         // 서식 ⑤ = 다시 잡은 기준점
     }
 
     @Test
@@ -79,7 +90,7 @@ class TripDetectorTest {
         d.onOdometer(300.0); d.onOdometer(300.4)                 // 운행 시작
         now += 900_000; d.onOdometer(323.7)
         val parkedAt = now
-        val arrived = d.onGear(parked = true) as TripDetector.Event.Arrived   // 기어 P: 용도 확인 카드용 잠정 도착
+        val arrived = d.onGear(parked = true) as TripDetector.Event.Arrived   // 기어 P: 용도 확인 카드용 도착 후보
         assertEquals(323.7, arrived.endOdoKm, 1e-9)
         now += 1_000
         assertNull(d.onOdometer(323.8))                          // 기어 P 뒤에 늦게 도착한 값: 재출발이 아니라 끝 값에만 반영

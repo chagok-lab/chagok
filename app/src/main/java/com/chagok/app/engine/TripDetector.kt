@@ -18,13 +18,14 @@ class TripDetector(
     private val parkedIdleMs: Long = 600_000L,
     private val minTripKm: Double = 0.1,
     private val doorGraceMs: Long = 60_000L,
+    private val maxStepKm: Double = ContinuityChecker.MAX_GAP_KM,
     private val clock: () -> Long = { System.currentTimeMillis() },
 ) {
     enum class State { IDLE, DRIVING }
 
     sealed interface Event {
         data class Started(val startOdoKm: Double, val startEpochMs: Long) : Event
-        /** 정차 신호(기어 P·운전석 도어 열림): 아직 확정 전(용도 확인 카드를 바로 띄우기 위한 잠정 도착) */
+        /** 정차 신호(기어 P·운전석 도어 열림): 아직 확정 전(용도 확인 카드를 바로 띄우기 위한 도착 후보) */
         data class Arrived(
             val startOdoKm: Double,
             val endOdoKm: Double,
@@ -32,7 +33,7 @@ class TripDetector(
             val endEpochMs: Long,
             val destination: String?,
         ) : Event
-        /** 잠정 도착 뒤 다시 출발: 같은 운행으로 이어감 */
+        /** 도착 후보 상태에서 다시 출발: 같은 운행으로 이어감 */
         data object Resumed : Event
         data class Ended(
             val startOdoKm: Double,
@@ -71,6 +72,10 @@ class TripDetector(
         return when (state) {
             State.IDLE -> {
                 if (km < base) {          // 단위 변경·센서 초기화 등으로 값이 줄면 기준점을 다시 잡음
+                    baselineOdoKm = km
+                    null
+                } else if (km - base > maxStepKm) {
+                    // 정차 중에 한 번에 지나치게 크게 늘어난 값은 주행이 아니라 값 초기화·교체로 보고 기준점만 다시 잡음
                     baselineOdoKm = km
                     null
                 } else if (km - base >= startThresholdKm) {
@@ -112,13 +117,13 @@ class TripDetector(
     }
 
     /**
-     * 정차 신호: 바로 끝내지 않고 Arrived(잠정 도착)를 보냅니다.
+     * 정차 신호: 바로 끝내지 않고 Arrived(도착 후보)를 보냅니다.
      * doorGraceMs 동안 누적거리 변화가 없으면 tick()에서 Ended로 확정합니다.
      */
     private fun onStopSignal(): Event? {
         if (state != State.DRIVING) return null
         if (doorGraceMs <= 0L) return end()
-        if (doorOpenedMs != null) return null        // 이미 잠정 도착 상태(기어 P 뒤 문 열림, 문을 여닫는 반복)
+        if (doorOpenedMs != null) return null        // 이미 도착 후보 상태(기어 P 뒤 문 열림, 문을 여닫는 반복)
         val start = tripStartOdoKm ?: return null
         val cur = currentOdoKm ?: return null
         val now = clock()
