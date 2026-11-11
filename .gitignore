@@ -9,3 +9,5 @@
 .externalNativeBuild/
 .cxx/
 # apk/ 폴더의 제출용 release APK 는 커밋 대상입니다
+__pycache__/
+*.pyc
