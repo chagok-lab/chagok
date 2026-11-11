@@ -1,0 +1,73 @@
+[smoke 11:33:23] device: android 14 sdk 34 | Physical size: 2560x1600 | Physical density: 320
+[smoke 11:33:24] apk: apk/개인참가_차곡_release.apk (21584224 bytes, sha256 cd6e2b748e354887)
+[smoke 11:33:24] install
+Performing Streamed Install
+Success
+Starting: Intent { cmp=com.chagok.app/.MainActivity }
+Status: ok
+LaunchState: COLD
+Activity: com.chagok.app/.MainActivity
+TotalTime: 1765
+WaitTime: 1785
+Complete
+[smoke 11:33:30] RESULT alive_after_launch=yes
+[smoke 11:33:32] EVENT launch
+UI hierchary dumped to: /sdcard/ui.xml
+[smoke 11:33:35] EVENT no_signal
+[smoke 11:33:35] RESULT no_signal_button=yes
+[smoke 11:33:37] tap '시뮬레이터로 시연하기' at 552 808
+[smoke 11:33:37] EVENT simulator_on
+UI hierchary dumped to: /sdcard/ui.xml
+[smoke 11:33:43] RESULT simulator_ready=yes
+UI hierchary dumped to: /sdcard/ui.xml
+[smoke 11:33:45] tap '다음 운행 재생' at 552 772
+[smoke 11:33:45] EVENT trip1_start
+UI hierchary dumped to: /sdcard/ui.xml
+UI hierchary dumped to: /sdcard/ui.xml
+[smoke 11:33:55] EVENT trip1_confirm
+[smoke 11:33:55] RESULT confirm_card_1=yes
+[smoke 11:33:57] tap '출퇴근' at 552 912
+[smoke 11:33:57] EVENT trip1_purpose
+UI hierchary dumped to: /sdcard/ui.xml
+[smoke 11:34:05] tap '다음 운행 재생' at 552 772
+[smoke 11:34:05] EVENT trip2_start
+UI hierchary dumped to: /sdcard/ui.xml
+UI hierchary dumped to: /sdcard/ui.xml
+UI hierchary dumped to: /sdcard/ui.xml
+[smoke 11:34:18] EVENT trip2_confirm
+[smoke 11:34:19] RESULT confirm_card_2=yes
+[smoke 11:34:21] tap '일반업무' at 552 1116
+[smoke 11:34:21] EVENT trip2_purpose
+UI hierchary dumped to: /sdcard/ui.xml
+[smoke 11:34:29] tap '다음 운행 재생' at 552 772
+[smoke 11:34:29] EVENT trip3_start
+UI hierchary dumped to: /sdcard/ui.xml
+UI hierchary dumped to: /sdcard/ui.xml
+[smoke 11:34:39] EVENT trip3_confirm
+[smoke 11:34:39] RESULT confirm_card_3=yes
+[smoke 11:34:41] tap '비업무' at 552 1320
+[smoke 11:34:41] EVENT trip3_purpose
+UI hierchary dumped to: /sdcard/ui.xml
+[smoke 11:34:50] EVENT report
+[smoke 11:34:50] RESULT report_has_ratio=yes
+[smoke 11:34:53] tap '서식 내보내기' at 1368 1376
+[smoke 11:34:53] EVENT export
+UI hierchary dumped to: /sdcard/ui.xml
+[smoke 11:34:58] RESULT export_dialog=yes
+[smoke 11:35:01] tap '닫기' at 1280 1177
+[smoke 11:35:01] EVENT export_closed
+[smoke 11:35:03] RESULT export_csv_bytes=773
+[smoke 11:35:03] EVENT end
+/sdcard/chagok_demo.mp4: 1 file pulled, 0 skipped. 150.5 MB/s (2157167 bytes in 0.014s)
+Starting: Intent { cmp=com.chagok.app/.MainActivity }
+Status: ok
+LaunchState: COLD
+Activity: com.chagok.app/.MainActivity
+TotalTime: 1476
+WaitTime: 1477
+Complete
+UI hierchary dumped to: /sdcard/ui.xml
+[smoke 11:35:20] RESULT alive_after_relaunch=yes
+[smoke 11:35:20] RESULT records_kept_after_relaunch=yes
+[smoke 11:35:21] RESULT fatal_exceptions=0
+[smoke 11:35:21] done

@@ -1,0 +1,498 @@
+11-11 11:33:24.921 W/ziparchive( 2257): Unable to open '/data/app/~~floYLu6vB98iBiTg3pmIjg==/com.chagok.app-haLtv1vQ9DlHdGkXphzg2A==/base.dm': No such file or directory
+11-11 11:33:24.921 W/ziparchive( 2257): Unable to open '/data/app/~~floYLu6vB98iBiTg3pmIjg==/com.chagok.app-haLtv1vQ9DlHdGkXphzg2A==/base.dm': No such file or directory
+11-11 11:33:24.936 I/artd    ( 2257): Running dex2oat: /apex/com.android.art/bin/art_exec --drop-capabilities --set-task-profile=Dex2OatBootComplete --set-priority=background --keep-fds=7:8:9:10 -- /apex/com.android.art/bin/dex2oat64 --zip-fd=7 --zip-location=/data/app/~~floYLu6vB98iBiTg3pmIjg==/com.chagok.app-haLtv1vQ9DlHdGkXphzg2A==/base.apk --oat-fd=8 --oat-location=/data/app/~~floYLu6vB98iBiTg3pmIjg==/com.chagok.app-haLtv1vQ9DlHdGkXphzg2A==/oat/x86_64/base.odex --output-vdex-fd=9 --swap-fd=10 --class-loader-context=PCL[] --classpath-dir=/data/app/~~floYLu6vB98iBiTg3pmIjg==/com.chagok.app-haLtv1vQ9DlHdGkXphzg2A== --instruction-set=x86_64 --instruction-set-features=default --instruction-set-variant=x86_64 --compiler-filter=verify --compilation-reason=install --compact-dex-level=none --max-image-block-size=524288 --resolve-startup-const-strings=true --generate-mini-debug-info --runtime-arg -Xtarget-sdk-version:35 --runtime-arg -Xhidden-api-policy:enabled --runtime-arg -Xms64m --runtime-arg -Xmx512m --comments=app-version-name:0.2.4,app-version-code:6,art-version:342090000
+11-11 11:33:24.936 I/artd    ( 2257): Opened FDs: 7:/data/app/~~floYLu6vB98iBiTg3pmIjg==/com.chagok.app-haLtv1vQ9DlHdGkXphzg2A==/base.apk 8:/data/app/~~floYLu6vB98iBiTg3pmIjg==/com.chagok.app-haLtv1vQ9DlHdGkXphzg2A==/oat/x86_64/base.odex.95ywmm.tmp 9:/data/app/~~floYLu6vB98iBiTg3pmIjg==/com.chagok.app-haLtv1vQ9DlHdGkXphzg2A==/oat/x86_64/base.vdex.LwrGh4.tmp 10:/data/app/~~floYLu6vB98iBiTg3pmIjg==/com.chagok.app-haLtv1vQ9DlHdGkXphzg2A==/oat/x86_64/base.odex.swap.CDZO8D.tmp 
+11-11 11:33:24.981 W/dex2oat64( 2263): /apex/com.android.art/bin/dex2oat64 --zip-fd=7 --zip-location=/data/app/~~floYLu6vB98iBiTg3pmIjg==/com.chagok.app-haLtv1vQ9DlHdGkXphzg2A==/base.apk --oat-fd=8 --oat-location=/data/app/~~floYLu6vB98iBiTg3pmIjg==/com.chagok.app-haLtv1vQ9DlHdGkXphzg2A==/oat/x86_64/base.odex --output-vdex-fd=9 --swap-fd=10 --class-loader-context=PCL[] --classpath-dir=/data/app/~~floYLu6vB98iBiTg3pmIjg==/com.chagok.app-haLtv1vQ9DlHdGkXphzg2A== --instruction-set=x86_64 --instruction-set-features=default --instruction-set-variant=x86_64 --compiler-filter=verify --compilation-reason=install --compact-dex-level=none --max-image-block-size=524288 --resolve-startup-const-strings=true --generate-mini-debug-info --runtime-arg -Xtarget-sdk-version:35 --runtime-arg -Xhidden-api-policy:enabled --runtime-arg -Xms64m --runtime-arg -Xmx512m --comments=app-version-name:0.2.4,app-version-code:6,art-version:342090000
+11-11 11:33:24.981 I/dex2oat64( 2263): /apex/com.android.art/bin/dex2oat64 --output-vdex-fd=9 --class-loader-context=PCL[] --classpath-dir=/data/app/~~floYLu6vB98iBiTg3pmIjg==/com.chagok.app-haLtv1vQ9DlHdGkXphzg2A== --compiler-filter=verify --compilation-reason=install --compact-dex-level=none --max-image-block-size=524288 --resolve-startup-const-strings=true --generate-mini-debug-info --comments=app-version-name:0.2.4,app-version-code:6,art-version:342090000
+11-11 11:33:25.750 I/ArtService(  504): Dexopt result: [packageName = com.chagok.app] DexContainerFileDexoptResult{dexContainerFile=/data/app/~~floYLu6vB98iBiTg3pmIjg==/com.chagok.app-haLtv1vQ9DlHdGkXphzg2A==/base.apk, primaryAbi=true, abi=x86_64, actualCompilerFilter=verify, status=PERFORMED, dex2oatWallTimeMillis=813, dex2oatCpuTimeMillis=840, sizeBytes=491228, sizeBeforeBytes=0}
+11-11 11:33:25.752 V/BackupManagerService(  504): [UserID:0] restoreAtInstall pkg=com.chagok.app token=1 restoreSet=0
+11-11 11:33:25.782 I/SdkSandboxManager(  504): No SDKs used. Skipping SDK data reconcilation for CallingInfo{mUid=10141, mPackageName='com.chagok.app, mAppProcessToken='null'}
+11-11 11:33:25.795 D/CarrierSvcBindHelper(  998): onPackageAdded: com.chagok.app
+11-11 11:33:25.819 D/ImsResolver(  998): maybeAddedImsService, packageName: com.chagok.app
+11-11 11:33:25.820 I/SafetyLabelChangedBroadcastReceiver(  799): received broadcast packageName: com.chagok.app, current user: UserHandle{0}, packageChangeEvent: NEW_INSTALL, intent user: UserHandle{0}
+11-11 11:33:25.837 D/CarrierSvcBindHelper(  998): onPackageModified: com.chagok.app
+11-11 11:33:25.860 D/ImsResolver(  998): maybeAddedImsService, packageName: com.chagok.app
+11-11 11:33:25.865 V/SplashScreenExceptionList(  504): SplashScreen checking exception for package com.chagok.app (target sdk:35) -> false
+11-11 11:33:25.870 I/ActivityTaskManager(  504): START u0 {flg=0x10000000 cmp=com.chagok.app/.MainActivity} with LAUNCH_SINGLE_TASK from uid 2000 (BAL_ALLOW_PERMISSION) result code=0
+11-11 11:33:25.872 V/WindowManagerShell(  798): Transition requested: android.os.BinderProxy@e57460a TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=8 displayId=0 isRunning=true baseIntent=Intent { flg=0x10000000 cmp=com.chagok.app/.MainActivity } baseActivity=ComponentInfo{com.chagok.app/com.chagok.app.MainActivity} topActivity=ComponentInfo{com.chagok.app/com.chagok.app.MainActivity} origActivity=null realActivity=ComponentInfo{com.chagok.app/com.chagok.app.MainActivity} numActivities=1 lastActiveTime=35973 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{android.window.IWindowContainerToken$Stub$Proxy@83c0e7b} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=ActivityInfo{c1dd498 com.chagok.app.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isSleeping=false topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= false topActivityLetterboxed= false isFromDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 locusId=null displayAreaFeatureId=1 cameraCompatControlState=hidden}, remoteTransition = null, displayChange = null }
+11-11 11:33:25.886 D/CoreBackPreview(  504): Window{25c738d u0 Splash Screen com.chagok.app}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@30821a7, mPriority=0, mIsAnimationCallback=false}
+11-11 11:33:25.898 I/ActivityManager(  504): Start proc 2282:com.chagok.app/u0a141 for next-top-activity {com.chagok.app/com.chagok.app.MainActivity}
+11-11 11:33:26.122 I/com.chagok.app( 2282): Using CollectorTypeCC GC.
+11-11 11:33:26.123 W/com.chagok.app( 2282): Unexpected CPU variant for x86: x86_64.
+11-11 11:33:26.123 W/com.chagok.app( 2282): Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, tremont, kabylake, default
+11-11 11:33:26.124 E/com.chagok.app( 2282): Not starting debugger since process cannot load the jdwp agent.
+11-11 11:33:26.139 V/WindowManager(  504): Sent Transition #6 createdAt=11-11 11:33:25.833 via request=TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=8 displayId=0 isRunning=true baseIntent=Intent { flg=0x10000000 cmp=com.chagok.app/.MainActivity } baseActivity=ComponentInfo{com.chagok.app/com.chagok.app.MainActivity} topActivity=ComponentInfo{com.chagok.app/com.chagok.app.MainActivity} origActivity=null realActivity=ComponentInfo{com.chagok.app/com.chagok.app.MainActivity} numActivities=1 lastActiveTime=35973 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{cf85bb Task{17533c7 #8 type=standard A=10141:com.chagok.app}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=ActivityInfo{cbd1ad8 com.chagok.app.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isSleeping=false topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= false topActivityLetterboxed= false isFromDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 locusId=null displayAreaFeatureId=1 cameraCompatControlState=hidden}, remoteTransition = null, displayChange = null }
+11-11 11:33:26.147 V/WindowManager(  504):     info={id=6 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{RemoteToken{cf85bb Task{17533c7 #8 type=standard A=10141:com.chagok.app}}} m=OPEN f=NONE leash=Surface(name=Task=8)/@0x3d3cbb5 sb=Rect(0, 0 - 2560, 1600) eb=Rect(0, 0 - 2560, 1600) d=0},{WCT{RemoteToken{5c26e31 Task{ecf9063 #1 type=home}}} m=TO_BACK f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0xb5d0c1d sb=Rect(0, 0 - 2560, 1600) eb=Rect(0, 0 - 2560, 1600) d=0}]}
+11-11 11:33:26.311 D/nativeloader( 2282): Configuring clns-6 for other apk /data/app/~~floYLu6vB98iBiTg3pmIjg==/com.chagok.app-haLtv1vQ9DlHdGkXphzg2A==/base.apk. target_sdk_version=35, uses_libraries=, library_path=/data/app/~~floYLu6vB98iBiTg3pmIjg==/com.chagok.app-haLtv1vQ9DlHdGkXphzg2A==/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.chagok.app
+11-11 11:33:26.318 V/GraphicsEnvironment( 2282): ANGLE GameManagerService for com.chagok.app: false
+11-11 11:33:26.318 V/GraphicsEnvironment( 2282): com.chagok.app is not listed in per-application setting
+11-11 11:33:26.407 D/[Pleos][SDK]Vehicle( 2282): [main]initialize
+11-11 11:33:26.409 D/[Pleos][SDK]b( 2282): [main]connectService
+11-11 11:33:26.409 D/[Pleos][SDK]b( 2282): [main]Service Connect Api called Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService }
+11-11 11:33:26.416 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:26.419 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-1]connectService currentRetryCount 0
+11-11 11:33:26.842 W/Chagok  ( 2282): Odometer
+11-11 11:33:26.842 W/Chagok  ( 2282): java.lang.SecurityException: registerDistanceDriven need Permission
+11-11 11:33:26.842 W/Chagok  ( 2282): 	at ai.pleos.playground.vehicle.utils.f.a(SourceFile:147)
+11-11 11:33:26.842 W/Chagok  ( 2282): 	at ai.pleos.playground.vehicle.service.b.a(SourceFile:5)
+11-11 11:33:26.842 W/Chagok  ( 2282): 	at ai.pleos.playground.vehicle.api.implement.OdometerImpl.registerDistanceDriven(SourceFile:4)
+11-11 11:33:26.842 W/Chagok  ( 2282): 	at com.chagok.app.vehicle.PleosVehicleSignals.start(PleosVehicleSignals.kt:74)
+11-11 11:33:26.842 W/Chagok  ( 2282): 	at com.chagok.app.ChagokEngine.switchMode(ChagokEngine.kt:142)
+11-11 11:33:26.842 W/Chagok  ( 2282): 	at com.chagok.app.ChagokEngine.start(ChagokEngine.kt:104)
+11-11 11:33:26.842 W/Chagok  ( 2282): 	at com.chagok.app.ChagokApplication.onCreate(ChagokApplication.kt:11)
+11-11 11:33:26.842 W/Chagok  ( 2282): 	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1316)
+11-11 11:33:26.842 W/Chagok  ( 2282): 	at android.app.ActivityThread.handleBindApplication(ActivityThread.java:6998)
+11-11 11:33:26.842 W/Chagok  ( 2282): 	at android.app.ActivityThread.-$$Nest$mhandleBindApplication(Unknown Source:0)
+11-11 11:33:26.842 W/Chagok  ( 2282): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2236)
+11-11 11:33:26.842 W/Chagok  ( 2282): 	at android.os.Handler.dispatchMessage(Handler.java:106)
+11-11 11:33:26.842 W/Chagok  ( 2282): 	at android.os.Looper.loopOnce(Looper.java:205)
+11-11 11:33:26.842 W/Chagok  ( 2282): 	at android.os.Looper.loop(Looper.java:294)
+11-11 11:33:26.842 W/Chagok  ( 2282): 	at android.app.ActivityThread.main(ActivityThread.java:8177)
+11-11 11:33:26.842 W/Chagok  ( 2282): 	at java.lang.reflect.Method.invoke(Native Method)
+11-11 11:33:26.842 W/Chagok  ( 2282): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+11-11 11:33:26.842 W/Chagok  ( 2282): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+11-11 11:33:26.851 E/[Pleos][SDK]b( 2282): [main]getCurrentGearSelectionState need Permission
+11-11 11:33:26.852 I/Chagok  ( 2282): 기어 신호 미제공: getCurrentGearSelectionState need Permission
+11-11 11:33:26.852 I/Chagok  ( 2282): 기어 신호 미제공: registerGearSelection need Permission
+11-11 11:33:26.880 E/[Pleos][SDK]b( 2282): [main]getCurrentDoorPosition need Permission
+11-11 11:33:26.880 I/Chagok  ( 2282): 도어 신호 미제공: getCurrentDoorPosition need Permission
+11-11 11:33:26.880 I/Chagok  ( 2282): 도어 신호 미제공: registerDoorPosition need Permission
+11-11 11:33:26.883 D/[NaviHelper][SDK]NaviHelper( 2282): [main]addListener com.chagok.app.navi.NaviSignals@a4c6e6f
+11-11 11:33:26.920 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:26.920 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 1
+11-11 11:33:26.952 D/CoreBackPreview(  504): Window{e82038b u0 com.chagok.app/com.chagok.app.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@f55903, mPriority=0, mIsAnimationCallback=false}
+11-11 11:33:27.421 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:27.421 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 2
+11-11 11:33:27.578 E/[Pleos][SDK]b( 2282): [main]getCurrentDistanceDriven need Permission
+11-11 11:33:27.578 W/Chagok  ( 2282): Odometer
+11-11 11:33:27.578 W/Chagok  ( 2282): java.lang.SecurityException: getCurrentDistanceDriven need Permission
+11-11 11:33:27.578 W/Chagok  ( 2282): 	at ai.pleos.playground.vehicle.utils.f.a(SourceFile:147)
+11-11 11:33:27.578 W/Chagok  ( 2282): 	at ai.pleos.playground.vehicle.service.b.a(SourceFile:15)
+11-11 11:33:27.578 W/Chagok  ( 2282): 	at ai.pleos.playground.vehicle.api.implement.OdometerImpl.getCurrentDistanceDriven(SourceFile:4)
+11-11 11:33:27.578 W/Chagok  ( 2282): 	at com.chagok.app.vehicle.PleosVehicleSignals$odometerPoll$1.run(PleosVehicleSignals.kt:55)
+11-11 11:33:27.578 W/Chagok  ( 2282): 	at android.os.Handler.handleCallback(Handler.java:958)
+11-11 11:33:27.578 W/Chagok  ( 2282): 	at android.os.Handler.dispatchMessage(Handler.java:99)
+11-11 11:33:27.578 W/Chagok  ( 2282): 	at android.os.Looper.loopOnce(Looper.java:205)
+11-11 11:33:27.578 W/Chagok  ( 2282): 	at android.os.Looper.loop(Looper.java:294)
+11-11 11:33:27.578 W/Chagok  ( 2282): 	at android.app.ActivityThread.main(ActivityThread.java:8177)
+11-11 11:33:27.578 W/Chagok  ( 2282): 	at java.lang.reflect.Method.invoke(Native Method)
+11-11 11:33:27.578 W/Chagok  ( 2282): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+11-11 11:33:27.578 W/Chagok  ( 2282): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+11-11 11:33:27.597 I/ActivityTaskManager(  504): Displayed com.chagok.app/.MainActivity for user 0: +1s765ms
+11-11 11:33:27.608 D/CoreBackPreview(  504): Window{25c738d u0 Splash Screen com.chagok.app EXITING}: Setting back callback null
+11-11 11:33:27.608 W/InputManager-JNI(  504): Input channel object '25c738d Splash Screen com.chagok.app (client)' was disposed without first being removed with the input manager!
+11-11 11:33:27.675 I/ImeTracker(  504): com.chagok.app:de3e985: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+11-11 11:33:27.675 I/ImeTracker(  504): com.chagok.app:de3e985: onCancelled at PHASE_SERVER_SHOULD_HIDE
+11-11 11:33:27.922 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:27.922 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 3
+11-11 11:33:28.423 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:28.423 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 4
+11-11 11:33:28.923 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:28.923 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 5
+11-11 11:33:29.424 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:29.424 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 6
+11-11 11:33:29.580 E/[Pleos][SDK]b( 2282): [main]getCurrentDistanceDriven need Permission
+11-11 11:33:29.580 W/Chagok  ( 2282): Odometer
+11-11 11:33:29.580 W/Chagok  ( 2282): java.lang.SecurityException: getCurrentDistanceDriven need Permission
+11-11 11:33:29.580 W/Chagok  ( 2282): 	at ai.pleos.playground.vehicle.utils.f.a(SourceFile:147)
+11-11 11:33:29.580 W/Chagok  ( 2282): 	at ai.pleos.playground.vehicle.service.b.a(SourceFile:15)
+11-11 11:33:29.580 W/Chagok  ( 2282): 	at ai.pleos.playground.vehicle.api.implement.OdometerImpl.getCurrentDistanceDriven(SourceFile:4)
+11-11 11:33:29.580 W/Chagok  ( 2282): 	at com.chagok.app.vehicle.PleosVehicleSignals$odometerPoll$1.run(PleosVehicleSignals.kt:55)
+11-11 11:33:29.580 W/Chagok  ( 2282): 	at android.os.Handler.handleCallback(Handler.java:958)
+11-11 11:33:29.580 W/Chagok  ( 2282): 	at android.os.Handler.dispatchMessage(Handler.java:99)
+11-11 11:33:29.580 W/Chagok  ( 2282): 	at android.os.Looper.loopOnce(Looper.java:205)
+11-11 11:33:29.580 W/Chagok  ( 2282): 	at android.os.Looper.loop(Looper.java:294)
+11-11 11:33:29.580 W/Chagok  ( 2282): 	at android.app.ActivityThread.main(ActivityThread.java:8177)
+11-11 11:33:29.580 W/Chagok  ( 2282): 	at java.lang.reflect.Method.invoke(Native Method)
+11-11 11:33:29.580 W/Chagok  ( 2282): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+11-11 11:33:29.580 W/Chagok  ( 2282): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+11-11 11:33:29.925 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:29.925 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 7
+11-11 11:33:30.425 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:30.426 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 8
+11-11 11:33:30.927 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:30.927 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 9
+11-11 11:33:31.427 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:31.428 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 10
+11-11 11:33:31.581 E/[Pleos][SDK]b( 2282): [main]getCurrentDistanceDriven need Permission
+11-11 11:33:31.581 W/Chagok  ( 2282): Odometer
+11-11 11:33:31.581 W/Chagok  ( 2282): java.lang.SecurityException: getCurrentDistanceDriven need Permission
+11-11 11:33:31.581 W/Chagok  ( 2282): 	at ai.pleos.playground.vehicle.utils.f.a(SourceFile:147)
+11-11 11:33:31.581 W/Chagok  ( 2282): 	at ai.pleos.playground.vehicle.service.b.a(SourceFile:15)
+11-11 11:33:31.581 W/Chagok  ( 2282): 	at ai.pleos.playground.vehicle.api.implement.OdometerImpl.getCurrentDistanceDriven(SourceFile:4)
+11-11 11:33:31.581 W/Chagok  ( 2282): 	at com.chagok.app.vehicle.PleosVehicleSignals$odometerPoll$1.run(PleosVehicleSignals.kt:55)
+11-11 11:33:31.581 W/Chagok  ( 2282): 	at android.os.Handler.handleCallback(Handler.java:958)
+11-11 11:33:31.581 W/Chagok  ( 2282): 	at android.os.Handler.dispatchMessage(Handler.java:99)
+11-11 11:33:31.581 W/Chagok  ( 2282): 	at android.os.Looper.loopOnce(Looper.java:205)
+11-11 11:33:31.581 W/Chagok  ( 2282): 	at android.os.Looper.loop(Looper.java:294)
+11-11 11:33:31.581 W/Chagok  ( 2282): 	at android.app.ActivityThread.main(ActivityThread.java:8177)
+11-11 11:33:31.581 W/Chagok  ( 2282): 	at java.lang.reflect.Method.invoke(Native Method)
+11-11 11:33:31.581 W/Chagok  ( 2282): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+11-11 11:33:31.581 W/Chagok  ( 2282): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+11-11 11:33:31.928 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:31.929 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 11
+11-11 11:33:32.333 D/ProfileInstaller( 2282): Installing profile for com.chagok.app
+11-11 11:33:32.429 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:32.429 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 12
+11-11 11:33:32.930 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:32.931 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 13
+11-11 11:33:33.114 D/AndroidRuntime( 2388): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-11 11:33:33.117 I/AndroidRuntime( 2388): Using default boot image
+11-11 11:33:33.117 I/AndroidRuntime( 2388): Leaving lock profiling enabled
+11-11 11:33:33.193 D/AndroidRuntime( 2388): Calling main entry com.android.commands.uiautomator.Launcher
+11-11 11:33:33.431 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:33.432 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 14
+11-11 11:33:33.582 E/[Pleos][SDK]b( 2282): [main]getCurrentDistanceDriven need Permission
+11-11 11:33:33.582 W/Chagok  ( 2282): Odometer
+11-11 11:33:33.582 W/Chagok  ( 2282): java.lang.SecurityException: getCurrentDistanceDriven need Permission
+11-11 11:33:33.582 W/Chagok  ( 2282): 	at ai.pleos.playground.vehicle.utils.f.a(SourceFile:147)
+11-11 11:33:33.582 W/Chagok  ( 2282): 	at ai.pleos.playground.vehicle.service.b.a(SourceFile:15)
+11-11 11:33:33.582 W/Chagok  ( 2282): 	at ai.pleos.playground.vehicle.api.implement.OdometerImpl.getCurrentDistanceDriven(SourceFile:4)
+11-11 11:33:33.582 W/Chagok  ( 2282): 	at com.chagok.app.vehicle.PleosVehicleSignals$odometerPoll$1.run(PleosVehicleSignals.kt:55)
+11-11 11:33:33.582 W/Chagok  ( 2282): 	at android.os.Handler.handleCallback(Handler.java:958)
+11-11 11:33:33.582 W/Chagok  ( 2282): 	at android.os.Handler.dispatchMessage(Handler.java:99)
+11-11 11:33:33.582 W/Chagok  ( 2282): 	at android.os.Looper.loopOnce(Looper.java:205)
+11-11 11:33:33.582 W/Chagok  ( 2282): 	at android.os.Looper.loop(Looper.java:294)
+11-11 11:33:33.582 W/Chagok  ( 2282): 	at android.app.ActivityThread.main(ActivityThread.java:8177)
+11-11 11:33:33.582 W/Chagok  ( 2282): 	at java.lang.reflect.Method.invoke(Native Method)
+11-11 11:33:33.582 W/Chagok  ( 2282): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+11-11 11:33:33.582 W/Chagok  ( 2282): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+11-11 11:33:33.932 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:33.933 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 15
+11-11 11:33:34.267 D/AndroidRuntime( 2388): Shutting down VM
+11-11 11:33:34.433 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:34.433 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 16
+11-11 11:33:34.934 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:34.934 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 17
+11-11 11:33:35.435 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:35.436 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 18
+11-11 11:33:35.583 E/[Pleos][SDK]b( 2282): [main]getCurrentDistanceDriven need Permission
+11-11 11:33:35.583 W/Chagok  ( 2282): Odometer
+11-11 11:33:35.583 W/Chagok  ( 2282): java.lang.SecurityException: getCurrentDistanceDriven need Permission
+11-11 11:33:35.583 W/Chagok  ( 2282): 	at ai.pleos.playground.vehicle.utils.f.a(SourceFile:147)
+11-11 11:33:35.583 W/Chagok  ( 2282): 	at ai.pleos.playground.vehicle.service.b.a(SourceFile:15)
+11-11 11:33:35.583 W/Chagok  ( 2282): 	at ai.pleos.playground.vehicle.api.implement.OdometerImpl.getCurrentDistanceDriven(SourceFile:4)
+11-11 11:33:35.583 W/Chagok  ( 2282): 	at com.chagok.app.vehicle.PleosVehicleSignals$odometerPoll$1.run(PleosVehicleSignals.kt:55)
+11-11 11:33:35.583 W/Chagok  ( 2282): 	at android.os.Handler.handleCallback(Handler.java:958)
+11-11 11:33:35.583 W/Chagok  ( 2282): 	at android.os.Handler.dispatchMessage(Handler.java:99)
+11-11 11:33:35.583 W/Chagok  ( 2282): 	at android.os.Looper.loopOnce(Looper.java:205)
+11-11 11:33:35.583 W/Chagok  ( 2282): 	at android.os.Looper.loop(Looper.java:294)
+11-11 11:33:35.583 W/Chagok  ( 2282): 	at android.app.ActivityThread.main(ActivityThread.java:8177)
+11-11 11:33:35.583 W/Chagok  ( 2282): 	at java.lang.reflect.Method.invoke(Native Method)
+11-11 11:33:35.583 W/Chagok  ( 2282): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+11-11 11:33:35.583 W/Chagok  ( 2282): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+11-11 11:33:35.937 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:35.937 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 19
+11-11 11:33:36.437 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:36.437 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 20
+11-11 11:33:36.938 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:36.938 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 21
+11-11 11:33:37.439 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:37.439 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 22
+11-11 11:33:37.581 D/[Pleos][SDK]Vehicle( 2282): [main]release
+11-11 11:33:37.581 D/[Pleos][SDK]b( 2282): [main]disconnectService --> clear
+11-11 11:33:37.581 D/[Pleos][SDK]a( 2282): [main]clearAllListeners() called
+11-11 11:33:37.940 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:37.940 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 23
+11-11 11:33:38.441 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:38.441 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 24
+11-11 11:33:38.942 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:38.942 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 25
+11-11 11:33:39.442 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:39.443 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 26
+11-11 11:33:39.943 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:39.943 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 27
+11-11 11:33:40.444 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:40.444 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 28
+11-11 11:33:40.674 D/AndroidRuntime( 2437): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-11 11:33:40.677 I/AndroidRuntime( 2437): Using default boot image
+11-11 11:33:40.677 I/AndroidRuntime( 2437): Leaving lock profiling enabled
+11-11 11:33:40.749 D/AndroidRuntime( 2437): Calling main entry com.android.commands.uiautomator.Launcher
+11-11 11:33:40.945 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:40.945 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 29
+11-11 11:33:41.446 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:33:41.446 D/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]connectService currentRetryCount 30
+11-11 11:33:41.446 W/System.err( 2282): 	at ai.pleos.playground.vehicle.service.a$e$a.emit(SourceFile:231)
+11-11 11:33:41.446 W/System.err( 2282): 	at ai.pleos.playground.vehicle.service.a$e.collect(SourceFile:1)
+11-11 11:33:41.446 E/[Pleos][SDK]b( 2282): [DefaultDispatcher-worker-2]Connect Service is Failed cause : null
+11-11 11:33:41.790 D/AndroidRuntime( 2437): Shutting down VM
+11-11 11:33:43.073 D/AndroidRuntime( 2475): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-11 11:33:43.076 I/AndroidRuntime( 2475): Using default boot image
+11-11 11:33:43.076 I/AndroidRuntime( 2475): Leaving lock profiling enabled
+11-11 11:33:43.148 D/AndroidRuntime( 2475): Calling main entry com.android.commands.uiautomator.Launcher
+11-11 11:33:44.198 D/AndroidRuntime( 2475): Shutting down VM
+11-11 11:33:49.940 D/AndroidRuntime( 2552): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-11 11:33:49.944 I/AndroidRuntime( 2552): Using default boot image
+11-11 11:33:49.944 I/AndroidRuntime( 2552): Leaving lock profiling enabled
+11-11 11:33:50.032 D/AndroidRuntime( 2552): Calling main entry com.android.commands.uiautomator.Launcher
+11-11 11:33:51.124 D/AndroidRuntime( 2552): Shutting down VM
+11-11 11:33:53.097 D/AndroidRuntime( 2602): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-11 11:33:53.100 I/AndroidRuntime( 2602): Using default boot image
+11-11 11:33:53.100 I/AndroidRuntime( 2602): Leaving lock profiling enabled
+11-11 11:33:53.171 D/AndroidRuntime( 2602): Calling main entry com.android.commands.uiautomator.Launcher
+11-11 11:33:54.216 D/AndroidRuntime( 2602): Shutting down VM
+11-11 11:34:03.601 D/AndroidRuntime( 2643): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-11 11:34:03.604 I/AndroidRuntime( 2643): Using default boot image
+11-11 11:34:03.604 I/AndroidRuntime( 2643): Leaving lock profiling enabled
+11-11 11:34:03.675 D/AndroidRuntime( 2643): Calling main entry com.android.commands.uiautomator.Launcher
+11-11 11:34:04.726 D/AndroidRuntime( 2643): Shutting down VM
+11-11 11:34:10.380 D/AndroidRuntime( 2717): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-11 11:34:10.384 I/AndroidRuntime( 2717): Using default boot image
+11-11 11:34:10.384 I/AndroidRuntime( 2717): Leaving lock profiling enabled
+11-11 11:34:10.540 D/AndroidRuntime( 2717): Calling main entry com.android.commands.uiautomator.Launcher
+11-11 11:34:11.632 D/AndroidRuntime( 2717): Shutting down VM
+11-11 11:34:13.613 D/AndroidRuntime( 2767): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-11 11:34:13.618 I/AndroidRuntime( 2767): Using default boot image
+11-11 11:34:13.618 I/AndroidRuntime( 2767): Leaving lock profiling enabled
+11-11 11:34:13.715 D/AndroidRuntime( 2767): Calling main entry com.android.commands.uiautomator.Launcher
+11-11 11:34:14.771 D/AndroidRuntime( 2767): Shutting down VM
+11-11 11:34:16.724 D/AndroidRuntime( 2808): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-11 11:34:16.727 I/AndroidRuntime( 2808): Using default boot image
+11-11 11:34:16.727 I/AndroidRuntime( 2808): Leaving lock profiling enabled
+11-11 11:34:16.803 D/AndroidRuntime( 2808): Calling main entry com.android.commands.uiautomator.Launcher
+11-11 11:34:17.843 D/AndroidRuntime( 2808): Shutting down VM
+11-11 11:34:27.229 D/AndroidRuntime( 2845): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-11 11:34:27.233 I/AndroidRuntime( 2845): Using default boot image
+11-11 11:34:27.233 I/AndroidRuntime( 2845): Leaving lock profiling enabled
+11-11 11:34:27.307 D/AndroidRuntime( 2845): Calling main entry com.android.commands.uiautomator.Launcher
+11-11 11:34:28.354 D/AndroidRuntime( 2845): Shutting down VM
+11-11 11:34:34.053 D/AndroidRuntime( 2920): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-11 11:34:34.058 I/AndroidRuntime( 2920): Using default boot image
+11-11 11:34:34.058 I/AndroidRuntime( 2920): Leaving lock profiling enabled
+11-11 11:34:34.179 D/AndroidRuntime( 2920): Calling main entry com.android.commands.uiautomator.Launcher
+11-11 11:34:35.222 D/AndroidRuntime( 2920): Shutting down VM
+11-11 11:34:37.176 D/AndroidRuntime( 2962): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-11 11:34:37.179 I/AndroidRuntime( 2962): Using default boot image
+11-11 11:34:37.179 I/AndroidRuntime( 2962): Leaving lock profiling enabled
+11-11 11:34:37.259 D/AndroidRuntime( 2962): Calling main entry com.android.commands.uiautomator.Launcher
+11-11 11:34:38.302 D/AndroidRuntime( 2962): Shutting down VM
+11-11 11:34:47.691 D/AndroidRuntime( 2998): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-11 11:34:47.694 I/AndroidRuntime( 2998): Using default boot image
+11-11 11:34:47.694 I/AndroidRuntime( 2998): Leaving lock profiling enabled
+11-11 11:34:47.766 D/AndroidRuntime( 2998): Calling main entry com.android.commands.uiautomator.Launcher
+11-11 11:34:48.807 D/AndroidRuntime( 2998): Shutting down VM
+11-11 11:34:53.102 I/Chagok  ( 2282): export chagok_logbook_202611.csv bytes=773 lines=12
+11-11 11:34:53.184 D/CoreBackPreview(  504): Window{72ba961 u0 com.chagok.app/com.chagok.app.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@482d2e3, mPriority=0, mIsAnimationCallback=false}
+11-11 11:34:53.465 I/ImeTracker(  504): com.chagok.app:83724c52: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+11-11 11:34:53.465 I/ImeTracker(  504): com.chagok.app:83724c52: onCancelled at PHASE_SERVER_SHOULD_HIDE
+11-11 11:34:56.196 D/AndroidRuntime( 3036): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-11 11:34:56.200 I/AndroidRuntime( 3036): Using default boot image
+11-11 11:34:56.200 I/AndroidRuntime( 3036): Leaving lock profiling enabled
+11-11 11:34:56.273 D/AndroidRuntime( 3036): Calling main entry com.android.commands.uiautomator.Launcher
+11-11 11:34:57.325 D/AndroidRuntime( 3036): Shutting down VM
+11-11 11:35:01.642 D/CoreBackPreview(  504): Window{72ba961 u0 com.chagok.app/com.chagok.app.MainActivity}: Setting back callback null
+11-11 11:35:01.645 W/InputManager-JNI(  504): Input channel object '72ba961 com.chagok.app/com.chagok.app.MainActivity (client)' was disposed without first being removed with the input manager!
+11-11 11:35:01.715 W/com.chagok.app( 2282): Weak pointer dereference blocked for 52 milliseconds.
+11-11 11:35:01.721 I/ImeTracker(  504): com.chagok.app:615a9f1b: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+11-11 11:35:01.721 I/ImeTracker(  504): com.chagok.app:615a9f1b: onCancelled at PHASE_SERVER_SHOULD_HIDE
+11-11 11:35:07.746 I/ActivityManager(  504): Force stopping com.chagok.app appid=10141 user=0: from pid 3089
+11-11 11:35:07.747 I/ActivityManager(  504): Killing 2282:com.chagok.app/u0a141 (adj 0): stop com.chagok.app due to from pid 3089
+11-11 11:35:07.748 W/ActivityTaskManager(  504): Force removing ActivityRecord{2251973 u0 com.chagok.app/.MainActivity t8 f}}: app died, no saved state
+11-11 11:35:07.752 V/WindowManagerShell(  798): Transition requested: android.os.BinderProxy@b5f5de7 TransitionRequestInfo { type = CLOSE, triggerTask = TaskInfo{userId=0 taskId=8 displayId=0 isRunning=false baseIntent=Intent { flg=0x10000000 cmp=com.chagok.app/.MainActivity } baseActivity=null topActivity=null origActivity=null realActivity=ComponentInfo{com.chagok.app/com.chagok.app.MainActivity} numActivities=0 lastActiveTime=36252 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{android.window.IWindowContainerToken$Stub$Proxy@de18d94} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=null launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=true isVisible=true isVisibleRequested=true isSleeping=false topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= false topActivityLetterboxed= false isFromDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 locusId=null displayAreaFeatureId=1 cameraCompatControlState=hidden}, remoteTransition = null, displayChange = null }
+11-11 11:35:07.762 I/WindowManager(  504): WIN DEATH: Window{e82038b u0 com.chagok.app/com.chagok.app.MainActivity}
+11-11 11:35:07.762 W/InputManager-JNI(  504): Input channel object 'e82038b com.chagok.app/com.chagok.app.MainActivity (client)' was disposed without first being removed with the input manager!
+11-11 11:35:07.762 I/ImeTracker(  504): com.chagok.app:8c6f970a: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_REMOVE_CLIENT
+11-11 11:35:07.762 I/ImeTracker(  504): com.chagok.app:8c6f970a: onCancelled at PHASE_SERVER_SHOULD_HIDE
+11-11 11:35:07.763 D/CarrierSvcBindHelper(  998): onHandleForceStop: [com.chagok.app]
+11-11 11:35:07.765 V/ActivityManager(  504): Got obituary of 2282:com.chagok.app
+11-11 11:35:07.794 W/WindowManager(  504): Failed to deliver inset control state change to w=Window{e82038b u0 com.chagok.app/com.chagok.app.MainActivity EXITING}
+11-11 11:35:07.814 V/SplashScreenExceptionList(  504): SplashScreen checking exception for package com.chagok.app (target sdk:35) -> false
+11-11 11:35:07.815 I/ActivityTaskManager(  504): Add Task{17533c7 #8 type=standard A=10141:com.chagok.app} to hidden list because adding Task{7eb47cc #9 type=standard A=10141:com.chagok.app}
+11-11 11:35:07.817 I/ActivityTaskManager(  504): START u0 {flg=0x10000000 cmp=com.chagok.app/.MainActivity} with LAUNCH_SINGLE_TASK from uid 2000 (BAL_ALLOW_PERMISSION) result code=0
+11-11 11:35:07.851 I/ActivityManager(  504): Start proc 3099:com.chagok.app/u0a141 for next-top-activity {com.chagok.app/com.chagok.app.MainActivity}
+11-11 11:35:07.882 D/CoreBackPreview(  504): Window{8381291 u0 Splash Screen com.chagok.app}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@518c464, mPriority=0, mIsAnimationCallback=false}
+11-11 11:35:08.007 I/com.chagok.app( 3099): Using CollectorTypeCC GC.
+11-11 11:35:08.007 W/com.chagok.app( 3099): Unexpected CPU variant for x86: x86_64.
+11-11 11:35:08.007 W/com.chagok.app( 3099): Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, tremont, kabylake, default
+11-11 11:35:08.010 E/com.chagok.app( 3099): Not starting debugger since process cannot load the jdwp agent.
+11-11 11:35:08.156 W/WindowManager(  504): Failed to deliver inset control state change to w=Window{e82038b u0 com.chagok.app/com.chagok.app.MainActivity EXITING}
+11-11 11:35:08.159 D/nativeloader( 3099): Configuring clns-6 for other apk /data/app/~~floYLu6vB98iBiTg3pmIjg==/com.chagok.app-haLtv1vQ9DlHdGkXphzg2A==/base.apk. target_sdk_version=35, uses_libraries=, library_path=/data/app/~~floYLu6vB98iBiTg3pmIjg==/com.chagok.app-haLtv1vQ9DlHdGkXphzg2A==/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.chagok.app
+11-11 11:35:08.160 V/WindowManager(  504): Sent Transition #7 createdAt=11-11 11:35:07.748 via request=TransitionRequestInfo { type = CLOSE, triggerTask = TaskInfo{userId=0 taskId=8 displayId=0 isRunning=false baseIntent=Intent { flg=0x10000000 cmp=com.chagok.app/.MainActivity } baseActivity=null topActivity=null origActivity=null realActivity=ComponentInfo{com.chagok.app/com.chagok.app.MainActivity} numActivities=0 lastActiveTime=36252 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{cf85bb Task{17533c7 #8 type=standard A=10141:com.chagok.app}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=null launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=true isVisible=true isVisibleRequested=true isSleeping=false topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= false topActivityLetterboxed= false isFromDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 locusId=null displayAreaFeatureId=1 cameraCompatControlState=hidden}, remoteTransition = null, displayChange = null }
+11-11 11:35:08.160 V/WindowManager(  504):     info={id=7 t=CLOSE f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{RemoteToken{8291be8 Task{7eb47cc #9 type=standard A=10141:com.chagok.app}}} m=OPEN f=MOVE_TO_TOP leash=Surface(name=Task=9)/@0xeb63bfc sb=Rect(0, 0 - 2560, 1600) eb=Rect(0, 0 - 2560, 1600) d=0},{WCT{RemoteToken{cf85bb Task{17533c7 #8 type=standard A=10141:com.chagok.app}}} m=CLOSE f=NONE leash=Surface(name=Task=8)/@0x3d3cbb5 sb=Rect(0, 0 - 2560, 1600) eb=Rect(0, 0 - 2560, 1600) d=0},{null m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{3a0231a token=android.os.Binder@898be2f})/@0x489a4ef sb=Rect(0, 0 - 2560, 1600) eb=Rect(0, 0 - 2560, 1600) d=0}]}
+11-11 11:35:08.179 V/GraphicsEnvironment( 3099): ANGLE GameManagerService for com.chagok.app: false
+11-11 11:35:08.180 V/GraphicsEnvironment( 3099): com.chagok.app is not listed in per-application setting
+11-11 11:35:08.216 W/WindowManager(  504): Failed to deliver inset control state change to w=Window{e82038b u0 com.chagok.app/com.chagok.app.MainActivity EXITING}
+11-11 11:35:08.231 W/WindowManager(  504): Exception thrown during dispatchAppVisibility Window{e82038b u0 com.chagok.app/com.chagok.app.MainActivity EXITING}
+11-11 11:35:08.240 D/[Pleos][SDK]Vehicle( 3099): [main]initialize
+11-11 11:35:08.241 D/[Pleos][SDK]b( 3099): [main]connectService
+11-11 11:35:08.241 D/[Pleos][SDK]b( 3099): [main]Service Connect Api called Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService }
+11-11 11:35:08.292 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:08.292 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-2]connectService currentRetryCount 0
+11-11 11:35:08.507 W/Chagok  ( 3099): Odometer
+11-11 11:35:08.507 W/Chagok  ( 3099): java.lang.SecurityException: registerDistanceDriven need Permission
+11-11 11:35:08.507 W/Chagok  ( 3099): 	at ai.pleos.playground.vehicle.utils.f.a(SourceFile:147)
+11-11 11:35:08.507 W/Chagok  ( 3099): 	at ai.pleos.playground.vehicle.service.b.a(SourceFile:5)
+11-11 11:35:08.507 W/Chagok  ( 3099): 	at ai.pleos.playground.vehicle.api.implement.OdometerImpl.registerDistanceDriven(SourceFile:4)
+11-11 11:35:08.507 W/Chagok  ( 3099): 	at com.chagok.app.vehicle.PleosVehicleSignals.start(PleosVehicleSignals.kt:74)
+11-11 11:35:08.507 W/Chagok  ( 3099): 	at com.chagok.app.ChagokEngine.switchMode(ChagokEngine.kt:142)
+11-11 11:35:08.507 W/Chagok  ( 3099): 	at com.chagok.app.ChagokEngine.start(ChagokEngine.kt:104)
+11-11 11:35:08.507 W/Chagok  ( 3099): 	at com.chagok.app.ChagokApplication.onCreate(ChagokApplication.kt:11)
+11-11 11:35:08.507 W/Chagok  ( 3099): 	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1316)
+11-11 11:35:08.507 W/Chagok  ( 3099): 	at android.app.ActivityThread.handleBindApplication(ActivityThread.java:6998)
+11-11 11:35:08.507 W/Chagok  ( 3099): 	at android.app.ActivityThread.-$$Nest$mhandleBindApplication(Unknown Source:0)
+11-11 11:35:08.507 W/Chagok  ( 3099): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2236)
+11-11 11:35:08.507 W/Chagok  ( 3099): 	at android.os.Handler.dispatchMessage(Handler.java:106)
+11-11 11:35:08.507 W/Chagok  ( 3099): 	at android.os.Looper.loopOnce(Looper.java:205)
+11-11 11:35:08.507 W/Chagok  ( 3099): 	at android.os.Looper.loop(Looper.java:294)
+11-11 11:35:08.507 W/Chagok  ( 3099): 	at android.app.ActivityThread.main(ActivityThread.java:8177)
+11-11 11:35:08.507 W/Chagok  ( 3099): 	at java.lang.reflect.Method.invoke(Native Method)
+11-11 11:35:08.507 W/Chagok  ( 3099): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+11-11 11:35:08.507 W/Chagok  ( 3099): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+11-11 11:35:08.522 E/[Pleos][SDK]b( 3099): [main]getCurrentGearSelectionState need Permission
+11-11 11:35:08.522 I/Chagok  ( 3099): 기어 신호 미제공: getCurrentGearSelectionState need Permission
+11-11 11:35:08.522 I/Chagok  ( 3099): 기어 신호 미제공: registerGearSelection need Permission
+11-11 11:35:08.592 E/[Pleos][SDK]b( 3099): [main]getCurrentDoorPosition need Permission
+11-11 11:35:08.592 I/Chagok  ( 3099): 도어 신호 미제공: getCurrentDoorPosition need Permission
+11-11 11:35:08.593 I/Chagok  ( 3099): 도어 신호 미제공: registerDoorPosition need Permission
+11-11 11:35:08.594 D/[NaviHelper][SDK]NaviHelper( 3099): [main]addListener com.chagok.app.navi.NaviSignals@7e22805
+11-11 11:35:08.595 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.intent.action.NAVI_START cmp=ai.pleos.playground.service.navi/.NaviService } U=0: not found
+11-11 11:35:08.756 D/CoreBackPreview(  504): Window{65c46cf u0 com.chagok.app/com.chagok.app.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@8a31892, mPriority=0, mIsAnimationCallback=false}
+11-11 11:35:08.800 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:08.811 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 1
+11-11 11:35:09.275 E/[Pleos][SDK]b( 3099): [main]getCurrentDistanceDriven need Permission
+11-11 11:35:09.275 W/Chagok  ( 3099): Odometer
+11-11 11:35:09.275 W/Chagok  ( 3099): java.lang.SecurityException: getCurrentDistanceDriven need Permission
+11-11 11:35:09.275 W/Chagok  ( 3099): 	at ai.pleos.playground.vehicle.utils.f.a(SourceFile:147)
+11-11 11:35:09.275 W/Chagok  ( 3099): 	at ai.pleos.playground.vehicle.service.b.a(SourceFile:15)
+11-11 11:35:09.275 W/Chagok  ( 3099): 	at ai.pleos.playground.vehicle.api.implement.OdometerImpl.getCurrentDistanceDriven(SourceFile:4)
+11-11 11:35:09.275 W/Chagok  ( 3099): 	at com.chagok.app.vehicle.PleosVehicleSignals$odometerPoll$1.run(PleosVehicleSignals.kt:55)
+11-11 11:35:09.275 W/Chagok  ( 3099): 	at android.os.Handler.handleCallback(Handler.java:958)
+11-11 11:35:09.275 W/Chagok  ( 3099): 	at android.os.Handler.dispatchMessage(Handler.java:99)
+11-11 11:35:09.275 W/Chagok  ( 3099): 	at android.os.Looper.loopOnce(Looper.java:205)
+11-11 11:35:09.275 W/Chagok  ( 3099): 	at android.os.Looper.loop(Looper.java:294)
+11-11 11:35:09.275 W/Chagok  ( 3099): 	at android.app.ActivityThread.main(ActivityThread.java:8177)
+11-11 11:35:09.275 W/Chagok  ( 3099): 	at java.lang.reflect.Method.invoke(Native Method)
+11-11 11:35:09.275 W/Chagok  ( 3099): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+11-11 11:35:09.275 W/Chagok  ( 3099): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+11-11 11:35:09.282 I/ActivityTaskManager(  504): Displayed com.chagok.app/.MainActivity for user 0: +1s476ms
+11-11 11:35:09.317 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:09.318 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 2
+11-11 11:35:09.319 D/CoreBackPreview(  504): Window{8381291 u0 Splash Screen com.chagok.app EXITING}: Setting back callback null
+11-11 11:35:09.319 W/InputManager-JNI(  504): Input channel object '8381291 Splash Screen com.chagok.app (client)' was disposed without first being removed with the input manager!
+11-11 11:35:09.347 I/ImeTracker(  504): com.chagok.app:88d2039b: onRequestHide at ORIGIN_SERVER_HIDE_INPUT reason HIDE_UNSPECIFIED_WINDOW
+11-11 11:35:09.347 I/ImeTracker(  504): com.chagok.app:88d2039b: onCancelled at PHASE_SERVER_SHOULD_HIDE
+11-11 11:35:09.819 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:09.819 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 3
+11-11 11:35:10.319 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:10.320 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 4
+11-11 11:35:10.820 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:10.820 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 5
+11-11 11:35:11.284 E/[Pleos][SDK]b( 3099): [main]getCurrentDistanceDriven need Permission
+11-11 11:35:11.284 W/Chagok  ( 3099): Odometer
+11-11 11:35:11.284 W/Chagok  ( 3099): java.lang.SecurityException: getCurrentDistanceDriven need Permission
+11-11 11:35:11.284 W/Chagok  ( 3099): 	at ai.pleos.playground.vehicle.utils.f.a(SourceFile:147)
+11-11 11:35:11.284 W/Chagok  ( 3099): 	at ai.pleos.playground.vehicle.service.b.a(SourceFile:15)
+11-11 11:35:11.284 W/Chagok  ( 3099): 	at ai.pleos.playground.vehicle.api.implement.OdometerImpl.getCurrentDistanceDriven(SourceFile:4)
+11-11 11:35:11.284 W/Chagok  ( 3099): 	at com.chagok.app.vehicle.PleosVehicleSignals$odometerPoll$1.run(PleosVehicleSignals.kt:55)
+11-11 11:35:11.284 W/Chagok  ( 3099): 	at android.os.Handler.handleCallback(Handler.java:958)
+11-11 11:35:11.284 W/Chagok  ( 3099): 	at android.os.Handler.dispatchMessage(Handler.java:99)
+11-11 11:35:11.284 W/Chagok  ( 3099): 	at android.os.Looper.loopOnce(Looper.java:205)
+11-11 11:35:11.284 W/Chagok  ( 3099): 	at android.os.Looper.loop(Looper.java:294)
+11-11 11:35:11.284 W/Chagok  ( 3099): 	at android.app.ActivityThread.main(ActivityThread.java:8177)
+11-11 11:35:11.284 W/Chagok  ( 3099): 	at java.lang.reflect.Method.invoke(Native Method)
+11-11 11:35:11.284 W/Chagok  ( 3099): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+11-11 11:35:11.284 W/Chagok  ( 3099): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+11-11 11:35:11.321 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:11.321 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 6
+11-11 11:35:11.822 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:11.822 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 7
+11-11 11:35:12.323 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:12.323 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 8
+11-11 11:35:12.824 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:12.824 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 9
+11-11 11:35:13.286 E/[Pleos][SDK]b( 3099): [main]getCurrentDistanceDriven need Permission
+11-11 11:35:13.286 W/Chagok  ( 3099): Odometer
+11-11 11:35:13.286 W/Chagok  ( 3099): java.lang.SecurityException: getCurrentDistanceDriven need Permission
+11-11 11:35:13.286 W/Chagok  ( 3099): 	at ai.pleos.playground.vehicle.utils.f.a(SourceFile:147)
+11-11 11:35:13.286 W/Chagok  ( 3099): 	at ai.pleos.playground.vehicle.service.b.a(SourceFile:15)
+11-11 11:35:13.286 W/Chagok  ( 3099): 	at ai.pleos.playground.vehicle.api.implement.OdometerImpl.getCurrentDistanceDriven(SourceFile:4)
+11-11 11:35:13.286 W/Chagok  ( 3099): 	at com.chagok.app.vehicle.PleosVehicleSignals$odometerPoll$1.run(PleosVehicleSignals.kt:55)
+11-11 11:35:13.286 W/Chagok  ( 3099): 	at android.os.Handler.handleCallback(Handler.java:958)
+11-11 11:35:13.286 W/Chagok  ( 3099): 	at android.os.Handler.dispatchMessage(Handler.java:99)
+11-11 11:35:13.286 W/Chagok  ( 3099): 	at android.os.Looper.loopOnce(Looper.java:205)
+11-11 11:35:13.286 W/Chagok  ( 3099): 	at android.os.Looper.loop(Looper.java:294)
+11-11 11:35:13.286 W/Chagok  ( 3099): 	at android.app.ActivityThread.main(ActivityThread.java:8177)
+11-11 11:35:13.286 W/Chagok  ( 3099): 	at java.lang.reflect.Method.invoke(Native Method)
+11-11 11:35:13.286 W/Chagok  ( 3099): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+11-11 11:35:13.286 W/Chagok  ( 3099): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+11-11 11:35:13.325 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:13.326 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 10
+11-11 11:35:13.826 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:13.827 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 11
+11-11 11:35:14.294 D/ProfileInstaller( 3099): Skipping profile installation for com.chagok.app
+11-11 11:35:14.327 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:14.327 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 12
+11-11 11:35:14.828 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:14.828 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 13
+11-11 11:35:15.288 E/[Pleos][SDK]b( 3099): [main]getCurrentDistanceDriven need Permission
+11-11 11:35:15.288 W/Chagok  ( 3099): Odometer
+11-11 11:35:15.288 W/Chagok  ( 3099): java.lang.SecurityException: getCurrentDistanceDriven need Permission
+11-11 11:35:15.288 W/Chagok  ( 3099): 	at ai.pleos.playground.vehicle.utils.f.a(SourceFile:147)
+11-11 11:35:15.288 W/Chagok  ( 3099): 	at ai.pleos.playground.vehicle.service.b.a(SourceFile:15)
+11-11 11:35:15.288 W/Chagok  ( 3099): 	at ai.pleos.playground.vehicle.api.implement.OdometerImpl.getCurrentDistanceDriven(SourceFile:4)
+11-11 11:35:15.288 W/Chagok  ( 3099): 	at com.chagok.app.vehicle.PleosVehicleSignals$odometerPoll$1.run(PleosVehicleSignals.kt:55)
+11-11 11:35:15.288 W/Chagok  ( 3099): 	at android.os.Handler.handleCallback(Handler.java:958)
+11-11 11:35:15.288 W/Chagok  ( 3099): 	at android.os.Handler.dispatchMessage(Handler.java:99)
+11-11 11:35:15.288 W/Chagok  ( 3099): 	at android.os.Looper.loopOnce(Looper.java:205)
+11-11 11:35:15.288 W/Chagok  ( 3099): 	at android.os.Looper.loop(Looper.java:294)
+11-11 11:35:15.288 W/Chagok  ( 3099): 	at android.app.ActivityThread.main(ActivityThread.java:8177)
+11-11 11:35:15.288 W/Chagok  ( 3099): 	at java.lang.reflect.Method.invoke(Native Method)
+11-11 11:35:15.288 W/Chagok  ( 3099): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+11-11 11:35:15.288 W/Chagok  ( 3099): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+11-11 11:35:15.329 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:15.329 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 14
+11-11 11:35:15.829 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:15.830 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 15
+11-11 11:35:16.330 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:16.331 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 16
+11-11 11:35:16.831 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:16.831 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 17
+11-11 11:35:17.289 E/[Pleos][SDK]b( 3099): [main]getCurrentDistanceDriven need Permission
+11-11 11:35:17.290 W/Chagok  ( 3099): Odometer
+11-11 11:35:17.290 W/Chagok  ( 3099): java.lang.SecurityException: getCurrentDistanceDriven need Permission
+11-11 11:35:17.290 W/Chagok  ( 3099): 	at ai.pleos.playground.vehicle.utils.f.a(SourceFile:147)
+11-11 11:35:17.290 W/Chagok  ( 3099): 	at ai.pleos.playground.vehicle.service.b.a(SourceFile:15)
+11-11 11:35:17.290 W/Chagok  ( 3099): 	at ai.pleos.playground.vehicle.api.implement.OdometerImpl.getCurrentDistanceDriven(SourceFile:4)
+11-11 11:35:17.290 W/Chagok  ( 3099): 	at com.chagok.app.vehicle.PleosVehicleSignals$odometerPoll$1.run(PleosVehicleSignals.kt:55)
+11-11 11:35:17.290 W/Chagok  ( 3099): 	at android.os.Handler.handleCallback(Handler.java:958)
+11-11 11:35:17.290 W/Chagok  ( 3099): 	at android.os.Handler.dispatchMessage(Handler.java:99)
+11-11 11:35:17.290 W/Chagok  ( 3099): 	at android.os.Looper.loopOnce(Looper.java:205)
+11-11 11:35:17.290 W/Chagok  ( 3099): 	at android.os.Looper.loop(Looper.java:294)
+11-11 11:35:17.290 W/Chagok  ( 3099): 	at android.app.ActivityThread.main(ActivityThread.java:8177)
+11-11 11:35:17.290 W/Chagok  ( 3099): 	at java.lang.reflect.Method.invoke(Native Method)
+11-11 11:35:17.290 W/Chagok  ( 3099): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+11-11 11:35:17.290 W/Chagok  ( 3099): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+11-11 11:35:17.332 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:17.332 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 18
+11-11 11:35:17.833 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:17.833 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 19
+11-11 11:35:18.334 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:18.334 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 20
+11-11 11:35:18.348 D/AndroidRuntime( 3131): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-11 11:35:18.351 I/AndroidRuntime( 3131): Using default boot image
+11-11 11:35:18.351 I/AndroidRuntime( 3131): Leaving lock profiling enabled
+11-11 11:35:18.422 D/AndroidRuntime( 3131): Calling main entry com.android.commands.uiautomator.Launcher
+11-11 11:35:18.835 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:18.835 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 21
+11-11 11:35:19.292 E/[Pleos][SDK]b( 3099): [main]getCurrentDistanceDriven need Permission
+11-11 11:35:19.292 W/Chagok  ( 3099): Odometer
+11-11 11:35:19.292 W/Chagok  ( 3099): java.lang.SecurityException: getCurrentDistanceDriven need Permission
+11-11 11:35:19.292 W/Chagok  ( 3099): 	at ai.pleos.playground.vehicle.utils.f.a(SourceFile:147)
+11-11 11:35:19.292 W/Chagok  ( 3099): 	at ai.pleos.playground.vehicle.service.b.a(SourceFile:15)
+11-11 11:35:19.292 W/Chagok  ( 3099): 	at ai.pleos.playground.vehicle.api.implement.OdometerImpl.getCurrentDistanceDriven(SourceFile:4)
+11-11 11:35:19.292 W/Chagok  ( 3099): 	at com.chagok.app.vehicle.PleosVehicleSignals$odometerPoll$1.run(PleosVehicleSignals.kt:55)
+11-11 11:35:19.292 W/Chagok  ( 3099): 	at android.os.Handler.handleCallback(Handler.java:958)
+11-11 11:35:19.292 W/Chagok  ( 3099): 	at android.os.Handler.dispatchMessage(Handler.java:99)
+11-11 11:35:19.292 W/Chagok  ( 3099): 	at android.os.Looper.loopOnce(Looper.java:205)
+11-11 11:35:19.292 W/Chagok  ( 3099): 	at android.os.Looper.loop(Looper.java:294)
+11-11 11:35:19.292 W/Chagok  ( 3099): 	at android.app.ActivityThread.main(ActivityThread.java:8177)
+11-11 11:35:19.292 W/Chagok  ( 3099): 	at java.lang.reflect.Method.invoke(Native Method)
+11-11 11:35:19.292 W/Chagok  ( 3099): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+11-11 11:35:19.292 W/Chagok  ( 3099): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+11-11 11:35:19.335 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:19.336 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 22
+11-11 11:35:19.514 D/AndroidRuntime( 3131): Shutting down VM
+11-11 11:35:19.836 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:19.836 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 23
+11-11 11:35:20.337 W/ActivityManager(  504): Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=0: not found
+11-11 11:35:20.337 D/[Pleos][SDK]b( 3099): [DefaultDispatcher-worker-1]connectService currentRetryCount 24

@@ -1,0 +1,12 @@
+alive_after_launch=yes
+no_signal_button=yes
+simulator_ready=yes
+confirm_card_1=yes
+confirm_card_2=yes
+confirm_card_3=yes
+report_has_ratio=yes
+export_dialog=yes
+export_csv_bytes=773
+alive_after_relaunch=yes
+records_kept_after_relaunch=yes
+fatal_exceptions=0

@@ -1,0 +1,16 @@
+2.0	launch
+4.9	no_signal
+7.0	simulator_on
+14.5	trip1_start
+24.5	trip1_confirm
+26.9	trip1_purpose
+35.0	trip2_start
+48.1	trip2_confirm
+50.5	trip2_purpose
+58.6	trip3_start
+68.5	trip3_confirm
+71.0	trip3_purpose
+79.4	report
+82.5	export
+91.0	export_closed
+93.0	end
