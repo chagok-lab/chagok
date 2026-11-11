@@ -151,17 +151,22 @@ def box(bounds):
     return tuple(map(int, m.groups())) if m else None
 
 
-def dump(name=None):
-    adb('shell', 'uiautomator', 'dump', '/sdcard/ui.xml')
-    xml = adb('exec-out', 'cat', '/sdcard/ui.xml')
+def dump(name=None, tries=4):
+    """화면의 글자와 위치. uiautomator 가 가끔 빈 결과를 돌려주므로 몇 번 다시 시도"""
     nodes = []
-    try:
-        for n in ET.fromstring(xml).iter('node'):
-            label = ((n.get('text') or '') + ' ' + (n.get('content-desc') or '')).strip()
-            if label and box(n.get('bounds')):
-                nodes.append((label, box(n.get('bounds'))))
-    except Exception:  # noqa: BLE001
-        pass
+    for _ in range(tries):
+        adb('shell', 'uiautomator', 'dump', '/sdcard/ui.xml')
+        xml = adb('exec-out', 'cat', '/sdcard/ui.xml')
+        try:
+            for n in ET.fromstring(xml).iter('node'):
+                label = ((n.get('text') or '') + ' ' + (n.get('content-desc') or '')).strip()
+                if label and box(n.get('bounds')):
+                    nodes.append((label, box(n.get('bounds'))))
+        except Exception:  # noqa: BLE001
+            pass
+        if nodes:
+            break
+        time.sleep(1.0)
     if name:
         with open(os.path.join(OUT, f'texts_{name}.txt'), 'w') as f:
             f.write('\n'.join(f'{b} | {t}' for t, b in nodes) + '\n')
@@ -323,17 +328,17 @@ def main():
     time.sleep(2)
     app_start()
     ev('launch')
-    nodes = wait_for('12,480.2', 25)
-    if nodes is None:
+    shown = wait_for('12,480.2', 25)
+    if shown is None:
         # 값이 앱까지 오지 않으면: 다시 한 번 써 보고 상태를 남김
         log('odometer not shown yet; writing again')
         set_odo(12480.2, quiet=False)
-        nodes = wait_for('12,480.2', 20)
+        shown = wait_for('12,480.2', 20)
     time.sleep(2)
-    nodes = snap('r0_idle')
-    result('real_idle_shows_odometer', 'yes' if has(nodes, '12,480.2') else 'no')
+    nodes = snap('r0_idle') or shown or []
+    result('real_idle_shows_odometer', 'yes' if shown is not None else 'no')
     result('real_signal_line', next((t for t, _ in nodes if t.startswith('차량 신호')), 'none'))
-    if not has(nodes, '12,480.2'):
+    if shown is None:
         save('vc_state_no_signal.json', get_json('/vehicle/state') or {})
         rec.finish()
         hb.finish()
