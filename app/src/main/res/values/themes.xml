@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Chagok" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/chagok_bg</item>
+        <item name="android:statusBarColor">@color/chagok_bg</item>
+        <item name="android:navigationBarColor">@color/chagok_bg</item>
+    </style>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 차곡 아이콘: 차곡차곡 쌓이는 기록 막대 3개 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="@color/chagok_mint"
+        android:pathData="M24,14h60a10,10 0,0 1,10 10v60a10,10 0,0 1,-10 10h-60a10,10 0,0 1,-10 -10v-60a10,10 0,0 1,10 -10z" />
+    <path
+        android:fillColor="@color/chagok_ink"
+        android:pathData="M32,34h28a4,4 0,0 1,0 8h-28a4,4 0,0 1,0 -8z" />
+    <path
+        android:fillColor="@color/chagok_ink"
+        android:pathData="M32,50h36a4,4 0,0 1,0 8h-36a4,4 0,0 1,0 -8z" />
+    <path
+        android:fillColor="@color/chagok_ink"
+        android:pathData="M32,66h44a4,4 0,0 1,0 8h-44a4,4 0,0 1,0 -8z" />
+</vector>
