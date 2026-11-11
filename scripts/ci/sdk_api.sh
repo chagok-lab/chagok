@@ -33,7 +33,22 @@ sig Vehicle vehicle_entry.txt '^ai\.pleos\.playground\.vehicle\.Vehicle$'
 sig Vehicle vehicle_api.txt '^ai\.pleos\.playground\.vehicle\.api\.[A-Za-z0-9]+$'
 sig Vehicle vehicle_listener.txt '^ai\.pleos\.playground\.vehicle\.listener\.'
 sig Vehicle vehicle_area.txt '^ai\.pleos\.playground\.vehicle\.(api\.model\.area|constant\.area)\.'
+sig Vehicle vehicle_gear.txt '^ai\.pleos\.playground\.vehicle\.(constant\.control\.VehicleGear|listener\.VehicleListener|exception\.[A-Za-z]+)$'
 sig NaviHelper navi_helper.txt '^ai\.pleos\.playground\.navi\.helper\.'
-sig NaviHelper navi_data.txt '^ai\.pleos\.playground\.navi\.data\.(DestinationInfo|DestinationArrivedInfo|RouteStartInfo)$'
+# NaviHelper 의 데이터 클래스는 별도 모듈(의존 AAR)에 있으므로 pom 의 의존성도 내려받아 확인
+grep -n -A4 "<dependency>" "$OUT/NaviHelper-3.0.5.pom" | head -60
+for dep in $(python3 - "$OUT/NaviHelper-3.0.5.pom" <<'PY'
+import sys, re
+s = open(sys.argv[1]).read()
+for g, a, v in re.findall(r'<groupId>([^<]+)</groupId>\s*<artifactId>([^<]+)</artifactId>\s*<version>([^<]+)</version>', s):
+    if g.startswith('ai.pleos'):
+        print(f"{g.replace('.', '/')}:{a}:{v}")
+PY
+); do
+  IFS=: read -r g a v <<< "$dep"
+  [ "$a" = NaviHelper ] && continue
+  get "$g" "$a" "$v"
+  sig "$a" "navi_dep_${a}_data.txt" '\.(DestinationInfo|DestinationArrivedInfo|RouteStartInfo|NavigationStatus)$'
+done
 grep -n -i -E "odometer|distance|door|carinfo|model|fuel|economy|efficien|gear|speed" "$OUT/vehicle_entry.txt" "$OUT/vehicle_api.txt" | cut -c1-220 | head -150
 exit 0
