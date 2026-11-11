@@ -57,16 +57,28 @@ if [ ! -f "$HOME/.android/avd/pleos.avd/config.ini" ]; then
   log "AVD 가 없어 실행을 건너뜀"; result booted skipped; exit 0
 fi
 
+# Pleos Connect 이미지는 user 빌드라 adb 인증이 필요합니다. 에뮬레이터가 부팅 때 넣어 주는 공개키와
+# adb 서버의 키가 같도록, 에뮬레이터를 켜기 전에 adb 키를 먼저 만들어 둡니다.
+adb start-server >>"$LOG" 2>&1
+ls -la "$HOME/.android/adbkey" "$HOME/.android/adbkey.pub" 2>&1 | tee -a "$LOG"
+
 log "emulator 시작"
 nohup "$SDK/emulator/emulator" -avd pleos -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim \
   -camera-back none -camera-front none -memory 4096 -cores 4 -no-metrics > "$OUT/emulator.log" 2>&1 &
 EMU_PID=$!
-timeout 300 adb wait-for-device || log "adb wait-for-device timeout"
-if wait_boot 300; then result booted yes; else result booted no; fi
-tail -n 40 "$OUT/emulator.log" | tee -a "$LOG"
+timeout 180 adb wait-for-device || log "adb wait-for-device timeout: $(adb devices | tr '\n' ' ')"
+if adb devices | grep -q unauthorized; then
+  result booted "no(adb unauthorized)"
+  tail -n 20 "$OUT/emulator.log" | cut -c1-300 | tee -a "$LOG"
+  kill "$EMU_PID" 2>/dev/null
+  exit 0
+fi
+if wait_boot 120; then result booted yes; else result booted no; fi
+grep -E "androidboot.qemu.skin|Setting display|emulator version" "$OUT/emulator.log" | cut -c1-200 | tee -a "$LOG"
 if [ "$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" != 1 ]; then
   adb logcat -d -v time 2>/dev/null | tail -n 400 > "$OUT/logcat_boot_tail.txt"
   shot 00_not_booted
+  kill "$EMU_PID" 2>/dev/null
   exit 0
 fi
 result boot_seconds "$(( $(date +%s) - T0 ))"
@@ -131,7 +143,7 @@ for p in ai.pleos.connectwebconsole ai.pleos.hardware.vehicle.emulator ai.pleos.
   adb shell dumpsys package "$p" 2>/dev/null | head -n 260 > "$OUT/pkg_$p.txt"
 done
 adb forward tcp:8088 tcp:8088 2>&1 | tee -a "$LOG"
-python3 scripts/ci/vc_fetch.py http://127.0.0.1:8088/ "$OUT/vc" 2>&1 | tail -n 80 | tee -a "$LOG"
+timeout 180 python3 scripts/ci/vc_fetch.py http://127.0.0.1:8088/ "$OUT/vc" 2>&1 | tail -n 80 | tee -a "$LOG"
 result virtual_console_http "$( [ -s "$OUT/vc/index.html" ] && echo yes || echo no )"
 
 log "== Pleos Connect 에뮬레이터에서 앱 내 시뮬레이터로 운행 3건"

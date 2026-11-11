@@ -5,6 +5,7 @@
 import os
 import re
 import sys
+import time
 import urllib.parse
 import urllib.request
 
@@ -12,14 +13,24 @@ base, out = sys.argv[1], sys.argv[2]
 os.makedirs(out, exist_ok=True)
 seen, queue, report = set(), ['/'], []
 MAX_FILES, MAX_BYTES = 60, 6_000_000
+READ_SECONDS, TOTAL_SECONDS = 8, 150      # 계속 흘러나오는 응답(이벤트 스트림 등)에 붙잡히지 않도록 제한
+T0 = time.time()
 
 
 def fetch(path):
     url = urllib.parse.urljoin(base, path)
     try:
         req = urllib.request.Request(url, headers={'User-Agent': 'chagok-ci'})
-        with urllib.request.urlopen(req, timeout=15) as r:
-            body = r.read(MAX_BYTES)
+        with urllib.request.urlopen(req, timeout=6) as r:
+            body, start = b'', time.time()
+            while len(body) < MAX_BYTES and time.time() - start < READ_SECONDS:
+                try:
+                    chunk = r.read1(65536)
+                except Exception:  # noqa: BLE001  (읽기 제한 시간 초과 등)
+                    break
+                if not chunk:
+                    break
+                body += chunk
             return r.status, r.headers.get('Content-Type', ''), body
     except urllib.error.HTTPError as e:
         return e.code, e.headers.get('Content-Type', ''), e.read(2000)
@@ -33,7 +44,7 @@ def save(path, body):
         f.write(body)
 
 
-while queue and len(seen) < MAX_FILES:
+while queue and len(seen) < MAX_FILES and time.time() - T0 < TOTAL_SECONDS:
     path = queue.pop(0)
     if path in seen:
         continue
@@ -59,7 +70,7 @@ while queue and len(seen) < MAX_FILES:
 # 자주 쓰는 API 경로가 있는지 확인 (조회만)
 for probe in ['/api', '/api/', '/api/v1', '/openapi.json', '/swagger.json', '/v3/api-docs', '/docs', '/health',
               '/api/vehicle', '/api/properties', '/api/property', '/vehicle', '/properties', '/status', '/api/status']:
-    if probe in seen:
+    if probe in seen or time.time() - T0 > TOTAL_SECONDS:
         continue
     status, ctype, body = fetch(probe)
     report.append(f'{status}\t{len(body)}\t{ctype}\tPROBE {probe}')
