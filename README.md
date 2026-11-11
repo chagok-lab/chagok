@@ -10,7 +10,7 @@ Pleos Connect 차량에서 계기판 누적거리(Vehicle SDK Odometer), 기어�
 | **앱이 꺼져 있던 구간 자동 보완** | **리포트와 서식(CSV) 내보내기** |
 | ![누락 구간 보완](docs/screens/pleos_3_gap.png) | ![내보내기](docs/screens/pleos_4_export.png) |
 
-> 위 4장은 이 저장소의 `apk/개인참가_차곡_release.apk` 를 **Pleos Connect Emulator 2.1.0** 에 설치하고, Virtual Console 로 누적거리·기어·도어 신호를 바꿔 가며 캡처한 실제 실행 화면입니다. 같은 과정을 `scripts/ci/pleos_run.sh` 로 다시 실행할 수 있습니다.
+> 위 4장은 이 저장소의 `apk/개인참가_차곡_release.apk` 를 **Pleos Connect Emulator 2.1.0** 에 설치하고, Virtual Console 로 누적거리·기어·도어 신호를 바꿔 가며 캡처한 실제 실행 화면입니다. 같은 과정을 `scripts/ci/pleos_run.sh` 로 다시 실행할 수 있고, 확인 결과는 [docs/verification.md](docs/verification.md) 에 정리했습니다.
 
 ---
 
@@ -38,7 +38,7 @@ Android Studio(최신 버전, JDK 17)에서 저장소를 열어 `app` 을 실행
 ### C. Pleos Connect 에뮬레이터에서 시연 (차량 신호 사용)
 1. Pleos Connect 에뮬레이터를 켜고 앱을 실행합니다. 화면에 `현재 계기판 누적거리 (Vehicle SDK Odometer)` 와 `차량 신호(Pleos SDK) · 기어 P · 운전석 도어 닫힘` 이 표시됩니다.
 2. `adb forward tcp:8088 tcp:8088` 후 브라우저에서 Virtual Console(`http://127.0.0.1:8088/`)을 엽니다.
-3. 기어를 **D** 로 바꾸고 **Emulation Controls > Odometer** 값을 올립니다. 0.1 km 이상 늘면 앱이 `기록 중` 으로 바뀌고 입력이 잠깁니다.
+3. 기어를 **D** 로 바꾸고 **Emulation Controls > Odometer** 값을 올립니다. 0.1 km 이상 늘면 앱이 `기록 중` 으로 바뀌고 입력이 잠깁니다. (앱을 켠 뒤 5초쯤 지나서 조작해 주세요. 한 번에 2,000 km 넘게 올린 값은 운행이 아니라 시작 값 설정으로 처리합니다.)
 4. 기어를 **P** 로 바꾸면 용도 확인 카드가 바로 뜹니다. 추천 버튼을 한 번 누릅니다. 60초 동안 움직이지 않으면 운행이 확정됩니다(그 사이 다시 출발하면 같은 운행으로 이어 기록).
 5. 앱을 종료한 상태에서 Odometer 값을 올린 뒤 다시 실행하면, 누락된 구간이 `용도 확인 필요` 운행으로 채워집니다.
 6. `운행기록부 서식 내보내기` 를 누르면 CSV 파일이 저장됩니다.
@@ -56,7 +56,7 @@ Android Studio(최신 버전, JDK 17)에서 저장소를 열어 `app` 을 실행
 | SDK | Vehicle SDK `ai.pleos.playground:Vehicle:2.3.2`, NaviHelper SDK `ai.pleos.playground:NaviHelper:3.0.5` |
 | 퍼미션 | `pleos.car.permission.CAR_DRIVE`, `CAR_MILEAGE`, `CAR_DOORS`, `NAVI_ROUTE`, `NAVI_ROUTE_SEARCH` (모두 조회용) |
 | Pleos Playground | Vehicle·NaviHelper SDK 는 별도 신청 없이 사용 가능한 범위만 사용. 이 에뮬레이터 버전에서는 CRN 주입 없이 실행됨 |
-| 자동 확인 | GitHub Actions: `build-apk.yml`(단위 테스트·release 빌드), `pleos.yml`(Pleos Connect 에뮬레이터), `smoke.yml`(일반 Android 14 에뮬레이터) |
+| 자동 확인 | GitHub Actions: `build-apk.yml`(단위 테스트·release 빌드), `pleos.yml`(Pleos Connect 에뮬레이터), `smoke.yml`(일반 Android 14 에뮬레이터). 결과 요약: [docs/verification.md](docs/verification.md) |
 
 ## 4. 개발에 사용한 Pleos Connect 에뮬레이터 버전과 화면 규격
 
@@ -82,7 +82,7 @@ Android Studio(최신 버전, JDK 17)에서 저장소를 열어 `app` 을 실행
 
 | 구분 | 내용 | 확인 방법 |
 |---|---|---|
-| Pleos Connect 에뮬레이터에서 확인 | Vehicle SDK 로 누적거리·기어·운전석 도어 수신, 누적거리 증가로 운행 시작, 기어 P 에서 용도 확인 카드, 1탭 확정, 60초 정지 후 확정, 앱 미실행 구간 자동 보완, 리포트(서식 ⑪⑫⑬), CSV 내보내기, 화면 비례 확대 | `scripts/ci/pleos_run.sh` (Pleos Connect Emulator 2.1.0 + Virtual Console) |
+| Pleos Connect 에뮬레이터에서 확인 | Vehicle SDK 로 누적거리·기어·운전석 도어 수신, 누적거리 증가로 운행 시작, 기어 P 에서 용도 확인 카드, 1탭 확정, 60초 정지 후 확정, 앱 미실행 구간 자동 보완, 같은 구간 중복 기록 방지, 실행 직후 값 처리, 리포트(서식 ⑪⑫⑬), CSV 내보내기, 화면 비례 확대 | `scripts/ci/pleos_run.sh` (Pleos Connect Emulator 2.1.0 + Virtual Console), 결과 [docs/verification.md](docs/verification.md) |
 | 로직 단위 테스트 | 운행 판정 상태 기계(기어 P·도어·재출발·늦게 도착한 값·비정상적으로 큰 변화), 누락 구간 보완, 차량 신호 값 걸러내기, 해시 체인 원장, 서식 계산·CSV, 용도 추천, 화면 배율 | 단위 테스트 22개 통과 (`./gradlew testDebugUnitTest`) |
 | 연결만 확인 | NaviHelper SDK 초기화(`NaviHelper 연결됨`). 목적지·도착 이벤트는 내비 앱에서 경로를 설정한 상태의 실측이 남아 있음. 목적지에 따른 용도 추천과 비업무 목적지 미저장은 앱 내 시뮬레이터로 확인 | `scripts/ci/smoke.sh` |
 | 개발 예정 | 차종·등록번호·사용자 입력 화면, QR 파일 전달, PDF 출력, 포그라운드 서비스 상시 기록, 확정 후 수정 화면, 계기판 값 수동 보정, Fleet 관리자 웹, 음성 확인(TTS·STT·Gleo AI), 연료·전기 비용 추정(Fuel·EvBattery) | 1차 결과 후~2차 PT |
