@@ -38,7 +38,7 @@ class ContinuityCheckerTest {
         val gapTrip = Trip(
             seq = 0, tripId = 9, revision = 1, startEpochMs = 1_793_000_000_000, endEpochMs = 1_793_000_600_000,
             startOdoKm = 12_556.3, endOdoKm = 12_568.7, destination = null, purpose = Purpose.BUSINESS,
-            suggested = Purpose.UNCONFIRMED, user = "영업 김○○", source = "PLEOS_GAP", note = null, prevHash = "", hash = "",
+            suggested = Purpose.UNCONFIRMED, user = "영업 홍○○", source = "PLEOS_GAP", note = null, prevHash = "", hash = "",
         )
         val csv = NtsLogbookExporter.toCsv(listOf(gapTrip), "그랜저", "12가 3456")
         assertTrue(csv.contains("앱 미실행 구간 자동 보완"))
@@ -51,7 +51,7 @@ class ContinuityCheckerTest {
         val simulated = Trip(
             seq = 0, tripId = 1, revision = 1, startEpochMs = 1_793_000_000_000, endEpochMs = 1_793_000_600_000,
             startOdoKm = 12_480.2, endOdoKm = 12_498.6, destination = "회사", purpose = Purpose.COMMUTE,
-            suggested = Purpose.COMMUTE, user = "영업 김○○", source = "SIMULATOR", note = null, prevHash = "", hash = "",
+            suggested = Purpose.COMMUTE, user = "영업 홍○○", source = "SIMULATOR", note = null, prevHash = "", hash = "",
         )
         val csv = NtsLogbookExporter.toCsv(listOf(simulated), "그랜저 (시뮬레이터)", "12가 3456")
         assertTrue(csv.contains("시뮬레이터로 재현한 시연용 기록"))

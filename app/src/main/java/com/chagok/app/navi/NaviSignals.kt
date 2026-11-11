@@ -22,10 +22,10 @@ import ai.pleos.playground.navi.data.WaypointInfo
 import ai.pleos.playground.navi.helper.NaviHelper
 import ai.pleos.playground.navi.helper.listener.NaviHelperEventListener
 import android.content.Context
-import com.chagok.app.vehicle.SdkReflect
 
 /**
  * NaviHelper SDK 3.0.5 연동 (공식 샘플 pleos-sample-navi-app 과 같은 초기화·리스너 구조).
+ * 목적지 정보는 DestinationInfo.name / address 를 사용합니다.
  * 사용 이벤트: onDestinationInfo(방문처 이름), onRouteStarted / onDestinationChanged(목적지 재조회), onDestinationArrived(도착).
  */
 class NaviSignals(
@@ -66,8 +66,10 @@ class NaviSignals(
 
     // ---- 사용하는 이벤트
     override fun onDestinationInfo(destinationInfo: DestinationInfo) {
-        val name = SdkReflect.firstString(destinationInfo, listOf("getPoiName", "getName", "getDestinationName", "getAddress"))
-        onDestination(name)
+        // 방문처 이름이 없으면 주소를 사용
+        val name: String? = destinationInfo.name
+        val address: String? = destinationInfo.address
+        onDestination(name?.takeIf { it.isNotBlank() } ?: address?.takeIf { it.isNotBlank() })
     }
 
     override fun onRouteStarted(routeStartInfo: RouteStartInfo) {

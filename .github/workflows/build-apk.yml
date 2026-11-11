@@ -5,10 +5,13 @@ name: Build release APK
 on:
   push:
     branches: [ main ]
-    paths-ignore:
-      - 'apk/**'
-      - 'docs/**'
-      - '**.md'
+    paths:            # 앱 소스·빌드 설정이 바뀔 때만 다시 빌드 (문서, 확인용 스크립트 변경은 제외)
+      - 'app/**'
+      - 'gradle/**'
+      - '*.gradle.kts'
+      - 'gradle.properties'
+      - 'gradlew'
+      - '.github/workflows/build-apk.yml'
   workflow_dispatch:
 
 permissions:

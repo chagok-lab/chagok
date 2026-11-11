@@ -1,16 +1,16 @@
 package com.chagok.app.engine
 
 /**
- * 운행 판정 상태 기계 (기어 정보 없이 동작).
+ * 운행 판정 상태 기계.
  *
  * IDLE --(누적거리가 기준점 대비 startThresholdKm 이상 증가)--> DRIVING
- * DRIVING --(운전석 도어 열림 후 doorGraceMs 동안 누적거리 변화 없음
+ * DRIVING --(정차 신호[기어 P 또는 운전석 도어 열림] 후 doorGraceMs 동안 누적거리 변화 없음
  *           | 내비 도착 후 arrivedIdleMs 동안 변화 없음 | parkedIdleMs 동안 변화 없음)--> IDLE (Ended 발생)
  *
- * 도어 이벤트만으로는 종료를 확정하지 않습니다. 문이 열리면 Arrived(용도 확인 카드용)를 바로 보내고,
+ * 정차 신호만으로는 종료를 확정하지 않습니다. 기어를 P 에 두거나 문이 열리면 Arrived(용도 확인 카드용)를 바로 보내고,
  * doorGraceMs 동안 움직이지 않으면 Ended로 확정합니다. 그 사이 다시 출발하면 Resumed를 보내고
  * 같은 운행으로 이어서 기록합니다(편의점 앞 잠깐 정차 등).
- * Vehicle SDK 공개 카탈로그에는 기어(P/D) API가 없으므로 누적거리·도어·내비 이벤트를 결합합니다.
+ * 기어·도어 신호가 없는 차량에서도 누적거리와 정지 시간만으로 동작합니다.
  */
 class TripDetector(
     private val startThresholdKm: Double = 0.1,
@@ -24,7 +24,7 @@ class TripDetector(
 
     sealed interface Event {
         data class Started(val startOdoKm: Double, val startEpochMs: Long) : Event
-        /** 운전석 도어 열림: 아직 확정 전(용도 확인 카드를 바로 띄우기 위한 잠정 도착) */
+        /** 정차 신호(기어 P·운전석 도어 열림): 아직 확정 전(용도 확인 카드를 바로 띄우기 위한 잠정 도착) */
         data class Arrived(
             val startOdoKm: Double,
             val endOdoKm: Double,
@@ -94,14 +94,20 @@ class TripDetector(
         }
     }
 
+    /** 운전석 도어 열림: 정차 신호 */
+    fun onDriverDoor(open: Boolean): Event? = if (open) onStopSignal() else null
+
+    /** 기어 P(주차) 전환: 정차 신호 */
+    fun onGearParked(): Event? = onStopSignal()
+
     /**
-     * 운전석 도어 열림: 바로 끝내지 않고 Arrived(잠정 도착)를 보냅니다.
+     * 정차 신호: 바로 끝내지 않고 Arrived(잠정 도착)를 보냅니다.
      * doorGraceMs 동안 누적거리 변화가 없으면 tick()에서 Ended로 확정합니다.
      */
-    fun onDriverDoor(open: Boolean): Event? {
-        if (!open || state != State.DRIVING) return null
+    private fun onStopSignal(): Event? {
+        if (state != State.DRIVING) return null
         if (doorGraceMs <= 0L) return end()
-        if (doorOpenedMs != null) return null        // 이미 잠정 도착 상태(문을 여닫는 반복)
+        if (doorOpenedMs != null) return null        // 이미 잠정 도착 상태(기어 P 뒤 문 열림, 문을 여닫는 반복)
         val start = tripStartOdoKm ?: return null
         val cur = currentOdoKm ?: return null
         val now = clock()

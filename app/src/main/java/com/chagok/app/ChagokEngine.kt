@@ -9,6 +9,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import com.chagok.app.data.HashChain
 import com.chagok.app.data.TripStore
+import com.chagok.app.engine.CarText
 import com.chagok.app.engine.ContinuityChecker
 import com.chagok.app.engine.LogbookCalculator
 import com.chagok.app.engine.PurposeAdvisor
@@ -41,8 +42,10 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
     var tripStartOdoKm by mutableStateOf<Double?>(null); private set
     var destination by mutableStateOf<String?>(null); private set
     var uxRestricted by mutableStateOf(false); private set
-    var carModel by mutableStateOf("미확인"); private set
-    var fuelEconomy by mutableStateOf<Double?>(null); private set
+    var carModel by mutableStateOf(NOT_SET); private set                // 서식 ① 차종: 사용자가 한 번 입력하는 값(입력 화면은 개발 예정)
+    var gear by mutableStateOf<String?>(null); private set              // "P" / "R" / "N" / "D"
+    var driverDoorOpen by mutableStateOf<Boolean?>(null); private set
+    var unavailableSignals by mutableStateOf<List<String>>(emptyList()); private set
     var status by mutableStateOf(""); private set
     var pendingTripId by mutableStateOf<Long?>(null); private set
     var verifiedCount by mutableStateOf(0); private set
@@ -51,8 +54,9 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
     val ledger = mutableStateListOf<Trip>()
 
     /** 서식 ④ 사용자(부서, 성명), ② 자동차등록번호: 설정 화면 대신 예시 값 */
-    var userLabel = "영업 김○○"
-    var plateNumber = "12가 3456"
+    // 서식 ②④: 사용자가 한 번 입력하는 값(입력 화면은 개발 예정). 시뮬레이터 모드에서만 시연용 값을 채움
+    var userLabel = NOT_SET
+    var plateNumber = NOT_SET
 
     private val zone = ZoneId.of("Asia/Seoul")
     private val main = Handler(Looper.getMainLooper())
@@ -113,6 +117,12 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
         tripStartOdoKm = null
         odometerKm = null
         destination = null
+        gear = null
+        driverDoorOpen = null
+        unavailableSignals = emptyList()
+        carModel = NOT_SET
+        userLabel = NOT_SET
+        plateNumber = NOT_SET
         signalWaitTicks = 0
         noSignal = false
 
@@ -132,6 +142,8 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
             }
         }
         mode = Mode.SIMULATOR
+        userLabel = DEMO_USER
+        plateNumber = DEMO_PLATE
         val simulator = SimulatedVehicleSignals()
         signals = simulator
         simulator.start(this)
@@ -161,7 +173,17 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
     }
 
     override fun onDriverDoor(open: Boolean) {
+        driverDoorOpen = open
         detector.onDriverDoor(open)?.let(::handle)
+    }
+
+    override fun onGear(position: String?) {
+        gear = position
+        if (position == "P") detector.onGearParked()?.let(::handle)
+    }
+
+    override fun onSignalUnavailable(name: String) {
+        if (name !in unavailableSignals) unavailableSignals = unavailableSignals + name
     }
 
     override fun onNaviDestination(name: String?) {
@@ -172,11 +194,18 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
     override fun onNaviArrived() = detector.onNaviArrived()
 
     override fun onCarModel(model: String) {
-        carModel = model
+        CarText.cleanModel(model)?.let { carModel = it }
     }
 
-    override fun onFuelEconomy(kmPerLiter: Double) {
-        fuelEconomy = kmPerLiter
+    /** 화면에 보여 줄 차량 신호 요약 (기어·운전석 도어·내비 목적지) */
+    fun signalSummary(): String {
+        fun missing(name: String) = if (name in unavailableSignals) "미제공" else "확인 중"
+        val door = when (driverDoorOpen) {
+            true -> "열림"
+            false -> "닫힘"
+            null -> missing("도어")
+        }
+        return "기어 ${gear ?: missing("기어")} · 운전석 도어 $door · 내비 목적지 ${destination ?: "없음"}"
     }
 
     override fun onStatus(message: String) {
@@ -336,6 +365,9 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
     }
 
     companion object {
+        const val NOT_SET = "미입력"
+        const val DEMO_USER = "영업 홍○○"
+        const val DEMO_PLATE = "12가 3456"
         const val DOOR_GRACE_MS = 60_000L
         const val NO_SIGNAL_HINT_TICKS = 5
         const val SIM_DOOR_GRACE_MS = 3_000L

@@ -72,4 +72,21 @@ class TripDetectorTest {
         assertNull(d.onOdometer(50.05))                          // 기준 0.1 km 미만
         assertEquals(TripDetector.State.IDLE, d.state)
     }
+
+    @Test
+    fun gearParkShowsCardFirstAndDoorOpenAfterwardsIsNotCountedTwice() {
+        val d = detector()
+        d.onOdometer(300.0); d.onOdometer(300.4)                 // 운행 시작
+        now += 900_000; d.onOdometer(323.7)
+        val parkedAt = now
+        val arrived = d.onGearParked() as TripDetector.Event.Arrived     // 기어 P: 용도 확인 카드용 잠정 도착
+        assertEquals(323.7, arrived.endOdoKm, 1e-9)
+        now += 5_000
+        assertNull(d.onDriverDoor(true))                         // 이어서 문을 열어도 같은 정차로 처리
+        now += 56_000
+        val ended = d.tick() as TripDetector.Event.Ended         // 기어 P 이후 60초 정지 → 종료 확정
+        assertEquals(parkedAt, ended.endEpochMs)                 // 종료 시각 = 기어를 P 에 둔 시각
+        assertEquals(300.0, ended.startOdoKm, 1e-9)
+        assertNull(d.onGearParked())                             // 주행 중이 아니면 무시
+    }
 }

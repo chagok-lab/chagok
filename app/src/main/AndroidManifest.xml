@@ -2,12 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Vehicle SDK (조회 전용, Vehicle Service protectionLevel="normal"): 실제 사용하는 최소 퍼미션만 선언 -->
-    <!-- Odometer: 퍼미션 문서는 CAR_DRIVE, 공식 샘플 매니페스트는 CAR_MILEAGE를 함께 선언 -->
+    <!-- Odometer·Gear: CAR_DRIVE (Pleos Connect 에뮬레이터 2.1.0 에서 수신 확인). 공식 샘플 매니페스트는 CAR_MILEAGE 를 함께 선언 -->
     <uses-permission android:name="pleos.car.permission.CAR_DRIVE" />
     <uses-permission android:name="pleos.car.permission.CAR_MILEAGE" />
+    <!-- Door: 운전석 도어 위치 -->
     <uses-permission android:name="pleos.car.permission.CAR_DOORS" />
-    <uses-permission android:name="pleos.car.permission.CAR_INFO" />
-    <uses-permission android:name="pleos.car.permission.CAR_ENERGY" />
 
     <!-- NaviHelper SDK: 목적지 조회와 경로 이벤트 수신 -->
     <uses-permission android:name="pleos.car.permission.NAVI_ROUTE" />

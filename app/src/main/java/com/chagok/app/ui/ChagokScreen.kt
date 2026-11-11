@@ -32,6 +32,7 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -40,10 +41,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.chagok.app.ChagokEngine
+import com.chagok.app.engine.DisplayScale
 import com.chagok.app.engine.LogbookCalculator
 import com.chagok.app.model.Purpose
 import com.chagok.app.model.Trip
@@ -66,8 +70,20 @@ private fun time(ms: Long, f: DateTimeFormatter) = Instant.ofEpochMilli(ms).atZo
 
 @Composable
 fun ChagokScreen(engine: ChagokEngine) {
-    var exported by remember { mutableStateOf<File?>(null) }
     BoxWithConstraints(Modifier.fillMaxSize().background(C.Bg)) {
+        // 차량 디스플레이는 창이 넓고 시청 거리가 멀어 글자가 작게 보이므로, 창 크기에 맞춰 화면 전체를 비례 확대
+        val scale = DisplayScale.forWindow(maxWidth.value, maxHeight.value)
+        val base = LocalDensity.current
+        CompositionLocalProvider(LocalDensity provides Density(base.density * scale, base.fontScale)) {
+            ScaledScreen(engine)
+        }
+    }
+}
+
+@Composable
+private fun ScaledScreen(engine: ChagokEngine) {
+    var exported by remember { mutableStateOf<File?>(null) }
+    BoxWithConstraints(Modifier.fillMaxSize()) {
         val wide = maxWidth >= 900.dp
         Column(Modifier.fillMaxSize().padding(20.dp)) {
             Header(engine)
@@ -135,7 +151,10 @@ private fun StatusPane(engine: ChagokEngine) {
         }
         val today = engine.todayTrips()
         val work = today.filter { it.purpose.isBusinessUse }.sumOf { it.distanceKm }
-        InfoLine("오늘 운행 ${today.size}건 · 업무 ${km(work)} km · 차종 ${engine.carModel}")
+        val car = engine.carModel.takeIf { it != ChagokEngine.NOT_SET }?.let { " · 차종 $it" } ?: ""
+        InfoLine("오늘 운행 ${today.size}건 · 업무 ${km(work)} km$car")
+        val source = if (engine.mode == ChagokEngine.Mode.SIMULATOR) "시뮬레이터" else "Pleos SDK"
+        InfoLine("차량 신호($source) · ${engine.signalSummary()}", size = 16)
         if (engine.status.isNotBlank()) Text(engine.status, color = C.Mute, fontSize = 14.sp)
     }
 }
@@ -385,11 +404,11 @@ private fun Chip(text: String, color: Color) {
 }
 
 @Composable
-private fun InfoLine(text: String) {
+private fun InfoLine(text: String, size: Int = 18) {
     Box(
         Modifier.fillMaxWidth().background(Color(0xFF121F35), RoundedCornerShape(16.dp))
             .border(1.dp, C.Line, RoundedCornerShape(16.dp)).padding(16.dp),
-    ) { Text(text, color = C.Sub, fontSize = 18.sp) }
+    ) { Text(text, color = C.Sub, fontSize = size.sp) }
 }
 
 @Composable

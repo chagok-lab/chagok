@@ -28,8 +28,8 @@ class SimulatedVehicleSignals : VehicleSignals {
     override fun start(listener: VehicleSignals.Listener) {
         this.listener = listener
         listener.onCarModel("그랜저 (시뮬레이터)")
-        listener.onFuelEconomy(11.8)
         listener.onOdometerKm(odoKm)
+        listener.onGear("P")
         listener.onDriverDoor(false)
         listener.onStatus("시뮬레이터: '다음 운행'으로 운행 1건 재생")
     }
@@ -42,7 +42,7 @@ class SimulatedVehicleSignals : VehicleSignals {
 
     fun nextLegName(): String = scenario[legIndex % scenario.size].destination
 
-    /** 운행 1건: 목적지 설정 → 0.3 km 단위로 누적거리 증가 → 도착 → 운전석 도어 열림 */
+    /** 운행 1건: 목적지 설정 → 기어 D → 0.3 km 단위로 누적거리 증가 → 도착 → 기어 P → 운전석 도어 열림 */
     fun runNextLeg() {
         val l = listener ?: return
         if (running) return
@@ -51,6 +51,7 @@ class SimulatedVehicleSignals : VehicleSignals {
         legIndex++
         l.onDriverDoor(false)
         l.onNaviDestination(leg.destination)
+        l.onGear("D")
         val target = round1(odoKm + leg.km)
         val step = object : Runnable {
             override fun run() {
@@ -62,9 +63,12 @@ class SimulatedVehicleSignals : VehicleSignals {
                 } else {
                     listener?.onNaviArrived()
                     main.postDelayed({
-                        listener?.onDriverDoor(true)
-                        running = false
-                    }, 1_200L)
+                        listener?.onGear("P")              // 주차: 용도 확인 카드 표시
+                        main.postDelayed({
+                            listener?.onDriverDoor(true)   // 하차
+                            running = false
+                        }, 600L)
+                    }, 600L)
                 }
             }
         }

@@ -18,7 +18,7 @@ class LedgerTest {
     private fun draft(id: Long, from: Double, to: Double, dest: String?) = Trip(
         seq = 0, tripId = id, revision = 0, startEpochMs = id * 1000, endEpochMs = id * 1000 + 500,
         startOdoKm = from, endOdoKm = to, destination = dest, purpose = Purpose.UNCONFIRMED,
-        suggested = Purpose.BUSINESS, user = "영업 김○○", source = "SIMULATOR", note = null, prevHash = "", hash = "",
+        suggested = Purpose.BUSINESS, user = "영업 홍○○", source = "SIMULATOR", note = null, prevHash = "", hash = "",
     )
 
     private fun sampleLedger(): List<Trip> {
