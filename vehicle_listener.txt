@@ -1,0 +1,288 @@
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.AmbientColorAutoByDriveModeEnabledListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onAmbientColorAutoByDriveModeEnabledUpdated(java.lang.Boolean);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.AmbientLightBrightnessColorListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onBrightnessColorUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.AmbientLightBrightnessListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onBrightnessUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.BrakePedalStatusListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onBrakePedalStatusUpdated(java.lang.Boolean);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.CruiseControlStateListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onCruiseControlStateUpdated(ai.pleos.playground.vehicle.constant.control.CruiseControl);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.CruiseControlTargetSpeedListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onCruiseControlTargetSpeedUpdated(java.lang.Float);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.DistanceDrivenListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onDistanceDrivenUpdated(java.lang.Float);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.DoorLockStateListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onDoorLockStateUpdated(java.lang.Boolean);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.DoorPositionListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onPositionUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.DrivingModeStateListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onDrivingModeStateUpdated(ai.pleos.playground.vehicle.constant.control.DrivingModeType);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.DrivingTimeListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onDrivingTimeUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.EtcsVoiceGuidanceVolumeListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onEtcsVoiceGuidanceVolumeUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.EvBatteryEfficiencyListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onEvBatteryEfficiencyUpdated(java.lang.Float);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.EvBatteryLevelListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onEvBatteryLevelUpdated(java.lang.Float);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.EvBatteryStateOfChargeListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onEvBatteryStateOfChargeUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.EvChargePortOpenListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onEvChargePortOpenUpdated(java.lang.Boolean);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.FuelEconomyListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onFuelEconomyUpdated(java.lang.Float);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.FuelPercentListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onFuelPercentUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.GearSelectionListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onSelected(ai.pleos.playground.vehicle.constant.control.VehicleGear);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.GloveBoxLockStateListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onGloveBoxLockStateUpdated(java.lang.Boolean);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.HvacAcStateListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onHvacAcStateUpdated(java.lang.Boolean);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.HvacAirCleanerStateListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onHvacAirCleanerStateUpdated(java.lang.Boolean);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.HvacAutoStateListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onHvacAutoStateUpdated(java.lang.Boolean);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.HvacDefrosterStateListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onHvacDefrosterStateUpdated(java.lang.Boolean);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.HvacDualStateListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onHvacDualStateUpdated(java.lang.Boolean);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.HvacFanSpeedListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onHvacFanSpeedUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.HvacMaxAcStateListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onHvacMaxAcStateUpdated(java.lang.Boolean);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.HvacMaxDefrostStateListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onHvacMaxDefrostStateUpdated(java.lang.Boolean);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.HvacPowerStateListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onHvacPowerStateUpdated(java.lang.Boolean);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.HvacRecirculationStateListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onHvacAutoRecirculationStateUpdated(java.lang.Boolean);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.HvacSeatTemperatureListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onHvacSeatTemperatureUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.HvacSeatVentilationListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onHvacSeatVentilationUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.HvacSideMirrorHeatStateListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onHvacSideMirrorHeatStateUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.HvacSteeringWheelHeatStateListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onHvacSteeringWheelHeatStateUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.HvacTemperatureListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onHvacTemperatureUpdated(java.lang.Float);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.HvacTemperatureValueListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onHvacTemperatureUpdated(java.lang.Float, java.lang.Float);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.LightStateListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onLightStateUpdated(ai.pleos.playground.vehicle.constant.control.LightState);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.LowWasherFluidWaringListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onLowWasherFluidWaringUpdated(java.lang.Boolean);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.OilLevelStateListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onOilLevelUpdated(ai.pleos.playground.vehicle.constant.control.OilLevelState);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.PowerDownWarningIndicatorListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onPowerDownWarningIndicatorUpdated(java.lang.Boolean);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.RangeRemainingListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onRangeRemainingChanged(java.lang.Float);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.SeatAirbagDeployedListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onSeatAirbagDeployUpdated(java.lang.Boolean);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.SeatAirbagEnabledListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onSeatAirbagEnabledUpdated(java.lang.Boolean);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.SeatBackrestAnglePositionListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onSeatBackrestAnglePositionUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.SeatBeltBuckledStateListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onSeatBeltBuckledStateUpdated(java.lang.Boolean);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.SeatBeltHeightPositionListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onSeatBeltHeightPositionUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.SeatBeltNotBuckledWarningListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onSeatBeltNotBuckledWarningUpdated(java.lang.Boolean);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.SeatDepthPositionListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onSeatDepthPositionUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.SeatForeAftPositionListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onSeatForeAftPositionUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.SeatHeadrestAnglePositionListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onSeatHeadrestAnglePositionUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.SeatHeadrestForeAftPositionListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onSeatHeadrestForeAftPositionUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.SeatHeadrestHeightAftPositionListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onSeatHeadrestHeightAftPositionUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.SeatHeightPositionListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onSeatHeightPositionUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.SeatLumbarForeAftPositionListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onSeatLumbarForeAftPositionUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.SeatLumbarSideSupportPositionListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onSeatLumbarSideSupportPositionUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.SeatOccupancyListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onSeatOccupancyUpdated(java.lang.Boolean);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.SeatTiltPositionListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onSeatTiltPositionUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.SmartGlassLevelListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onSmartGlassLevelUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.SmartGlassStateListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onSmartGlassStateUpdated(java.lang.Boolean);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.SteeringWheelAngleListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onSteeringWheelAngleUpdated(java.lang.Float);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.TelltaleInfoListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onTelltaleInfoUpdated(ai.pleos.playground.vehicle.api.model.telltale.Telltales);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.TemperatureDisplayUnitListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onTemperatureDisplayUnitUpdated(ai.pleos.playground.vehicle.constant.unit.TemperatureUnit);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.TirePressureListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onTirePressureUpdated(java.lang.Float);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.TripDrivingDistanceListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onTripDrivingDistanceUpdated(ai.pleos.playground.vehicle.api.model.common.TripStatistics<java.lang.Float>);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.TripDrivingTimeListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onTripDrivingTimeUpdated(ai.pleos.playground.vehicle.api.model.common.TripStatistics<java.lang.Integer>);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.TripEvEfficiencyListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onTripEvEfficiencyUpdated(ai.pleos.playground.vehicle.api.model.common.TripStatistics<java.lang.Float>);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.TripFuelEconomyListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onTripFuelEconomyUpdated(ai.pleos.playground.vehicle.api.model.common.TripStatistics<java.lang.Float>);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.TurnSignalStateListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onTurnSignalStateUpdated(ai.pleos.playground.vehicle.constant.area.TurnSignalValue);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onFailed(java.lang.Exception);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.WindowLockStateListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onWindowLockStateUpdated(java.lang.Boolean);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.WindowPositionListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onWindowPositionUpdated(java.lang.Integer);
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.listener.WiperStateListener extends ai.pleos.playground.vehicle.listener.VehicleListener {
+  public abstract void onWiperStateUpdated(ai.pleos.playground.vehicle.constant.control.WiperState);
+}

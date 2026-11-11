@@ -1,0 +1,9 @@
+total 44
+drwxr-xr-x 4 runner runner  4096 Nov 11 09:30 .
+drwxr-xr-x 6 runner runner  4096 Nov 11 09:30 ..
+-rw-r--r-- 1 runner runner   211 Feb  1  1980 AndroidManifest.xml
+drwxr-xr-x 3 runner runner  4096 Nov 11 09:30 META-INF
+-rw-r--r-- 1 runner runner     0 Feb  1  1980 R.txt
+drwxr-xr-x 3 runner runner  4096 Feb  1  1980 aidl
+-rw-r--r-- 1 runner runner 17655 Feb  1  1980 classes.jar
+-rw-r--r-- 1 runner runner   809 Feb  1  1980 proguard.txt

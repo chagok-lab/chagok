@@ -1,0 +1,27 @@
+Compiled from "SourceFile"
+public final class ai.pleos.playground.vehicle.Vehicle {
+  public ai.pleos.playground.vehicle.Vehicle(android.content.Context);
+  public final ai.pleos.playground.vehicle.service.b getServiceManager$Vehicle_release();
+  public final void initialize();
+  public final void release();
+  public final ai.pleos.playground.vehicle.api.EvBattery getEvBattery();
+  public final ai.pleos.playground.vehicle.api.HVAC getHVAC();
+  public final ai.pleos.playground.vehicle.api.Door getDoor();
+  public final ai.pleos.playground.vehicle.api.Seat getSeat();
+  public final ai.pleos.playground.vehicle.api.Window getWindow();
+  public final ai.pleos.playground.vehicle.api.Display getDisplay();
+  public final ai.pleos.playground.vehicle.api.Odometer getOdometer();
+  public final ai.pleos.playground.vehicle.api.Light getLight();
+  public final ai.pleos.playground.vehicle.api.Safety getSafety();
+  public final ai.pleos.playground.vehicle.api.CarInfo getCarInfo();
+  public final ai.pleos.playground.vehicle.api.DrivingMode getDrivingMode();
+  public final ai.pleos.playground.vehicle.api.Gear getGear();
+  public final ai.pleos.playground.vehicle.api.SteeringWheel getSteeringWheel();
+  public final ai.pleos.playground.vehicle.api.Toll getToll();
+  public final ai.pleos.playground.vehicle.api.TurnSignal getTurnSignal();
+  public final ai.pleos.playground.vehicle.api.Wiper getWiper();
+  public final ai.pleos.playground.vehicle.api.Tire getTire();
+  public final ai.pleos.playground.vehicle.api.SideMirror getSideMirror();
+  public final ai.pleos.playground.vehicle.api.Brake getBrake();
+  public final ai.pleos.playground.vehicle.api.Fuel getFuel();
+}

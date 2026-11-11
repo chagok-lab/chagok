@@ -1,0 +1,18 @@
+  #29 = Utf8               Lorg/jetbrains/annotations/Nullable;
+  #30 = Utf8               RuntimeInvisibleParameterAnnotations
+  public abstract void onSelected(ai.pleos.playground.vehicle.constant.control.VehicleGear);
+    RuntimeInvisibleParameterAnnotations:
+      parameter 0:
+          org.jetbrains.annotations.Nullable
+  #28 = Utf8               Lorg/jetbrains/annotations/Nullable;
+  #29 = Utf8               RuntimeInvisibleParameterAnnotations
+  public abstract void onDistanceDrivenUpdated(java.lang.Float);
+    RuntimeInvisibleParameterAnnotations:
+      parameter 0:
+          org.jetbrains.annotations.Nullable
+  #28 = Utf8               Lorg/jetbrains/annotations/Nullable;
+  #29 = Utf8               RuntimeInvisibleParameterAnnotations
+  public abstract void onPositionUpdated(java.lang.Integer);
+    RuntimeInvisibleParameterAnnotations:
+      parameter 0:
+          org.jetbrains.annotations.Nullable

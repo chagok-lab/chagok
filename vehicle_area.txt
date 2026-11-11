@@ -1,0 +1,133 @@
+Compiled from "SourceFile"
+public abstract class ai.pleos.playground.vehicle.api.model.area.Area {
+  public ai.pleos.playground.vehicle.api.model.area.Area(kotlin.jvm.internal.DefaultConstructorMarker);
+}
+Compiled from "SourceFile"
+public final class ai.pleos.playground.vehicle.api.model.area.DoorArea extends ai.pleos.playground.vehicle.api.model.area.Area {
+  public ai.pleos.playground.vehicle.api.model.area.DoorArea(ai.pleos.playground.vehicle.constant.area.DoorValue...);
+  public final ai.pleos.playground.vehicle.constant.area.DoorValue[] getValues();
+  public boolean equals(java.lang.Object);
+  public int hashCode();
+}
+Compiled from "SourceFile"
+public final class ai.pleos.playground.vehicle.api.model.area.GlobalArea extends ai.pleos.playground.vehicle.api.model.area.Area {
+  public static final ai.pleos.playground.vehicle.api.model.area.GlobalArea INSTANCE;
+}
+Compiled from "SourceFile"
+public final class ai.pleos.playground.vehicle.api.model.area.MirrorArea extends ai.pleos.playground.vehicle.api.model.area.Area {
+  public ai.pleos.playground.vehicle.api.model.area.MirrorArea(ai.pleos.playground.vehicle.constant.area.MirrorValue...);
+  public final ai.pleos.playground.vehicle.constant.area.MirrorValue[] getValues();
+  public boolean equals(java.lang.Object);
+  public int hashCode();
+}
+Compiled from "SourceFile"
+public final class ai.pleos.playground.vehicle.api.model.area.SeatArea extends ai.pleos.playground.vehicle.api.model.area.Area {
+  public ai.pleos.playground.vehicle.api.model.area.SeatArea(ai.pleos.playground.vehicle.constant.area.SeatValue...);
+  public final ai.pleos.playground.vehicle.constant.area.SeatValue[] getValues();
+  public boolean equals(java.lang.Object);
+  public int hashCode();
+}
+Compiled from "SourceFile"
+public final class ai.pleos.playground.vehicle.api.model.area.TurnSignalArea extends ai.pleos.playground.vehicle.api.model.area.Area {
+  public ai.pleos.playground.vehicle.api.model.area.TurnSignalArea(ai.pleos.playground.vehicle.constant.area.TurnSignalValue...);
+  public final ai.pleos.playground.vehicle.constant.area.TurnSignalValue[] getValues();
+  public boolean equals(java.lang.Object);
+  public int hashCode();
+}
+Compiled from "SourceFile"
+public final class ai.pleos.playground.vehicle.api.model.area.WheelArea extends ai.pleos.playground.vehicle.api.model.area.Area {
+  public ai.pleos.playground.vehicle.api.model.area.WheelArea(ai.pleos.playground.vehicle.constant.area.WheelValue...);
+  public final ai.pleos.playground.vehicle.constant.area.WheelValue[] getValues();
+  public boolean equals(java.lang.Object);
+  public int hashCode();
+}
+Compiled from "SourceFile"
+public final class ai.pleos.playground.vehicle.api.model.area.WindowArea extends ai.pleos.playground.vehicle.api.model.area.Area {
+  public ai.pleos.playground.vehicle.api.model.area.WindowArea(ai.pleos.playground.vehicle.constant.area.WindowValue...);
+  public final ai.pleos.playground.vehicle.constant.area.WindowValue[] getValues();
+  public boolean equals(java.lang.Object);
+  public int hashCode();
+}
+Compiled from "SourceFile"
+public interface ai.pleos.playground.vehicle.constant.area.AreaValue {
+  public abstract int getId();
+}
+Compiled from "SourceFile"
+public final class ai.pleos.playground.vehicle.constant.area.DoorValue extends java.lang.Enum<ai.pleos.playground.vehicle.constant.area.DoorValue> implements ai.pleos.playground.vehicle.constant.area.AreaValue {
+  public static final ai.pleos.playground.vehicle.constant.area.DoorValue ROW_1_LEFT;
+  public static final ai.pleos.playground.vehicle.constant.area.DoorValue ROW_1_RIGHT;
+  public static final ai.pleos.playground.vehicle.constant.area.DoorValue ROW_2_LEFT;
+  public static final ai.pleos.playground.vehicle.constant.area.DoorValue ROW_2_RIGHT;
+  public static final ai.pleos.playground.vehicle.constant.area.DoorValue ROW_3_LEFT;
+  public static final ai.pleos.playground.vehicle.constant.area.DoorValue ROW_3_RIGHT;
+  public static final ai.pleos.playground.vehicle.constant.area.DoorValue HOOD;
+  public static final ai.pleos.playground.vehicle.constant.area.DoorValue REAR;
+  public static ai.pleos.playground.vehicle.constant.area.DoorValue[] values();
+  public static ai.pleos.playground.vehicle.constant.area.DoorValue valueOf(java.lang.String);
+  public static kotlin.enums.EnumEntries<ai.pleos.playground.vehicle.constant.area.DoorValue> getEntries();
+  public int getId();
+}
+Compiled from "SourceFile"
+public final class ai.pleos.playground.vehicle.constant.area.MirrorValue extends java.lang.Enum<ai.pleos.playground.vehicle.constant.area.MirrorValue> implements ai.pleos.playground.vehicle.constant.area.AreaValue {
+  public static final ai.pleos.playground.vehicle.constant.area.MirrorValue DRIVER_LEFT;
+  public static final ai.pleos.playground.vehicle.constant.area.MirrorValue DRIVER_RIGHT;
+  public static final ai.pleos.playground.vehicle.constant.area.MirrorValue DRIVER_CENTER;
+  public static ai.pleos.playground.vehicle.constant.area.MirrorValue[] values();
+  public static ai.pleos.playground.vehicle.constant.area.MirrorValue valueOf(java.lang.String);
+  public static kotlin.enums.EnumEntries<ai.pleos.playground.vehicle.constant.area.MirrorValue> getEntries();
+  public int getId();
+}
+Compiled from "SourceFile"
+public final class ai.pleos.playground.vehicle.constant.area.SeatValue extends java.lang.Enum<ai.pleos.playground.vehicle.constant.area.SeatValue> implements ai.pleos.playground.vehicle.constant.area.AreaValue {
+  public static final ai.pleos.playground.vehicle.constant.area.SeatValue ROW_1_LEFT;
+  public static final ai.pleos.playground.vehicle.constant.area.SeatValue ROW_1_CENTER;
+  public static final ai.pleos.playground.vehicle.constant.area.SeatValue ROW_1_RIGHT;
+  public static final ai.pleos.playground.vehicle.constant.area.SeatValue ROW_2_LEFT;
+  public static final ai.pleos.playground.vehicle.constant.area.SeatValue ROW_2_CENTER;
+  public static final ai.pleos.playground.vehicle.constant.area.SeatValue ROW_2_RIGHT;
+  public static final ai.pleos.playground.vehicle.constant.area.SeatValue ROW_3_LEFT;
+  public static final ai.pleos.playground.vehicle.constant.area.SeatValue ROW_3_CENTER;
+  public static final ai.pleos.playground.vehicle.constant.area.SeatValue ROW_3_RIGHT;
+  public static ai.pleos.playground.vehicle.constant.area.SeatValue[] values();
+  public static ai.pleos.playground.vehicle.constant.area.SeatValue valueOf(java.lang.String);
+  public static kotlin.enums.EnumEntries<ai.pleos.playground.vehicle.constant.area.SeatValue> getEntries();
+  public int getId();
+}
+Compiled from "SourceFile"
+public final class ai.pleos.playground.vehicle.constant.area.TurnSignalValue extends java.lang.Enum<ai.pleos.playground.vehicle.constant.area.TurnSignalValue> implements ai.pleos.playground.vehicle.constant.area.AreaValue {
+  public static final ai.pleos.playground.vehicle.constant.area.TurnSignalValue$Companion Companion;
+  public static final ai.pleos.playground.vehicle.constant.area.TurnSignalValue OFF;
+  public static final ai.pleos.playground.vehicle.constant.area.TurnSignalValue RIGHT;
+  public static final ai.pleos.playground.vehicle.constant.area.TurnSignalValue LEFT;
+  public static ai.pleos.playground.vehicle.constant.area.TurnSignalValue[] values();
+  public static ai.pleos.playground.vehicle.constant.area.TurnSignalValue valueOf(java.lang.String);
+  public static kotlin.enums.EnumEntries<ai.pleos.playground.vehicle.constant.area.TurnSignalValue> getEntries();
+  public int getId();
+}
+Compiled from "SourceFile"
+public final class ai.pleos.playground.vehicle.constant.area.WheelValue extends java.lang.Enum<ai.pleos.playground.vehicle.constant.area.WheelValue> implements ai.pleos.playground.vehicle.constant.area.AreaValue {
+  public static final ai.pleos.playground.vehicle.constant.area.WheelValue UNKNOWN;
+  public static final ai.pleos.playground.vehicle.constant.area.WheelValue LEFT_FRONT;
+  public static final ai.pleos.playground.vehicle.constant.area.WheelValue RIGHT_FRONT;
+  public static final ai.pleos.playground.vehicle.constant.area.WheelValue LEFT_REAR;
+  public static final ai.pleos.playground.vehicle.constant.area.WheelValue RIGHT_REAR;
+  public static ai.pleos.playground.vehicle.constant.area.WheelValue[] values();
+  public static ai.pleos.playground.vehicle.constant.area.WheelValue valueOf(java.lang.String);
+  public static kotlin.enums.EnumEntries<ai.pleos.playground.vehicle.constant.area.WheelValue> getEntries();
+  public int getId();
+}
+Compiled from "SourceFile"
+public final class ai.pleos.playground.vehicle.constant.area.WindowValue extends java.lang.Enum<ai.pleos.playground.vehicle.constant.area.WindowValue> implements ai.pleos.playground.vehicle.constant.area.AreaValue {
+  public static final ai.pleos.playground.vehicle.constant.area.WindowValue FRONT_WINDSHIELD;
+  public static final ai.pleos.playground.vehicle.constant.area.WindowValue REAR_WINDSHIELD;
+  public static final ai.pleos.playground.vehicle.constant.area.WindowValue ROW_1_LEFT;
+  public static final ai.pleos.playground.vehicle.constant.area.WindowValue ROW_1_RIGHT;
+  public static final ai.pleos.playground.vehicle.constant.area.WindowValue ROW_2_LEFT;
+  public static final ai.pleos.playground.vehicle.constant.area.WindowValue ROW_2_RIGHT;
+  public static final ai.pleos.playground.vehicle.constant.area.WindowValue ROOF_TOP_1;
+  public static final ai.pleos.playground.vehicle.constant.area.WindowValue ROOF_TOP_2;
+  public static ai.pleos.playground.vehicle.constant.area.WindowValue[] values();
+  public static ai.pleos.playground.vehicle.constant.area.WindowValue valueOf(java.lang.String);
+  public static kotlin.enums.EnumEntries<ai.pleos.playground.vehicle.constant.area.WindowValue> getEntries();
+  public int getId();
+}
