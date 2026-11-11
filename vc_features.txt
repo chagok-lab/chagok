@@ -1,0 +1,63 @@
+gear-selection | Gear Selection | /vehicle/gear | enum | gear | None | VENDOR_GEAR_SELECTION | 0x21400400
+brake-pedal-status | Brake Pedal | /vehicle/controls | range | brake | % | BRAKE_PEDAL_STATUS | 0x21200409
+etcs-activated | ETCS Power | /vehicle/etcs | boolean | activated | None | None | None
+etcs-scenario | ETCS Scenario | /vehicle/etcs | enum | scenario | None | None | None
+power-system-actual | Power System Actual | /vehicle/power-system/simulator | enum | state | None | None | None
+telltales | Telltales | /vehicle/telltales/simulator | enum | state | None | TELLTALES | 0x21410900
+notification-1 | Notification 1 | /vehicle/notifications/simulator | boolean | display | None | None | None
+door-pos | Door Position | /vehicle/body | boolean | {'front_left': 'door_fl', 'front_right': 'door_fr', 'rear_left': 'door_rl', 'rear_right': 'door_rr'} | None | DOOR_POS | 0x16400B00
+door-lock | Door Lock | /vehicle/body | boolean | doors_locked | None | DOOR_LOCK | 0x16200B02
+trunk-position | Trunk / Frunk Position | /vehicle/body | boolean | {'frunk': 'frunk', 'trunk': 'trunk'} | None | DOOR_POS | 0x16400B00
+cruise-control-state | Cruise Control State | /vehicle/driving-mode | enum | ad_mode_state | None | CRUISE_CONTROL_STATE | 0x11401011
+cruise-control-target-speed | Cruise Target Speed | /vehicle/driving-mode | range | target_speed_mps | m/s | CRUISE_CONTROL_TARGET_SPEED | 0x11601013
+perf-odometer | Odometer | /vehicle/odometer | range | traveled_distance_km | km | PERF_ODOMETER | 0x11600204
+trip-driving-time | Trip Driving Time | /vehicle/odometer | range | usage_time_min | min | TRIP_DRIVING_TIME | 0x21410450
+range-remaining | Remaining Range | /vehicle/odometer | range | remaining_range_m | m | RANGE_REMAINING | 0x11600308
+ev-battery-level | Battery Energy | /vehicle/ev-battery | range | value | kWh | EV_BATTERY_LEVEL | 0x11600309
+ev-battery-soc | Battery SOC | /vehicle/ev-battery | range | value | % | EV_BATTERY_SOC | 0x21400BA7
+ev-battery-capacity | Battery Capacity | /vehicle/ev-battery | range | value | kWh | INFO_EV_BATTERY_CAPACITY | 0x11600106
+ev-charge-current-limit | Charge Current Limit | /vehicle/ev-battery | range | value | A | EV_CHARGE_CURRENT_DRAW_LIMIT | 0x11600F3F
+ev-charge-percent-limit | Charge Percent Limit | /vehicle/ev-battery | range | value | % | EV_CHARGE_PERCENT_LIMIT | 0x11600F40
+ev-charge-switch | Charge Switch | /vehicle/ev-battery | boolean | value | None | EV_CHARGE_SWITCH | 0x11200F42
+ev-charge-port | Charge Port | /vehicle/ev-battery | boolean | value | None | EV_CHARGE_PORT_OPEN | 0x1120030A
+tire-pressure | Tire Pressure | /vehicle/tire-pressure | range | pressure_kpa | kPa | TIRE_PRESSURE | 0x17600309
+steering-angle | Steering Angle | /vehicle/controls | range | steering | deg | PERF_STEERING_ANGLE | 0x11600209
+steering-wheel-heat | Steering Wheel Heat | /vehicle/steering-wheel-heat | enum | level | None | HVAC_STEERING_WHEEL_HEAT | 0x1140050D
+hvac-power | HVAC Power | /vehicle/hvac | boolean | power | None | HVAC_POWER_ON | 0x15200510
+hvac-ac | Air Conditioning | /vehicle/hvac | boolean | ac | None | HVAC_AC_ON | 0x15200505
+hvac-auto | HVAC Auto | /vehicle/hvac | boolean | auto | None | HVAC_AUTO_ON | 0x1520050A
+hvac-dual | HVAC Dual | /vehicle/hvac | boolean | dual | None | HVAC_DUAL_ON | 0x15200509
+hvac-recirc | Air Recirculation | /vehicle/hvac | boolean | recirc | None | HVAC_RECIRC_ON | 0x15200508
+hvac-fan-speed | Fan Speed | /vehicle/hvac | range | fan_speed | None | HVAC_FAN_SPEED | 0x15400500
+hvac-fan-direction | Fan Direction | /vehicle/hvac | enum | {'driver': 'driver_direction', 'passenger': 'passenger_direction'} | None | HVAC_FAN_DIRECTION | 0x15400501
+hvac-defroster | Defroster | /vehicle/hvac | boolean | {'front_defroster_on': 'front_defroster', 'rear_defroster_on': 'rear_defroster'} | None | HVAC_DEFROSTER | 0x13200504
+hvac-temperature-set | Target Temperature | /vehicle/hvac | range | {'driver': 'driver_temp', 'passenger': 'passenger_temp'} | °C | HVAC_TEMPERATURE_SET | 0x15600503
+hvac-seat-temperature | Seat Temperature | /vehicle/hvac | enum | {'driver': 'driver_seat', 'passenger': 'passenger_seat'} | None | HVAC_SEAT_TEMPERATURE | 0x1540050B
+hvac-air-cleaner | Air Cleaner | /vehicle/hvac-air-cleaner | boolean | activated | None | HVAC_AIR_CLEANER | 0x2520080A
+cabin-lights-switch | Cabin Lights Switch | /vehicle/body | boolean | cabin_light | None | CABIN_LIGHTS_SWITCH | 0x11400F02
+reading-lights-switch | Reading Lights | /vehicle/reading-lights | boolean | value | None | READING_LIGHTS_SWITCH | 0x15400F04
+ambient-light-switch | Ambient Light Switch | /vehicle/body | enum | ambient_mode | None | INTERIOR_LIGHTS_AMBIENT_SWITCH | 0x25400786
+ambient-light-brightness | Ambient Brightness | /vehicle/body | range | ambient_brightness | % | INTERIOR_LIGHTS_AMBIENT_BRIGHTNESS | 0x25400781
+ambient-light-color | Ambient Color | /vehicle/body | enum | ambient_color | None | INTERIOR_LIGHTS_AMBIENT_BRIGHTNESS_COLOR | 0x25400783
+exterior-lights-mode | Exterior Lights Mode | /vehicle/lights | enum | value | None | EXTERIOR_LIGHTS_MODE | 0x21400754
+high-beam-lights | High Beam | /vehicle/lights | boolean | value | None | HIGH_BEAM_LIGHTS_STATE | 0x11400E01
+hazard-lights | Hazard Lights | /vehicle/lights | boolean | value | None | HAZARD_LIGHTS_SWITCH | 0x11400E13
+stop-lights | Stop Lights | /vehicle/lights | boolean | value | None | STOP_LIGHTS_STATE | 0x21400757
+door-lights | Door Lights | /vehicle/lights | boolean | value | None | DOOR_LIGHTS_SWITCH | 0x2640077F
+escort-lights | Escort Lights | /vehicle/lights | boolean | value | None | ESCORT_LIGHTS_ENABLED | 0x2120075C
+turn-signal-state | Turn Signal State | /vehicle/turn-signal | enum | mode | None | TURN_SIGNAL_STATE | 0x11400408
+window-position | Window Position | /vehicle/body | range | {'front_left': 'window_fl', 'front_right': 'window_fr', 'rear_left': 'window_rl', 'rear_right': 'window_rr'} | % | WINDOW_POS | 0x13400BC0
+window-lock | Window Lock | /vehicle/window-lock | boolean | locked | None | WINDOW_LOCK | 0x13200BC4
+seat-fore-aft-position | Seat Fore/Aft Position | /vehicle/seat | range | value | % | SEAT_FORE_AFT_POS | 0x15400B85
+seat-fore-aft-move | Seat Fore/Aft Move | /vehicle/seat | enum | value | None | SEAT_FORE_AFT_MOVE | 0x15400B86
+seat-backrest-position | Seat Backrest Position | /vehicle/seat | range | value | % | SEAT_BACKREST_ANGLE_1_POS | 0x15400B87
+seat-backrest-move | Seat Backrest Move | /vehicle/seat | enum | value | None | SEAT_BACKREST_ANGLE_1_MOVE | 0x15400B88
+seat-height-position | Seat Height Position | /vehicle/seat | range | value | % | SEAT_HEIGHT_POS | 0x15400B8B
+seat-height-move | Seat Height Move | /vehicle/seat | enum | value | None | SEAT_HEIGHT_MOVE | 0x15400B8C
+seat-tilt-position | Seat Tilt Position | /vehicle/seat | range | value | % | SEAT_TILT_POS | 0x15400B8F
+seat-tilt-move | Seat Tilt Move | /vehicle/seat | enum | value | None | SEAT_TILT_MOVE | 0x15400B90
+seat-lumbar-position | Seat Lumbar Position | /vehicle/seat | range | value | % | SEAT_LUMBAR_FORE_AFT_POS | 0x15400B91
+seat-lumbar-move | Seat Lumbar Move | /vehicle/seat | enum | value | None | SEAT_LUMBAR_FORE_AFT_MOVE | 0x15400B92
+seat-occupancy | Seat Occupancy | /vehicle/seat | boolean | value | None | SEAT_OCCUPANCY | 0x15400BB0
+windshield-wipers-switch | Windshield Wiper Switch | /vehicle/body | enum | {'front': 'front_wiper', 'rear': 'rear_wiper'} | None | WINDSHIELD_WIPERS_SWITCH | 0x13400BC7
+glove-box-door-pos | Glove Box | /vehicle/glove-box | boolean | opened | None | GLOVE_BOX_DOOR_POS | 0x15400BF0

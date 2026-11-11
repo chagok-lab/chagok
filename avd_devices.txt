@@ -1,0 +1,67 @@
+automotive_1024p_landscape
+Galaxy Nexus
+desktop_large
+desktop_medium
+medium_phone
+medium_tablet
+Nexus 10
+Nexus 4
+Nexus 5
+Nexus 5X
+Nexus 6
+Nexus 6P
+Nexus 7 2013
+Nexus 7
+Nexus 9
+Nexus One
+Nexus S
+pixel
+pixel_2
+pixel_2_xl
+pixel_3
+pixel_3_xl
+pixel_3a
+pixel_3a_xl
+pixel_4
+pixel_4_xl
+pixel_4a
+pixel_5
+pixel_6
+pixel_6_pro
+pixel_6a
+pixel_7
+pixel_7_pro
+pixel_c
+pixel_tablet
+pixel_xl
+Pleos_Connect_v2_0
+resizable
+desktop_small
+small_phone
+tv_1080p
+tv_4k
+tv_720p
+wearos_large_round
+wearos_rect
+wearos_small_round
+wearos_square
+2.7in QVGA
+2.7in QVGA slider
+3.2in HVGA slider (ADP1)
+3.2in QVGA (ADP2)
+3.3in WQVGA
+3.4in WQVGA
+3.7 FWVGA slider
+3.7in WVGA (Nexus One)
+4in WVGA (Nexus S)
+4.65in 720p (Galaxy Nexus)
+4.7in WXGA
+5.1in WVGA
+5.4in FWVGA
+6.7in Foldable
+7in WSVGA (Tablet)
+7.4in Rollable
+7.6in Foldable
+8in Foldable
+10.1in WXGA (Tablet)
+13.5in Freeform

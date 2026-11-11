@@ -1,0 +1,243 @@
+== host
+/dev/root       145G   52G   93G  36% /
+4
+               total        used        free      shared  buff/cache   available
+Mem:              15           0          14           0           0          14
+crw-rw-rw- 1 root kvm 10, 232 Nov 11 11:32 /dev/kvm
+build-tools
+cmake
+cmdline-tools
+extras
+licenses
+ndk
+packages-list.txt
+platform-tools
+platforms
+== SDK 저장소 XML
+RESULT xml_download=yes
+<sys-img:sdk-sys-img xmlns:sys-img="http://schemas.android.com/sdk/android/repo/sys-img2/01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<license id="pleos-connect-sdk-license" type="text">Software Development Kit License Agreement
+		This Software Development Kit License Agreement (this “License Agreement”) is a legally binding agreement between the undersigned licensee (“you” or “your”) and 42dot Inc., a corporation with its principal place of business at 9Fl., D&amp;O Gangnam Building 2621, Nambusunhwan-ro, Gangnam-gu, Seoul 06267, Republic of Korea (“42dot”) and governs your use of the SDK (as defined below).
+		1. Definitions
+		1.1 “SDK” means the Pleos Connect Reference Platform Software Development Kit of 42dot, which may specifically contain the packaged Application Programming Interfaces (APIs), emulator, and documents.
+		1.2 "Pleos Connect'' is 42dot’s proprietary In-Vehicle Infotainment (IVI) solution package comprising hardware, sensors, BSP, and apps that are used for the development of IVI. The software components of the CRP include, but not limited to, IVI OS based on Android Automotive OS, default apps, Artificial Intelligence assistant (including voice assistant), navigation (including lane-based navigation), app market, and CRP sync. The hardware devbox of the CRP include, but not limited to, reference silverbox (including board, BSP, AP), LCD panel, and mechanical parts required for CRP software to function. software stack for software defined vehicles, as made available under 42dot, which includes operating systems, Artificial Intelligence assistant, Artificial Intelligence navigation and App market.
+		1.3 “Terms of Service” means any and all terms, rules, guidelines, policies, requirements, or instructions that 42dot requires in connection with the SDK, including, but not limited to, the development, operation, maintenance, services, or update of your application using the SDK.
+		2. Acceptance of License Agreement
+		2.1 In order to use the SDK, you must first agree to this License Agreement. You may not use the SDK if you do not accept this License Agreement.
+		2.2 By clicking to accept this License Agreement or by installing or using the SDK, you hereby agree to be bound by the terms of this License Agreement.
+		2.3 You may not use the SDK and may not accept this License Agreement if you are a person barred from receiving the SDK under the laws of the Republic of Korea or other countries, including the country in which you are resident or from which you use the SDK.
+		2.4 If you are agreeing to be bound by this License Agreement on behalf of your employer or other entity, you represent and warrant that you have full legal authority to bind your employer or such entity to this License Agreement. If you do not have the requisite authority, you may not accept this License Agreement or use the SDK on behalf of your employer or other entity.
+		3. SDK License from 42dot
+		3.1 Subject to the terms of this License Agreement, 42dot grants you a limited, worldwide, free of charge (subject to 3.1.1), non-assignable, non-exclusive, and non-sublicensable license to use the SDK in the form provided, solely to develop applications for compatible implementations of CRP. 
+                3.1.1 Notwithstanding anything to the contrary herein, during the term of this Agreement, 42dot may, with prior notice, require you to pay a license fee for the use of the SDK under this Agreement and the license shall remain in effect subject to the payment of the license fee by you.
+		3.2 You may not use the SDK to develop applications for other platforms (including non-compatible implementations of CRP) or to develop another SDK.
+		3.3 You agree that 42dot solely owns all legal right, title and interest in and to the SDK, including any Intellectual Property Rights that subsist in the SDK. "Intellectual Property Rights" means any and all rights under patent law, copyright law, trade secret law, trademark law, and any and all other proprietary rights. 42dot reserves all rights not expressly granted to you under this License Agreement.
+		3.4 You may not use the SDK for any purpose not expressly permitted by this License Agreement.  Except to the extent required by applicable third party licenses, you may not rent, lease, lend, copy (except for backup purposes), modify, adapt, redistribute, decompile, reverse engineer, disassemble, or create derivative works of the SDK or any part of the SDK.
+		3.5 You agree that the form and nature of the SDK that 42dot provides may change without prior notice to you and that future versions of the SDK may be incompatible with applications developed on previous versions of the SDK. You agree that 42dot may update, upgrade, or stop (permanently or temporarily) providing the SDK (or any features within the SDK) to you or to users generally at 42dot's sole discretion, without prior notice to you.  42dot shall have no obligation to support the SDK or any
+PKG_COUNT=1
+PKG_PATH='system-images;android-34;pleos_car_emulator;x86_64'
+PKG_API=34
+PKG_ABI=x86_64
+PKG_DISPLAY='Pleos Connect v2.1.0 APIs Intel x86_64 Atom System Image'
+PKG_TAG=android-automotive
+PKG_TAG_DISPLAY='Pleos Connect v2.1.0 APIs'
+PKG_REVISION=2
+ZIP_URL=https://nexus-playground.pleos.ai/repository/raw-releases/connect-avd/2.x/crp_car_emulator.zip
+ZIP_SIZE=4087751964
+ZIP_SHA=b4f858d5bcc6c71506d7edfc872bcb9e5a11acaa
+RESULT package_found=yes
+== 에뮬레이터·플랫폼 도구
+yes: standard output: Broken pipe
+yes: standard output: Broken pipe
+/usr/local/lib/android/sdk/emulator/qemu/linux-x86_64/qemu-system-x86_64: error while loading shared libraries: libpulse.so.0: cannot open shared object file: No such file or directory
+== 시스템 이미지 설치 (1) sdkmanager + 사용자 저장소
+### User Sources for Android SDK Manager
+count=1
+src00=https\://nexus-playground.pleos.ai/repository/raw-releases/connect-avd/2.x/crp-sys-img.xml
+disp00=Pleos Connect System Image
+enabled00=true
+yes: standard output: Broken pipe
+Loading package information...                                                  Loading local repository...                                                     [                                       ] 3% Loading local repository...        [                                       ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 5% Fetch remote repository...         [==                                     ] 5% Fetch remote repository...         [==                                     ] 6% Fetch remote repository...         [==                                     ] 7% Fetch remote repository...         [==                                     ] 7% Computing updates...               [===                                    ] 8% Computing updates...               [===                                    ] 10% Computing updates...                                                                                              Warning: Failed to find package 'system-images;android-34;pleos_car_emulator;x86_64'
+[===                                    ] 10% Computing updates...              == 시스템 이미지 설치 (2) 직접 내려받기: https://nexus-playground.pleos.ai/repository/raw-releases/connect-avd/2.x/crp_car_emulator.zip
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0 3898M    0 18357    0     0  24075      0 47:09:52 --:--:-- 47:09:52 24058  0 3898M    0 5823k    0     0  3186k      0  0:20:52  0:00:01  0:20:51 3185k  0 3898M    0 33.5M    0     0  11.7M      0  0:05:30  0:00:02  0:05:28 11.7M  1 3898M    1 59.2M    0     0  15.6M      0  0:04:08  0:00:03  0:04:05 15.6M  2 3898M    2 87.1M    0     0  18.3M      0  0:03:32  0:00:04  0:03:28 18.3M  2 3898M    2  116M    0     0  20.1M      0  0:03:13  0:00:05  0:03:08 23.2M  3 3898M    3  145M    0     0  21.5M      0  0:03:01  0:00:06  0:02:55 28.3M  4 3898M    4  178M    0     0  22.9M      0  0:02:49  0:00:07  0:02:42 29.3M  5 3898M    5  207M    0     0  23.7M      0  0:02:44  0:00:08  0:02:36 29.8M  6 3898M    6  241M    0     0  24.7M      0  0:02:37  0:00:09  0:02:28 30.8M  6 3898M    6  271M    0     0  25.2M      0  0:02:34  0:00:10  0:02:24 31.2M  7 3898M    7  303M    0     0  25.8M      0  0:02:30  0:00:11  0:02:19 31.6M  8 3898M    8  337M    0     0  26.3M      0  0:02:27  0:00:12  0:02:15 31.7M  9 3898M    9  367M    0     0  26.7M      0  0:02:25  0:00:13  0:02:12 32.0M 10 3898M   10  402M    0     0  27.1M      0  0:02:23  0:00:14  0:02:09 31.9M 11 3898M   11  432M    0     0  27.4M      0  0:02:21  0:00:15  0:02:06 32.2M 11 3898M   11  465M    0     0  27.8M      0  0:02:20  0:00:16  0:02:04 32.4M 12 3898M   12  492M    0     0  27.7M      0  0:02:20  0:00:17  0:02:03 31.1M 13 3898M   13  513M    0     0  27.3M      0  0:02:22  0:00:18  0:02:04 29.2M 13 3898M   13  537M    0     0  27.2M      0  0:02:23  0:00:19  0:02:04 27.2M 14 3898M   14  559M    0     0  26.9M      0  0:02:24  0:00:20  0:02:04 25.3M 14 3898M   14  583M    0     0  26.8M      0  0:02:25  0:00:21  0:02:04 23.5M 15 3898M   15  605M    0     0  26.5M      0  0:02:26  0:00:22  0:02:04 22.6M 16 3898M   16  627M    0     0  26.4M      0  0:02:27  0:00:23  0:02:04 22.7M 16 3898M   16  650M    0     0  26.2M      0  0:02:28  0:00:24  0:02:04 22.6M 17 3898M   17  672M    0     0  26.1M      0  0:02:29  0:00:25  0:02:04 22.6M 17 3898M   17  696M    0     0  26.0M      0  0:02:29  0:00:26  0:02:03 22.6M 18 3898M   18  718M    0     0  25.8M      0  0:02:30  0:00:27  0:02:03 22.6M 19 3898M   19  741M    0     0  25.7M      0  0:02:31  0:00:28  0:02:03 22.6M 19 3898M   19  764M    0     0  25.6M      0  0:02:31  0:00:29  0:02:02 22.6M 20 3898M   20  785M    0     0  25.5M      0  0:02:32  0:00:30  0:02:02 22.6M 20 3898M   20  809M    0     0  25.4M      0  0:02:32  0:00:31  0:02:01 22.5M 21 3898M   21  831M    0     0  25.3M      0  0:02:33  0:00:32  0:02:01 22.5M 21 3898M   21  853M    0     0  25.2M      0  0:02:34  0:00:33  0:02:01 22.5M 22 3898M   22  876M    0     0  25.2M      0  0:02:34  0:00:34  0:02:00 22.5M 23 3898M   23  898M    0     0  25.1M      0  0:02:35  0:00:35  0:02:00 22.6M 23 3898M   23  922M    0     0  25.0M      0  0:02:35  0:00:36  0:01:59 22.5M 24 3898M   24  945M    0     0  25.0M      0  0:02:35  0:00:37  0:01:58 22.8M 24 3898M   24  970M    0     0  25.0M      0  0:02:35  0:00:38  0:01:57 23.2M 25 3898M   25  997M    0     0  25.0M      0  0:02:35  0:00:39  0:01:56 24.0M 26 3898M   26 1025M    0     0  25.1M      0  0:02:34  0:00:40  0:01:54 25.3M 27 3898M   27 1057M    0     0  25.3M      0  0:02:33  0:00:41  0:01:52 27.0M 27 3898M   27 1090M    0     0  25.5M      0  0:02:32  0:00:42  0:01:50 29.0M 28 3898M   28 1126M    0     0  25.7M      0  0:02:31  0:00:43  0:01:48 31.2M 29 3898M   29 1166M    0     0  26.0M      0  0:02:29  0:00:44  0:01:45 33.7M 31 3898M   31 1208M    0     0  26.4M      0  0:02:27  0:00:45  0:01:42 36.4M 32 3898M   32 1253M    0     0  26.8M      0  0:02:25  0:00:46  0:01:39 39.1M 33 3898M   33 1300M    0     0  27.2M      0  0:02:23  0:00:47  0:01:36 41.9M 34 3898M   34 1351M    0     0  27.6M      0  0:02:20  0:00:48  0:01:32 43.8M 35 3898M   35 1385M    0     0  27.8M      0  0:02:20  0:00:49  0:01:31 43.8M 36 3898M   36 1428M    0     0  28.0M      0  0:02:18  0:00:50  0:01:28 43.4M 37 3898M   37 1466M    0     0  28.3M      0  0:02:17  0:00:51  0:01:26 42.5M 38 3898M   38 1508M    0     0  28.5M      0  0:02:16  0:00:52  0:01:24 41.6M 39 3898M   39 1549M    0     0  28.8M      0  0:02:15  0:00:53  0:01:22 40.3M 40 3898M   40 1589M    0     0  29.0M      0  0:02:14  0:00:54  0:01:20 40.9M 41 3898M   41 1633M    0     0  29.2M      0  0:02:13  0:00:55  0:01:18 41.0M 42 3898M   42 1673M    0     0  29.4M      0  0:02:12  0:00:56  0:01:16 41.3M 44 3898M   44 1716M    0     0  29.7M      0  0:02:11  0:00:57  0:01:14 41.4M 45 3898M   45 1760M    0     0  29.9M      0  0:02:10  0:00:58  0:01:12 42.0M 45 3898M   45 1790M    0     0  29.9M      0  0:02:10  0:00:59  0:01:11 39.9M 46 3898M   46 1827M    0     0  30.0M      0  0:02:09  0:01:00  0:01:09 38.5M 47 3898M   47 1861M    0     0  30.1M      0  0:02:09  0:01:01  0:01:08 37.5M 48 3898M   48 1899M    0     0  30.2M      0  0:02:08  0:01:02  0:01:06 36.5M 49 3898M   49 1940M    0     0  30.4M      0  0:02:08  0:01:03  0:01:05 35.9M 50 3898M   50 1979M    0     0  30.5M      0  0:02:07  0:01:04  0:01:03 37.9M 51 3898M   51 2023M    0     0  30.7M      0  0:02:06  0:01:05  0:01:01 39.9M 52 3898M   52 2064M    0     0  30.9M      0  0:02:06  0:01:06  0:01:00 40.6M 54 3898M   54 2106M    0     0  31.0M      0  0:02:05  0:01:07  0:00:58 41.4M 55 3898M   55 2152M    0     0  31.3M      0  0:02:04  0:01:08  0:00:56 42.8M 56 3898M   56 2194M    0     0  31.4M      0  0:02:03  0:01:09  0:00:54 42.7M 57 3898M   57 2236M    0     0  31.6M      0  0:02:03  0:01:10  0:00:53 42.6M 58 3898M   58 2281M    0     0  31.7M      0  0:02:02  0:01:11  0:00:51 43.1M 59 3898M   59 2324M    0     0  31.9M      0  0:02:02  0:01:12  0:00:50 43.3M 60 3898M   60 2368M    0     0  32.1M      0  0:02:01  0:01:13  0:00:48 43.2M 61 3898M   61 2414M    0     0  32.2M      0  0:02:00  0:01:14  0:00:46 43.5M 63 3898M   63 2456M    0     0  32.4M      0  0:02:00  0:01:15  0:00:45 43.7M 64 3898M   64 2500M    0     0  32.5M      0  0:01:59  0:01:16  0:00:43 44.2M 65 3898M   65 2546M    0     0  32.7M      0  0:01:59  0:01:17  0:00:42 44.0M 66 3898M   66 2588M    0     0  32.8M      0  0:01:58  0:01:18  0:00:40 43.7M 67 3898M   67 2631M    0     0  32.9M      0  0:01:58  0:01:19  0:00:39 44.2M 68 3898M   68 2678M    0     0  33.1M      0  0:01:57  0:01:20  0:00:37 43.9M 69 3898M   69 2720M    0     0  33.2M      0  0:01:57  0:01:21  0:00:36 43.8M 70 3898M   70 2766M    0     0  33.4M      0  0:01:56  0:01:22  0:00:34 44.6M 72 3898M   72 2812M    0     0  33.5M      0  0:01:56  0:01:23  0:00:33 45.0M 73 3898M   73 2858M    0     0  33.7M      0  0:01:55  0:01:24  0:00:31 45.0M 74 3898M   74 2901M    0     0  33.8M      0  0:01:55  0:01:25  0:00:30 45.3M 75 3898M   75 2949M    0     0  34.0M      0  0:01:54  0:01:26  0:00:28 46.0M 76 3898M   76 2999M    0     0  34.1M      0  0:01:54  0:01:27  0:00:27 45.9M 78 3898M   78 3046M    0     0  34.3M      0  0:01:53  0:01:28  0:00:25 46.6M 79 3898M   79 3081M    0     0  34.3M      0  0:01:53  0:01:29  0:00:24 44.4M 79 3898M   79 3111M    0     0  34.2M      0  0:01:53  0:01:30  0:00:23 41.8M 80 3898M   80 3144M    0     0  34.2M      0  0:01:53  0:01:31  0:00:22 38.8M 81 3898M   81 3174M    0     0  34.2M      0  0:01:53  0:01:32  0:00:21 35.4M 82 3898M   82 3208M    0     0  34.2M      0  0:01:53  0:01:33  0:00:20 32.4M 83 3898M   83 3241M    0     0  34.2M      0  0:01:53  0:01:34  0:00:19 32.4M 84 3898M   84 3274M    0     0  34.1M      0  0:01:53  0:01:35  0:00:18 32.6M 84 3898M   84 3311M    0     0  34.2M      0  0:01:53  0:01:36  0:00:17 33.2M 85 3898M   85 3344M    0     0  34.2M      0  0:01:53  0:01:37  0:00:16 33.9M 86 3898M   86 3380M    0     0  34.2M      0  0:01:53  0:01:38  0:00:15 34.5M 87 3898M   87 3414M    0     0  34.2M      0  0:01:53  0:01:39  0:00:14 34.5M 88 3898M   88 3449M    0     0  34.2M      0  0:01:53  0:01:40  0:00:13 35.0M 89 3898M   89 3485M    0     0  34.2M      0  0:01:53  0:01:41  0:00:12 34.8M 90 3898M   90 3519M    0     0  34.2M      0  0:01:53  0:01:42  0:00:11 35.0M 91 3898M   91 3555M    0     0  34.2M      0  0:01:53  0:01:43  0:00:10 34.9M 92 3898M   92 3589M    0     0  34.2M      0  0:01:53  0:01:44  0:00:09 34.9M 93 3898M   93 3626M    0     0  34.2M      0  0:01:53  0:01:45  0:00:08 35.3M 93 3898M   93 3660M    0     0  34.2M      0  0:01:53  0:01:46  0:00:07 35.1M 94 3898M   94 3696M    0     0  34.3M      0  0:01:53  0:01:47  0:00:06 35.4M 95 3898M   95 3733M    0     0  34.3M      0  0:01:53  0:01:48  0:00:05 35.5M 96 3898M   96 3769M    0     0  34.3M      0  0:01:53  0:01:49  0:00:04 36.0M 97 3898M   97 3808M    0     0  34.3M      0  0:01:53  0:01:50  0:00:03 36.3M 98 3898M   98 3846M    0     0  34.4M      0  0:01:53  0:01:51  0:00:02 37.1M 99 3898M   99 3886M    0     0  34.4M      0  0:01:53  0:01:52  0:00:01 38.0M100 3898M  100 3898M    0     0  34.4M      0  0:01:53  0:01:53 --:--:-- 38.6M
+-rw-r--r-- 1 runner runner 4087751964 Nov 11 11:34 /home/runner/work/_temp/pleos_img.zip
+RESULT image_installed=manual
+== 시스템 이미지 내용
+total 19182704
+drwxr-xr-x 3 runner runner        4096 Nov 11 11:36 .
+drwxr-xr-x 3 runner runner        4096 Nov 11 11:34 ..
+-rw-rw-r-- 1 runner runner         356 Oct 16 09:23 VerifiedBootParams.textproto
+-rw-rw-r-- 1 runner runner         668 Oct 16 09:23 advancedFeatures.ini
+-rw-rw-r-- 1 runner runner        6843 Oct 16 09:23 build.prop
+drwxrwxr-x 3 runner runner        4096 Oct 16 09:23 data
+-rw-rw-r-- 1 runner runner        3064 Oct 16 09:23 devices.xml
+-rw-rw-r-- 1 runner runner    18874368 Oct 16 09:23 encryptionkey.img
+-rw-rw-r-- 1 runner runner    17374688 Oct 16 09:23 kernel-ranchu
+-rw-rw-r-- 1 runner runner     1567067 Oct 16 09:23 ramdisk.img
+-rw-rw-r-- 1 runner runner         484 Oct 16 09:23 source.properties
+-rw-rw-r-- 1 runner runner 18256756736 Oct 16 09:23 system.img
+-rw-rw-r-- 1 runner runner  1153433600 Oct 16 09:23 userdata.img
+-rw-rw-r-- 1 runner runner   195035136 Oct 16 09:23 vendor.img
+19G	/usr/local/lib/android/sdk/system-images/android-34/pleos_car_emulator/x86_64
+--- source.properties
+Pkg.Desc=System Image x86_64
+Pkg.Revision=1
+Pkg.Dependencies=emulator
+AndroidVersion.ApiLevel=34
+SystemImage.Abi=x86_64
+SystemImage.TagId=android-automotive
+SystemImage.TagDisplay=Automotive
+SystemImage.GpuSupport=true
+Addon.VendorId=42dot
+Addon.VendorDisplay=42dot Inc.
+avd_config_ini.hw.keyboard=yes
+avd_config_ini.hw.ramSize=8192
+avd_config_ini.hw.gpu.enabled=yes
+avd_config_ini.hw.gpu.mode=host
+avd_config_ini.hw.multi_display_window=no
+avd_config_ini.hw.hotplug_multi_display=no
+
+--- build.prop
+####################################
+# from generate-common-build-props
+# These properties identify this partition image.
+####################################
+ro.product.system.brand=Android
+ro.product.system.device=generic
+ro.product.system.manufacturer=Android
+ro.product.system.model=car_generic
+ro.product.system.name=car_generic
+ro.system.product.cpu.abilist=x86_64
+ro.system.product.cpu.abilist32=
+ro.system.product.cpu.abilist64=x86_64
+ro.system.build.date=Fri Oct 16 08:27:56 UTC 2026
+ro.system.build.date.utc=1792139276
+ro.system.build.fingerprint=Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys
+ro.system.build.id=RELEASE.release_connect_v2.1.0
+ro.system.build.tags=test-keys
+ro.system.build.type=user
+ro.system.build.version.incremental=release_connect_v2.1.0
+ro.system.build.version.release=14
+ro.system.build.version.release_or_codename=14
+ro.system.build.version.sdk=34
+####################################
+# from out/target/product/crp_avd_x86_64/obj/PACKAGING/system_build_prop_intermediates/buildinfo.prop
+####################################
+# begin build properties
+# autogenerated by buildinfo.sh
+ro.build.id=RELEASE.release_connect_v2.1.0
+ro.build.display.id=RELEASE.release_connect_v2.1.0 test-keys
+ro.build.version.incremental=release_connect_v2.1.0
+ro.build.version.sdk=34
+ro.build.version.preview_sdk=0
+ro.build.version.preview_sdk_fingerprint=REL
+ro.build.version.codename=REL
+ro.build.version.all_codenames=REL
+ro.build.version.known_codenames=Base,Base11,Cupcake,Donut,Eclair,Eclair01,EclairMr1,Froyo,Gingerbread,GingerbreadMr1,Honeycomb,HoneycombMr1,HoneycombMr2,IceCreamSandwich,IceCreamSandwichMr1,JellyBean,JellyBeanMr1,JellyBeanMr2,Kitkat,KitkatWatch,Lollipop,LollipopMr1,M,N,NMr1,O,OMr1,P,Q,R,S,Sv2,Tiramisu,UpsideDownCake
+ro.build.version.release=14
+ro.build.version.release_or_codename=14
+ro.build.version.release_or_preview_display=14
+ro.build.version.security_patch=2023-12-05
+ro.build.version.base_os=
+ro.build.version.min_supported_target_sdk=28
+ro.build.date=Fri Oct 16 08:27:56 UTC 2026
+ro.build.date.utc=1792139276
+ro.build.type=user
+ro.build.user=build
+ro.build.host=runner-89bekiuyh-project-51412493-concurrent-0
+ro.build.tags=test-keys
+ro.build.flavor=crp_avd-user
+# ro.product.cpu.abi and ro.product.cpu.abi2 are obsolete,
+# use ro.product.cpu.abilist instead.
+ro.product.cpu.abi=x86_64
+ro.product.locale=ko-KR
+ro.wifi.channels=
+# ro.build.product is obsolete; use ro.product.device
+ro.build.product=crp_avd_x86_64
+# Do not try to parse description or thumbprint
+ro.build.description=crp_avd-user 14 RELEASE.release_connect_v2.1.0 release_connect_v2.1.0 test-keys
+# end build properties
+####################################
+# from device/42dot/common/product_files/bluetooth/bluetooth.prop
+####################################
+# The default Bluetooth Class of Device
+# Service Field: 0x26 -> 38
+#     - Bit 17: Networking
+#     - Bit 18: Rendering
+#     - Bit 21: Audio
+# Major Class: 0x04 -> 4 (Audi
+DEV_COUNT=1
+DEV_ID=Pleos_Connect_v2_0
+DEV_NAME='Pleos Connect v2.1.0'
+DEV_W=2560
+DEV_H=1440
+DEV_DENSITY=160
+DEV_DIAGONAL=12.8
+DEV_RAM=4
+/usr/local/lib/android/sdk/system-images/android-34/pleos_car_emulator/x86_64/advancedFeatures.ini
+--- /usr/local/lib/android/sdk/system-images/android-34/pleos_car_emulator/x86_64/advancedFeatures.ini
+BluetoothEmulation = on
+GrallocSync = on
+LogcatPipe = on
+GLAsyncSwap = on
+GLESDynamicVersion = on
+GLDMA = on
+EncryptUserData = on
+IntelPerformanceMonitoringUnit = on
+VirtioWifi = on
+HostComposition = on
+RefCountPipe = on
+VirtioInput = on
+DynamicPartition = on
+HardwareDecoder = on
+ModemSimulator= on
+YUVCache = on
+GLDirectMem = on
+MultiDisplay = on
+VulkanNullOptionalStrings = on
+VulkanIgnoredHandles = on
+Mac80211hwsimUserspaceManaged = on
+VirtconsoleLogcat = on
+VirtioVsockPipe = on
+AndroidbootProps2 = on
+DeviceSkinOverlay = on
+VulkanQueueSubmitWithCommands = off
+VulkanBatchedDescriptorSetUpdate = on
+DeviceStateOnBoot = on
+HWCMultiConfigs = on
+VirtioSndCard = on
+== AVD 만들기
+automotive_1024p_landscape
+Pleos_Connect_v2_0
+Loading local repository...                                                     Warning: Observed package id 'system-images;android-34;android-automotive;x86_64' in inconsistent location '/usr/local/lib/android/sdk/system-images/android-34/pleos_car_emulator/x86_64' (Expected '/usr/local/lib/android/sdk/system-images/android-34/android-automotive/x86_64')
+[=========                              ] 25% Loading local repository...       [=========                              ] 25% Fetch remote repository...        [=======================================] 100% Fetch remote repository...       
+Error: Package path is not valid. Valid system image paths are:
+system-images;android-34;android-automotive;x86_64
+null
+avdmanager 실패 → 설정 파일을 직접 작성
+--- config.ini
+AvdId=pleos
+PlayStore.enabled=false
+abi.type=x86_64
+avd.ini.displayname=pleos
+avd.ini.encoding=UTF-8
+hw.cpu.arch=x86_64
+hw.lcd.width=2560
+hw.lcd.height=1440
+hw.lcd.density=160
+image.sysdir.1=system-images/android-34/pleos_car_emulator/x86_64/
+tag.id=android-automotive
+tag.display=Pleos Connect v2.1.0 APIs
+hw.ramSize=4096
+hw.cpu.ncore=4
+hw.gpu.enabled=yes
+hw.gpu.mode=swiftshader_indirect
+hw.keyboard=yes
+disk.dataPartition.size=6G
+fastboot.forceColdBoot=yes
+hw.camera.back=none
+hw.camera.front=none
+RESULT avd_created=manual
+/dev/root       145G   71G   74G  49% /

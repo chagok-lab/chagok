@@ -1,0 +1,357 @@
+* daemon not running; starting now at tcp:5037
+* daemon started successfully
+-rw------- 1 runner runner 1704 Nov 11 11:36 /home/runner/.android/adbkey
+-rw-r--r-- 1 runner runner  721 Nov 11 11:36 /home/runner/.android/adbkey.pub
+[pleos 11:36:23 +0s] emulator 시작
+[pleos 11:37:02 +39s] RESULT booted=yes
+[pleos 11:37:02 +39s] timezone: Asia/Seoul / Wed Nov 11 20:37:02 KST 2026
+INFO         | Android emulator version 37.2.13.0 (build_id 16740729) (CL:N/A)
+INFO         |   androidboot.qemu.skin=2560x1440
+INFO         | Setting display: 0 configuration to: 2560x1440, dpi: 160x160 
+[pleos 11:37:03 +40s] RESULT boot_seconds=40
+[pleos 11:37:23 +60s] == 기기 정보
+[pleos 11:37:23 +60s] ro.build.version.release=14
+[pleos 11:37:23 +60s] ro.build.version.sdk=34
+[pleos 11:37:23 +60s] ro.build.display.id=RELEASE.release_connect_v2.1.0 test-keys
+[pleos 11:37:23 +60s] ro.build.flavor=crp_avd-user
+[pleos 11:37:23 +60s] ro.build.type=user
+[pleos 11:37:23 +60s] ro.product.model=Connect on x86_64 emulator
+[pleos 11:37:23 +60s] ro.product.name=crp_avd
+[pleos 11:37:23 +60s] ro.product.manufacturer=42dot
+[pleos 11:37:24 +61s] ro.build.fingerprint=Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys
+[pleos 11:37:24 +61s] ro.build.characteristics=nosdcard,automotive
+[pleos 11:37:24 +61s] $ adb shell wm size
+Physical size: 2560x1440
+[pleos 11:37:24 +61s] $ adb shell wm density
+Physical density: 160
+  DisplayDeviceInfo{"기본으로 제공되는 화면": uniqueId="local:4619827259835644672", 2560 x 1440, modeId 1, renderFrameRate 60.000004, defaultModeId 1, supportedModes [{id=1, width=2560, height=1440, fps=60.000004, alternativeRefreshRates=[], supportedHdrTypes=[]}], colorMode 0, supportedColorModes [0], hdrCapabilities HdrCapabilities{mSupportedHdrTypes=[], mMaxLuminance=500.0, mMaxAverag
+    mDisplayId=0
+  mDisplayId=0
+  mDisplayId=0
+  mDisplayId=0
+  mDisplayId=: 0
+  mDisplayId= 0
+  mDisplayId=0
+[pleos 11:37:25 +62s] $ adb shell am get-current-user
+10
+[pleos 11:37:25 +62s] packages: 215
+package:ai.pleos.android.webview
+package:ai.pleos.connecttokensampleapp
+package:ai.pleos.connectwebconsole
+package:ai.pleos.gleoai.model.provider
+package:ai.pleos.hardware.vehicle.emulator
+package:ai.pleos.multimedia.mediabridge
+package:ai.pleos.playground.caas
+package:ai.pleos.playground.service.adas
+package:ai.pleos.playground.service.cap
+package:ai.pleos.playground.service.location.fused
+package:ai.pleos.playground.service.navi
+package:ai.pleos.playground.service.sync
+package:ai.pleos.playground.service.vehicle
+package:ai.pleos.service
+package:ai.pleos.service.car
+package:ai.pleos.service.profile
+package:ai.pleos.service.trustagent
+package:ai.pleos.service.ui
+package:ai.pleos.servicemodepro
+package:ai.pleos.system.service.hid
+package:ai.pleos.system.service.logcat_broker
+package:ai.pleos.system.service.wifi
+package:ai.pleos.system.update.broadcast
+package:ai.pleos.theme.connect
+package:ai.pleos.welcomescreen
+package:ai.umos.ambientai
+package:ai.umos.applibrary
+package:ai.umos.callandmessage
+package:ai.umos.car.evs
+package:ai.umos.conveniencemodemanager
+package:ai.umos.drivingview
+package:ai.umos.globalsearch
+package:ai.umos.homescreen
+package:ai.umos.inputmethod
+package:ai.umos.maps.android.navigation.app
+package:ai.umos.mediaapp
+package:ai.umos.musicvisualizer
+package:ai.umos.notification
+package:ai.umos.oemnetworkmanager
+package:ai.umos.phoneprojection
+package:ai.umos.semanticsearch
+package:ai.umos.setupwizard
+package:ai.umos.smartkeyconsole
+package:ai.umos.systemdialogdispatcher
+package:ai.umos.theme.font.ftdot
+package:ai.umos.vehiclecontrol
+[pleos 11:37:27 +64s] pleos permissions defined: 56
+UI hierchary dumped to: /sdcard/ui.xml
+[pleos 11:37:33 +70s] == 앱 설치
+Performing Streamed Install
+Success
+[pleos 11:37:42 +79s] RESULT install=yes(-g)
+[pleos 11:37:42 +79s] grant CAR_DRIVE: 
+Exception occurred while executing 'grant':
+java.lang.SecurityException: Permission pleos.car.permission.CAR_DRIVE requested by com.chagok.app is not a changeable permission type
+	at com.android.server.pm.permission.PermissionManagerServiceImpl.grantRuntimePermissionInternal(PermissionManagerServiceImpl.java:1411)
+	at com.android.server.pm.permission.PermissionManagerServiceImpl.grantRuntimePermission(PermissionManagerServiceImpl.java:1337)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:551)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:609)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2672)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:291)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6400)
+	at android.os.Binder.shellCommand(Binder.java:1071)
+	at android.os.Binder.onTransact(Binder.java:888)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4403)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6384)
+	at android.os.Binder.execTransactInternal(Binder.java:1337)
+	at android.os.Binder.execTransact(Binder.java:1278)
+[pleos 11:37:43 +80s] grant CAR_MILEAGE: 
+Exception occurred while executing 'grant':
+java.lang.IllegalArgumentException: Unknown permission: pleos.car.permission.CAR_MILEAGE
+	at com.android.server.pm.permission.PermissionManagerServiceImpl.grantRuntimePermissionInternal(PermissionManagerServiceImpl.java:1380)
+	at com.android.server.pm.permission.PermissionManagerServiceImpl.grantRuntimePermission(PermissionManagerServiceImpl.java:1337)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:551)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:609)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2672)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:291)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6400)
+	at android.os.Binder.shellCommand(Binder.java:1071)
+	at android.os.Binder.onTransact(Binder.java:888)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4403)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6384)
+	at android.os.Binder.execTransactInternal(Binder.java:1337)
+	at android.os.Binder.execTransact(Binder.java:1278)
+[pleos 11:37:43 +80s] grant CAR_DOORS: 
+Exception occurred while executing 'grant':
+java.lang.SecurityException: Permission pleos.car.permission.CAR_DOORS requested by com.chagok.app is not a changeable permission type
+	at com.android.server.pm.permission.PermissionManagerServiceImpl.grantRuntimePermissionInternal(PermissionManagerServiceImpl.java:1411)
+	at com.android.server.pm.permission.PermissionManagerServiceImpl.grantRuntimePermission(PermissionManagerServiceImpl.java:1337)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:551)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:609)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2672)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:291)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6400)
+	at android.os.Binder.shellCommand(Binder.java:1071)
+	at android.os.Binder.onTransact(Binder.java:888)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4403)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6384)
+	at android.os.Binder.execTransactInternal(Binder.java:1337)
+	at android.os.Binder.execTransact(Binder.java:1278)
+[pleos 11:37:43 +80s] grant CAR_INFO: 
+Exception occurred while executing 'grant':
+java.lang.SecurityException: Permission pleos.car.permission.CAR_INFO requested by com.chagok.app is not a changeable permission type
+	at com.android.server.pm.permission.PermissionManagerServiceImpl.grantRuntimePermissionInternal(PermissionManagerServiceImpl.java:1411)
+	at com.android.server.pm.permission.PermissionManagerServiceImpl.grantRuntimePermission(PermissionManagerServiceImpl.java:1337)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:551)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:609)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2672)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:291)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6400)
+	at android.os.Binder.shellCommand(Binder.java:1071)
+	at android.os.Binder.onTransact(Binder.java:888)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4403)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6384)
+	at android.os.Binder.execTransactInternal(Binder.java:1337)
+	at android.os.Binder.execTransact(Binder.java:1278)
+[pleos 11:37:43 +80s] grant CAR_ENERGY: 
+Exception occurred while executing 'grant':
+java.lang.SecurityException: Permission pleos.car.permission.CAR_ENERGY requested by com.chagok.app is not a changeable permission type
+	at com.android.server.pm.permission.PermissionManagerServiceImpl.grantRuntimePermissionInternal(PermissionManagerServiceImpl.java:1411)
+	at com.android.server.pm.permission.PermissionManagerServiceImpl.grantRuntimePermission(PermissionManagerServiceImpl.java:1337)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:551)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:609)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2672)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:291)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6400)
+	at android.os.Binder.shellCommand(Binder.java:1071)
+	at android.os.Binder.onTransact(Binder.java:888)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4403)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6384)
+	at android.os.Binder.execTransactInternal(Binder.java:1337)
+	at android.os.Binder.execTransact(Binder.java:1278)
+[pleos 11:37:44 +81s] grant NAVI_ROUTE: 
+Exception occurred while executing 'grant':
+java.lang.SecurityException: Permission pleos.car.permission.NAVI_ROUTE requested by com.chagok.app is not a changeable permission type
+	at com.android.server.pm.permission.PermissionManagerServiceImpl.grantRuntimePermissionInternal(PermissionManagerServiceImpl.java:1411)
+	at com.android.server.pm.permission.PermissionManagerServiceImpl.grantRuntimePermission(PermissionManagerServiceImpl.java:1337)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:551)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:609)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2672)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:291)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6400)
+	at android.os.Binder.shellCommand(Binder.java:1071)
+	at android.os.Binder.onTransact(Binder.java:888)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4403)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6384)
+	at android.os.Binder.execTransactInternal(Binder.java:1337)
+	at android.os.Binder.execTransact(Binder.java:1278)
+[pleos 11:37:44 +81s] grant NAVI_ROUTE_SEARCH: 
+Exception occurred while executing 'grant':
+java.lang.SecurityException: Permission pleos.car.permission.NAVI_ROUTE_SEARCH requested by com.chagok.app is not a changeable permission type
+	at com.android.server.pm.permission.PermissionManagerServiceImpl.grantRuntimePermissionInternal(PermissionManagerServiceImpl.java:1411)
+	at com.android.server.pm.permission.PermissionManagerServiceImpl.grantRuntimePermission(PermissionManagerServiceImpl.java:1337)
+	at com.android.server.pm.permission.PermissionManagerService.grantRuntimePermission(PermissionManagerService.java:551)
+	at android.permission.PermissionManager.grantRuntimePermission(PermissionManager.java:609)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2672)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:291)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6400)
+	at android.os.Binder.shellCommand(Binder.java:1071)
+	at android.os.Binder.onTransact(Binder.java:888)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4403)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6384)
+	at android.os.Binder.execTransactInternal(Binder.java:1337)
+	at android.os.Binder.execTransact(Binder.java:1278)
+      pleos.car.permission.CAR_DOORS
+      pleos.car.permission.CAR_DOORS: granted=true
+      pleos.car.permission.CAR_DRIVE
+      pleos.car.permission.CAR_DRIVE: granted=true
+      pleos.car.permission.CAR_MILEAGE
+      pleos.car.permission.NAVI_ROUTE
+      pleos.car.permission.NAVI_ROUTE: granted=true
+      pleos.car.permission.NAVI_ROUTE_SEARCH
+      pleos.car.permission.NAVI_ROUTE_SEARCH: granted=true
+[pleos 11:37:44 +81s] == 앱 실행
+Starting: Intent { cmp=com.chagok.app/.MainActivity }
+Status: ok
+LaunchState: COLD
+Activity: com.chagok.app/.MainActivity
+TotalTime: 6413
+WaitTime: 6537
+Complete
+[pleos 11:38:02 +99s] RESULT alive_after_launch=yes
+    topResumedActivity=ActivityRecord{61cba51 u10 com.chagok.app/.MainActivity t1000008}
+    topResumedActivity=ActivityRecord{7fc25fb u10 ai.umos.drivingview/.DrivingViewActivity t1000005}
+      topResumedActivity=ActivityRecord{62a2e6b u10 ai.umos.homescreen/.HomeActivity t1000003}
+  ResumedActivity: ActivityRecord{61cba51 u10 com.chagok.app/.MainActivity t1000008}
+UI hierchary dumped to: /sdcard/ui.xml
+[pleos 11:38:10 +107s] screen 01_launch: [948,124][1017,172] | 차곡 [1028,132][1201,164] | 업무용 운행기록부 [2233,132][2296,164] | 정차 중 [2335,132][2430,164] | 시뮬레이터 [911,232][994,268] | 정차 중 [911,276][1187,376] | 0.0 km [911,384][1386,416] | 현재 계기판 누적거리 (Vehicle SDK Odometer) [911,424][1295,456] | 출발하면 자동으로 기록을 시작합니다 [900,527][1182,559] | 오늘 운행 0건 · 업무 0.0 km [900,619][1510,651] | 차량 신호(Pleos SDK) · 기어 P · 운전석 도어 닫힘 · 내비 목적지 없음 [879,690][1029,722] | NaviHelper 연결됨 [1597,218][1669,250] | �
+[pleos 11:38:10 +107s] RESULT launch_has_app_title=yes
+[pleos 11:38:10 +107s] RESULT launch_has_crn_notice=no
+[pleos 11:38:10 +107s] RESULT launch_waiting_signal=no
+[pleos 11:38:10 +107s] RESULT launch_sdk_connected=no
+UI hierchary dumped to: /sdcard/ui.xml
+[pleos 11:38:28 +125s] screen 02_after_18s: [948,124][1017,172] | 차곡 [1028,132][1201,164] | 업무용 운행기록부 [2233,132][2296,164] | 정차 중 [2335,132][2430,164] | 시뮬레이터 [911,232][994,268] | 정차 중 [911,276][1187,376] | 0.0 km [911,384][1386,416] | 현재 계기판 누적거리 (Vehicle SDK Odometer) [911,424][1295,456] | 출발하면 자동으로 기록을 시작합니다 [900,527][1182,559] | 오늘 운행 0건 · 업무 0.0 km [900,619][1510,651] | 차량 신호(Pleos SDK) · 기어 P · 운전석 도어 닫힘 · 내비 목적지 없음 [879,690][1029,722] | NaviHelper 연결됨 [1597,218][1669,250] | �
+[pleos 11:38:28 +125s] RESULT no_signal_button=no
+[pleos 11:38:28 +125s] == 앱 시작 로그
+[pleos 11:38:29 +126s] app start log lines: 96, service lines: 114
+[pleos 11:38:29 +126s] == Virtual Console 확인
+8088
+{"status":"ok","service":"vehicle_api_dds_emulator","domain_id":30,"http_port":8088,"events":3,"capacity":256,"receive_mode":"publish_only"}
+[pleos 11:38:30 +127s] RESULT virtual_console_http=yes
+[pleos 11:38:30 +127s] == 실제 차량 신호 시나리오 (Virtual Console 로 누적거리·기어·도어를 바꿈)
+[drive +   3.0s] RESULT vc_state=yes
+[drive +   3.0s] RESULT vc_catalog=yes
+[drive +   3.0s] bridge: {"gear": {"bridge_ready": true}, "odometer": {"bridge_ready": true, "emulator_active": true, "source": "web-activation"}, "body": {"emulator_active": true, "source": "subscription"}, "controls": {"emulator_active": true, "source": "activation"}, "ev_battery": {"bridge_ready": true, "emulator_active": true, "source": "activation"}, "browser": {"active": true, "clients": 1, "timeout_ms": 3000}}
+[drive +   3.0s] catalog features: 63
+[drive +   3.0s] RESULT odometer_writable=yes
+[drive +   4.6s] PUT /vehicle/controls?speed=0&accelerator=0&brake=0 -> 200 {"gear":{"bridge_ready":true,"input_mode":"http-g29","actual_topic":"SDV_MOTION_GEAR_BASE_GEARBASE_ACTUAL_GEAR","supported_gears":["Park","R
+[drive +   4.8s] PUT /vehicle/gear?gear=Park -> 200 {"bridge_ready":true,"input_mode":"http-g29","actual_topic":"SDV_MOTION_GEAR_BASE_GEARBASE_ACTUAL_GEAR","supported_gears":["Park","Reverse",
+[drive +   4.8s] PUT /vehicle/body?door_fl=false -> 200 {"gear":{"bridge_ready":true,"input_mode":"http-g29","actual_topic":"SDV_MOTION_GEAR_BASE_GEARBASE_ACTUAL_GEAR","supported_gears":["Park","R
+[drive +  37.5s] startup check 1: odometer 800.4 -> ok: 차곡 / 업무용 운행기록부 / 정차 중 / 시뮬레이터 / 정차 중 / 800.4 km / 현재 계기판 누적거리 (Vehicle SDK Odometer) / 출발하면 자동으로 기록을 시작합니다 / 오늘 운행 0건 · 업무 0.0 km
+[drive +  58.6s] startup check 2: odometer 1900.6 -> ok: 차곡 / 업무용 운행기록부 / 정차 중 / 시뮬레이터 / 정차 중 / 1,900.6 km / 현재 계기판 누적거리 (Vehicle SDK Odometer) / 출발하면 자동으로 기록을 시작합니다 / 오늘 운행 0건 · 업무 0.0 km
+[drive +  78.6s] startup check 3: odometer 2700.9 -> ok: 차곡 / 업무용 운행기록부 / 정차 중 / 시뮬레이터 / 정차 중 / 2,700.9 km / 현재 계기판 누적거리 (Vehicle SDK Odometer) / 출발하면 자동으로 기록을 시작합니다 / 오늘 운행 0건 · 업무 0.0 km
+[drive +  78.6s] RESULT real_startup_idle=3/3
+[drive +  78.7s] PUT /vehicle/odometer?traveled_distance_km=12480.2&remaining_range_m=412000 -> 200 {"domain_id":30,"traveled_distance_km":12480.200195,"usage_time_min":0,"remaining_range_m":412000.000000,"source":"web","timestamp_ms":17943
+[drive +  78.7s] RESULT odometer_write_status=200
+[drive +  80.7s] RESULT odometer_console_value=12480.200195
+[drive +  80.7s] bridge: {"gear": {"bridge_ready": true}, "odometer": {"bridge_ready": true, "emulator_active": true, "source": "web"}, "body": {"emulator_active": true, "source": "web"}, "controls": {"emulator_active": true, "source": "web"}, "ev_battery": {"bridge_ready": true, "emulator_active": true, "source": "activation"}, "browser": {"active": true, "clients": 1, "timeout_ms": 3000}}
+[drive +  89.9s] EVENT launch
+[drive + 103.3s] screen r0_idle: 차곡 / 업무용 운행기록부 / 정차 중 / 시뮬레이터 / 정차 중 / 12,480.2 km / 현재 계기판 누적거리 (Vehicle SDK Odometer) / 출발하면 자동으로 기록을 시작합니다 / 오늘 운행 0건 · 업무 0.0 km / 차량 신호(Pleos SDK) · 기어 P · 운전석 도어 닫힘 · 내비 목적지 없음 / NaviHelper 연결됨 / ⑪ 총주행 / 0.0 km / ⑫ 업무 사용 / 0.0 km / ⑬ 업무사용비율 / 0.0% / 용도 미확정 / 0건 / 무결성 검증 / 0 / 0 / 추가 인정 (계산 사례) / - / 운행 기록이 쌓이면 업무사용비율로 비용 인정액 계산 사례를 보여 줍니다 (가정: 연 관련비용 2,500만원) / ③ 일자 / ⑤ 주행 전 / ⑥ 주행 후 / ⑦ 거리 / 용도 / ⑩ 비고 / 운행기록부 
+[drive + 103.3s] RESULT real_idle_shows_odometer=yes
+[drive + 103.3s] RESULT real_signal_line=차량 신호(Pleos SDK) · 기어 P · 운전석 도어 닫힘 · 내비 목적지 없음
+[drive + 103.3s] PUT /vehicle/gear?gear=Drive -> 200 {"bridge_ready":true,"input_mode":"http-g29","actual_topic":"SDV_MOTION_GEAR_BASE_GEARBASE_ACTUAL_GEAR","supported_gears":["Park","Reverse",
+[drive + 103.3s] EVENT trip1_gear_d
+[drive + 108.6s] RESULT real_trip1_recording=yes
+[drive + 108.6s] EVENT trip1_recording
+[drive + 114.0s] drove to odometer 12498.6 (console 12498.599609)
+[drive + 114.8s] screen r1_driving: 차곡 / 업무용 운행기록부 / 기록 중 · 입력 잠금 / 시뮬레이터 / 기록 중 / 13.6 km / 출발 계기판 12,480.2 km (Odometer) / ● 주행 중에는 입력을 받지 않습니다 / 오늘 운행 0건 · 업무 0.0 km / 차량 신호(Pleos SDK) · 기어 D · 운전석 도어 닫힘 · 내비 목적지 없음 / NaviHelper 연결됨 / ⑪ 총주행 / 0.0 km / ⑫ 업무 사용 / 0.0 km / ⑬ 업무사용비율 / 0.0% / 용도 미확정 / 0건 / 무결성 검증 / 0 / 0 / 추가 인정 (계산 사례) / - / 운행 기록이 쌓이면 업무사용비율로 비용 인정액 계산 사례를 보여 줍니다 (가정: 연 관련비용 2,500만원) / ③ 일자 / ⑤ 주행 전 / ⑥ 주행 후 / ⑦ 거리 / 용도 / ⑩ 비고 / 운행기록부 
+[drive + 118.0s] RESULT real_trip1_distance_while_driving=yes
+[drive + 123.8s] screen r1_driving_end: 차곡 / 업무용 운행기록부 / 기록 중 · 입력 잠금 / 시뮬레이터 / 기록 중 / 18.4 km / 출발 계기판 12,480.2 km (Odometer) / ● 주행 중에는 입력을 받지 않습니다 / 오늘 운행 0건 · 업무 0.0 km / 차량 신호(Pleos SDK) · 기어 D · 운전석 도어 닫힘 · 내비 목적지 없음 / NaviHelper 연결됨 / ⑪ 총주행 / 0.0 km / ⑫ 업무 사용 / 0.0 km / ⑬ 업무사용비율 / 0.0% / 용도 미확정 / 0건 / 무결성 검증 / 0 / 0 / 추가 인정 (계산 사례) / - / 운행 기록이 쌓이면 업무사용비율로 비용 인정액 계산 사례를 보여 줍니다 (가정: 연 관련비용 2,500만원) / ③ 일자 / ⑤ 주행 전 / ⑥ 주행 후 / ⑦ 거리 / 용도 / ⑩ 비고 / 운행기록부 
+[drive + 124.3s] PUT /vehicle/gear?gear=Park -> 200 {"bridge_ready":true,"input_mode":"http-g29","actual_topic":"SDV_MOTION_GEAR_BASE_GEARBASE_ACTUAL_GEAR","supported_gears":["Park","Reverse",
+[drive + 124.3s] console gear actual: {'value': 'Park', 'source': 'web', 'timestamp_ms': 1794397235035, 'source_timestamp': 0, 'source_location': ''} bridge_ready=True
+[drive + 124.3s] EVENT trip1_gear_p
+[drive + 127.4s] RESULT real_trip1_card_on_park=yes
+[drive + 131.5s] screen r1_confirm: 차곡 / 업무용 운행기록부 / 정차 중 / 시뮬레이터 / 운행 종료 · 20:40 / 18.4 km / 계기판 12,480.2 → 12,498.6 km / 내비 목적지: 없음 / 이번 운행의 용도를 확인해 주세요 / 출퇴근 / 추천 · 서식 ⑧ / 일반업무 / 서식 ⑨ / 비업무 / 거리만 기록 · 목적지 저장 안 함 / 나중에 한꺼번에 확인 / 오늘 운행 0건 · 업무 0.0 km / 차량 신호(Pleos SDK) · 기어 P · 운전석 도어 닫힘 · 내비 목적지 없음 / NaviHelper 연결됨 / ⑪ 총주행 / 0.0 km / ⑫ 업무 사용 / 0.0 km / ⑬ 업무사용비율 / 0.0% / 용도 미확정 / 0건 / 무결성 검증 / 0 / 0 / 추가 인정 (계산 사례) / - / 운행 기록이 쌓이면 업무사용비율로 비용 인정액 계산 사
+[drive + 131.5s] RESULT real_trip1_distance=yes
+[drive + 133.0s] tap '추천' at 1460 636
+[drive + 133.1s] EVENT trip1_purpose
+[drive + 135.1s] PUT /vehicle/body?door_fl=true -> 200 {"gear":{"bridge_ready":true,"input_mode":"http-g29","actual_topic":"SDV_MOTION_GEAR_BASE_GEARBASE_ACTUAL_GEAR","supported_gears":["Park","R
+[drive + 135.1s] EVENT trip1_door_open
+[drive + 143.4s] screen r1_door_open: 차곡 / 업무용 운행기록부 / 정차 중 / 시뮬레이터 / 정차 중 / 12,498.6 km / 현재 계기판 누적거리 (Vehicle SDK Odometer) / 출발하면 자동으로 기록을 시작합니다 / 오늘 운행 0건 · 업무 0.0 km / 차량 신호(Pleos SDK) · 기어 P · 운전석 도어 열림 · 내비 목적지 없음 / 용도를 기록했습니다. 정차가 확인되면 운행이 확정됩니다 / ⑪ 총주행 / 0.0 km / ⑫ 업무 사용 / 0.0 km / ⑬ 업무사용비율 / 0.0% / 용도 미확정 / 0건 / 무결성 검증 / 0 / 0 / 추가 인정 (계산 사례) / - / 운행 기록이 쌓이면 업무사용비율로 비용 인정액 계산 사례를 보여 줍니다 (가정: 연 관련비용 2,500만원) / ③ 일자 / ⑤ 주행 전 / ⑥ 주행 후 / ⑦ 거리 / 용도
+[drive + 143.4s] RESULT real_door_open_seen=yes
+[drive + 186.8s] RESULT real_trip1_sealed=yes
+[drive + 186.8s] EVENT trip1_sealed
+[drive + 190.4s] screen r1_sealed: 차곡 / 업무용 운행기록부 / 정차 중 / 시뮬레이터 / 정차 중 / 12,498.6 km / 현재 계기판 누적거리 (Vehicle SDK Odometer) / 출발하면 자동으로 기록을 시작합니다 / 오늘 운행 1건 · 업무 18.4 km / 차량 신호(Pleos SDK) · 기어 P · 운전석 도어 열림 · 내비 목적지 없음 / 운행 기록 완료: 출퇴근 18.4 km / ⑪ 총주행 / 18.4 km / ⑫ 업무 사용 / 18.4 km / ⑬ 업무사용비율 / 100.0% / 용도 미확정 / 0건 / 무결성 검증 / 2 / 2 / 추가 인정 (계산 사례) / +1,000만원 / 계산 사례(가정: 연 관련비용 2,500만원): 미작성 시 1,500만원, 기록 시 2,500만원 인정. 실제 인정액은 법령, 보험 가입, 과세조건에 따라 달라집니다 /
+[drive + 190.4s] PUT /vehicle/body?door_fl=false -> 200 {"gear":{"bridge_ready":true,"input_mode":"http-g29","actual_topic":"SDV_MOTION_GEAR_BASE_GEARBASE_ACTUAL_GEAR","supported_gears":["Park","R
+[drive + 192.4s] PUT /vehicle/gear?gear=Drive -> 200 {"bridge_ready":true,"input_mode":"http-g29","actual_topic":"SDV_MOTION_GEAR_BASE_GEARBASE_ACTUAL_GEAR","supported_gears":["Park","Reverse",
+[drive + 192.4s] EVENT trip2_gear_d
+[drive + 197.5s] RESULT real_trip2_recording=yes
+[drive + 198.4s] drove to odometer 12504.9 (console 12504.900391)
+[drive + 204.8s] screen r2_driving_end: 차곡 / 업무용 운행기록부 / 기록 중 · 입력 잠금 / 시뮬레이터 / 기록 중 / 6.3 km / 출발 계기판 12,498.6 km (Odometer) / ● 주행 중에는 입력을 받지 않습니다 / 오늘 운행 1건 · 업무 18.4 km / 차량 신호(Pleos SDK) · 기어 D · 운전석 도어 닫힘 · 내비 목적지 없음 / 운행 기록 완료: 출퇴근 18.4 km / ⑪ 총주행 / 18.4 km / ⑫ 업무 사용 / 18.4 km / ⑬ 업무사용비율 / 100.0% / 용도 미확정 / 0건 / 무결성 검증 / 2 / 2 / 추가 인정 (계산 사례) / +1,000만원 / 계산 사례(가정: 연 관련비용 2,500만원): 미작성 시 1,500만원, 기록 시 2,500만원 인정. 실제 인정액은 법령, 보험 가입, 과세조건에 따라 달라집니다 / 
+[drive + 205.4s] PUT /vehicle/gear?gear=Park -> 200 {"bridge_ready":true,"input_mode":"http-g29","actual_topic":"SDV_MOTION_GEAR_BASE_GEARBASE_ACTUAL_GEAR","supported_gears":["Park","Reverse",
+[drive + 205.4s] console gear actual: {'value': 'Park', 'source': 'web', 'timestamp_ms': 1794397316112, 'source_timestamp': 0, 'source_location': ''} bridge_ready=True
+[drive + 205.4s] EVENT trip2_gear_p
+[drive + 208.5s] RESULT real_trip2_card_on_park=yes
+[drive + 212.3s] screen r2_confirm: 차곡 / 업무용 운행기록부 / 정차 중 / 시뮬레이터 / 운행 종료 · 20:41 / 6.3 km / 계기판 12,498.6 → 12,504.9 km / 내비 목적지: 없음 / 이번 운행의 용도를 확인해 주세요 / 출퇴근 / 추천 · 서식 ⑧ / 일반업무 / 서식 ⑨ / 비업무 / 거리만 기록 · 목적지 저장 안 함 / 나중에 한꺼번에 확인 / 오늘 운행 1건 · 업무 18.4 km / 차량 신호(Pleos SDK) · 기어 P · 운전석 도어 닫힘 · 내비 목적지 없음 / 운행 기록 완료: 출퇴근 18.4 km / ⑪ 총주행 / 18.4 km / ⑫ 업무 사용 / 18.4 km / ⑬ 업무사용비율 / 100.0% / 용도 미확정 / 0건 / 무결성 검증 / 2 / 2 / 추가 인정 (계산 사례) / +1,000만원 / 계산 사례(가정: 연 
+[drive + 213.8s] tap '비업무' at 961 904
+[drive + 213.9s] EVENT trip2_purpose
+[drive + 269.6s] RESULT real_trip2_sealed=yes
+[drive + 269.6s] EVENT trip2_sealed
+[drive + 273.4s] screen r2_sealed: 차곡 / 업무용 운행기록부 / 정차 중 / 시뮬레이터 / 정차 중 / 12,504.9 km / 현재 계기판 누적거리 (Vehicle SDK Odometer) / 출발하면 자동으로 기록을 시작합니다 / 오늘 운행 2건 · 업무 18.4 km / 차량 신호(Pleos SDK) · 기어 P · 운전석 도어 닫힘 · 내비 목적지 없음 / 운행 기록 완료: 비업무 6.3 km / ⑪ 총주행 / 24.7 km / ⑫ 업무 사용 / 18.4 km / ⑬ 업무사용비율 / 74.5% / 용도 미확정 / 0건 / 무결성 검증 / 4 / 4 / 추가 인정 (계산 사례) / +362만원 / 계산 사례(가정: 연 관련비용 2,500만원): 미작성 시 1,500만원, 기록 시 1,862만원 인정. 실제 인정액은 법령, 보험 가입, 과세조건에 따라 달라집니다 / ③ 일
+[drive + 273.4s] RESULT real_report_ratio=74.5%
+[drive + 273.6s] EVENT app_stopped
+[drive + 273.6s] PUT /vehicle/gear?gear=Drive -> 200 {"bridge_ready":true,"input_mode":"http-g29","actual_topic":"SDV_MOTION_GEAR_BASE_GEARBASE_ACTUAL_GEAR","supported_gears":["Park","Reverse",
+[drive + 276.3s] drove to odometer 12517.3 (console 12517.299805)
+[drive + 277.1s] PUT /vehicle/gear?gear=Park -> 200 {"bridge_ready":true,"input_mode":"http-g29","actual_topic":"SDV_MOTION_GEAR_BASE_GEARBASE_ACTUAL_GEAR","supported_gears":["Park","Reverse",
+[drive + 277.1s] console gear actual: {'value': 'Park', 'source': 'web', 'timestamp_ms': 1794397387780, 'source_timestamp': 0, 'source_location': ''} bridge_ready=True
+[drive + 286.9s] EVENT app_restarted
+[drive + 291.4s] RESULT real_gap_filled=yes
+[drive + 297.8s] screen r3_gap: 차곡 / 업무용 운행기록부 / 정차 중 / 시뮬레이터 / 운행 종료 · 20:43 / 12.4 km / 계기판 12,504.9 → 12,517.3 km / 내비 목적지: 없음 / 앱이 꺼져 있던 동안의 주행입니다 (계기판 누적거리 차이로 자동 보완) / 이번 운행의 용도를 확인해 주세요 / 출퇴근 / 서식 ⑧ / 일반업무 / 서식 ⑨ / 비업무 / 거리만 기록 · 목적지 저장 안 함 / 나중에 한꺼번에 확인 / 오늘 운행 3건 · 업무 18.4 km / 차량 신호(Pleos SDK) · 기어 P · 운전석 도어 닫힘 · 내비 목적지 없음 / ⑪ 총주행 / 37.1 km / ⑫ 업무 사용 / 18.4 km / ⑬ 업무사용비율 / 49.6% / 용도 미확정 / 1건 / 무결성 검증 / 5 / 5 / 추가 인정 (계산 사례) / +0만원 / 계산 
+[drive + 297.8s] RESULT real_gap_card=yes
+[drive + 299.8s] tap '일반업무' at 978 842
+[drive + 299.9s] EVENT gap_purpose
+[drive + 307.1s] screen r3_gap_confirmed: 차곡 / 업무용 운행기록부 / 정차 중 / 시뮬레이터 / 정차 중 / 12,517.3 km / 현재 계기판 누적거리 (Vehicle SDK Odometer) / 출발하면 자동으로 기록을 시작합니다 / 오늘 운행 3건 · 업무 30.8 km / 차량 신호(Pleos SDK) · 기어 P · 운전석 도어 닫힘 · 내비 목적지 없음 / 용도 확정: 일반업무 / ⑪ 총주행 / 37.1 km / ⑫ 업무 사용 / 30.8 km / ⑬ 업무사용비율 / 83.0% / 용도 미확정 / 0건 / 무결성 검증 / 6 / 6 / 추가 인정 (계산 사례) / +575만원 / 계산 사례(가정: 연 관련비용 2,500만원): 미작성 시 1,500만원, 기록 시 2,075만원 인정. 실제 인정액은 법령, 보험 가입, 과세조건에 따라 달라집니다 / ③ 일자 / ⑤ 주행 
+[drive + 307.1s] RESULT real_gap_confirmed=yes
+[drive + 371.1s] EVENT after_grace
+[drive + 374.8s] screen r4_report: 차곡 / 업무용 운행기록부 / 정차 중 / 시뮬레이터 / 정차 중 / 12,517.3 km / 현재 계기판 누적거리 (Vehicle SDK Odometer) / 출발하면 자동으로 기록을 시작합니다 / 오늘 운행 3건 · 업무 30.8 km / 차량 신호(Pleos SDK) · 기어 P · 운전석 도어 닫힘 · 내비 목적지 없음 / 용도 확정: 일반업무 / ⑪ 총주행 / 37.1 km / ⑫ 업무 사용 / 30.8 km / ⑬ 업무사용비율 / 83.0% / 용도 미확정 / 0건 / 무결성 검증 / 6 / 6 / 추가 인정 (계산 사례) / +575만원 / 계산 사례(가정: 연 관련비용 2,500만원): 미작성 시 1,500만원, 기록 시 2,075만원 인정. 실제 인정액은 법령, 보험 가입, 과세조건에 따라 달라집니다 / ③ 일자 / ⑤ 주행 
+[drive + 374.8s] RESULT real_report_three_trips=yes
+[drive + 374.8s] RESULT real_no_double_count=yes
+[drive + 374.8s] RESULT real_final_ratio=83.0%
+[drive + 374.8s] RESULT real_benefit_example=+575만원
+[drive + 374.8s] EVENT report
+[drive + 377.8s] tap '서식 내보내기' at 1739 1232
+[drive + 378.0s] EVENT export
+[drive + 385.4s] screen r5_export: 운행기록부 서식을 저장했습니다 / 운행기록부 내보내기 QR / 업무용승용차 운행기록부 (CSV, 엑셀 호환) / /storage/emulated/10/Android/data/com.chagok.app/files/chagok_logbook_202611.csv / QR에는 기록 요약(총주행, 업무사용비율, 무결성 검증)이 담깁니다. 휴대폰 파일 전달은 개발 예정입니다 / 닫기
+[drive + 385.4s] RESULT real_export_dialog=yes
+[drive + 389.4s] tap '닫기' at 1694 958
+[drive + 389.9s] EVENT export_closed
+[drive + 391.9s] EVENT end
+[drive + 396.3s] csv path /storage/emulated/10: ls: /storage/emulated/10/Android/data/com.chagok.app/files/: Permission denied
+[drive + 396.3s] csv path /mnt/user/10/emulated/10: ls: /mnt/user/10/emulated/10/Android/data/com.chagok.app/files/: Permission denied
+[drive + 396.4s] csv path /mnt/pass_through/10/emulated/10: ls: /mnt/pass_through/10/emulated/10/Android/data/com.chagok.app/files/: Permission denied
+[drive + 396.4s] csv path /data/media/10: ls: /data/media/10/Android/data/com.chagok.app/files/: Permission denied
+[drive + 396.5s] csv path /sdcard: ls: /sdcard/Android/data/com.chagok.app/files/: No such file or directory
+[drive + 396.7s] csv path /storage/emulated/0: ls: /storage/emulated/0/Android/data/com.chagok.app/files/: No such file or directory
+[drive + 396.7s] RESULT real_export_csv_bytes=0
+[drive + 397.0s] RESULT real_export_log=chagok_logbook_202611.csv bytes=661 lines=11
+[drive + 397.0s] RESULT real_fatal_exceptions_app=0
+[drive + 397.1s] PUT /vehicle/controls?speed=0&accelerator=0&brake=0 -> 503 {"error":"emulator_inactive"}
+[drive + 397.1s] PUT /vehicle/gear?gear=Park -> 503 {"error":"emulator_inactive"}
+[drive + 397.1s] PUT /vehicle/body?door_fl=false -> 503 {"error":"emulator_inactive"}
+[pleos 11:45:10 +527s] == 로그
+[pleos 11:45:10 +527s] RESULT fatal_exceptions_any_process=0
+[pleos 11:45:10 +527s] RESULT fatal_exceptions_app=0
+[pleos 11:45:10 +527s] RESULT alive_at_end=yes
+[pleos 11:45:10 +527s] done

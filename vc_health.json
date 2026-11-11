@@ -1,0 +1,1 @@
+{"status":"ok","service":"vehicle_api_dds_emulator","domain_id":30,"http_port":8088,"events":3,"capacity":256,"receive_mode":"publish_only"}

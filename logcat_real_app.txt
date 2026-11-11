@@ -1,0 +1,175 @@
+11-11 03:43:10.812 I/com.chagok.app(13804): Using CollectorTypeCC GC.
+11-11 03:43:10.814 W/com.chagok.app(13804): Unexpected CPU variant for x86: x86_64.
+11-11 03:43:10.814 W/com.chagok.app(13804): Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, tremont, kabylake, default
+11-11 03:43:10.874 E/com.chagok.app(13804): Not starting debugger since process cannot load the jdwp agent.
+11-11 03:43:10.971 D/CompatibilityChangeReporter(13804): Compat change id reported: 171979766; UID 1010175; state: ENABLED
+11-11 03:43:10.971 D/CompatibilityChangeReporter(13804): Compat change id reported: 242716250; UID 1010175; state: ENABLED
+11-11 03:43:11.050 D/nativeloader(13804): Configuring clns-6 for other apk /data/app/~~uGLcMEOWa3gPQLqaSSlcOg==/com.chagok.app-ILLO2qsWckUDPryoYLFoBw==/base.apk. target_sdk_version=35, uses_libraries=, library_path=/data/app/~~uGLcMEOWa3gPQLqaSSlcOg==/com.chagok.app-ILLO2qsWckUDPryoYLFoBw==/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/10/com.chagok.app
+11-11 03:43:11.111 V/GraphicsEnvironment(13804): Currently set values for:
+11-11 03:43:11.112 V/GraphicsEnvironment(13804):   angle_gl_driver_selection_pkgs=[]
+11-11 03:43:11.112 V/GraphicsEnvironment(13804):   angle_gl_driver_selection_values=[]
+11-11 03:43:11.112 V/GraphicsEnvironment(13804): ANGLE GameManagerService for com.chagok.app: false
+11-11 03:43:11.112 V/GraphicsEnvironment(13804): com.chagok.app is not listed in per-application setting
+11-11 03:43:11.112 V/GraphicsEnvironment(13804): Neither updatable production driver nor prerelease driver is supported.
+11-11 03:43:11.202 D/CarUxRManager(13804): Context returns associated display ID -1
+11-11 03:43:11.207 D/CarUxRManager(13804): Display ID assigned to user is display 0
+11-11 03:43:11.215 D/[Pleos][SDK]Vehicle(13804): [main]initialize
+11-11 03:43:11.215 D/[Pleos][SDK]b(13804): [main]connectService
+11-11 03:43:11.215 D/[Pleos][SDK]b(13804): [main]Service Connect Api called Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService }
+11-11 03:43:11.948 D/[Pleos][SDK]a(13804): [main]hasPropertyIdCount : 0
+11-11 03:43:11.948 D/[Pleos][SDK]a(13804): [main]addListener: com.chagok.app.vehicle.PleosVehicleSignals$odometerListener$1@b2e1c2
+11-11 03:43:11.948 D/[Pleos][SDK]a(13804): [main]hasPropertyIdCount : 0
+11-11 03:43:12.344 D/[Pleos][SDK]a(13804): [main]hasPropertyIdCount : 0
+11-11 03:43:12.344 D/[Pleos][SDK]a(13804): [main]addListener: com.chagok.app.vehicle.PleosVehicleSignals$gearListener$1@94ee71a
+11-11 03:43:12.344 D/[Pleos][SDK]a(13804): [main]hasPropertyIdCount : 0
+11-11 03:43:12.640 D/[Pleos][SDK]a(13804): [main]hasPropertyIdCount : 0
+11-11 03:43:12.640 D/[Pleos][SDK]a(13804): [main]addListener: com.chagok.app.vehicle.PleosVehicleSignals$doorListener$1@eb18104
+11-11 03:43:12.640 D/[Pleos][SDK]a(13804): [main]hasPropertyIdCount : 0
+11-11 03:43:12.641 D/[NaviHelper][SDK]NaviHelper(13804): [main]initialize
+11-11 03:43:12.641 D/[NaviHelper][SDK]c(13804): [main]connectService
+11-11 03:43:12.641 D/[NaviHelper][SDK]c(13804): [main]connectService
+11-11 03:43:12.725 D/[NaviHelper][SDK]NaviHelper(13804): [main]addListener com.chagok.app.navi.NaviSignals@fdd9607
+11-11 03:43:12.725 I/[NaviHelper][SDK]NaviHelper(13804): [main]getDestinationInfo
+11-11 03:43:12.805 I/Choreographer(13804): Skipped 99 frames!  The application may be doing too much work on its main thread.
+11-11 03:43:12.807 I/[Pleos][SDK]b(13804): [main]ServiceConnected call
+11-11 03:43:12.810 I/[NaviHelper][SDK]c(13804): [main]onServiceConnected
+11-11 03:43:12.810 I/[NaviHelper][SDK]c(13804): [main]getServiceVersion = 3.0.4
+11-11 03:43:12.810 D/[NaviHelper][SDK]c(13804): [main]registerCallbackV3
+11-11 03:43:12.835 I/[NaviHelper][SDK]b(13804): [binder:13804_1]onDestinationInfo
+11-11 03:43:12.999 I/[Pleos][SDK]b(13804): [binder:13804_3]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:43:13.066 D/[Pleos][SDK]a(13804): [binder:13804_1]saveRequest() called with: propIdName = PERF_ODOMETER, areaType = 0
+11-11 03:43:13.066 D/[Pleos][SDK]a(13804): [binder:13804_1]saveRequest() called with: propIdName = VENDOR_GEAR_SELECTION, areaType = 0
+11-11 03:43:13.066 D/[Pleos][SDK]a(13804): [binder:13804_1]saveRequest() called with: propIdName = DOOR_POS, areaType = 4
+11-11 03:43:13.109 D/[Pleos][SDK]a(13804): [binder:13804_1]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12504.9
+11-11 03:43:13.322 D/[Pleos][SDK]a(13804): [binder:13804_1]onChangeEvent() called with: propIdName = VENDOR_GEAR_SELECTION, areaId = 0, value = 4
+11-11 03:43:13.325 D/[Pleos][SDK]a(13804): [binder:13804_1]onChangeEvent() called with: propIdName = DOOR_POS, areaId = 268435456, value = 0
+11-11 03:43:13.325 D/[Pleos][SDK]a(13804): [binder:13804_1]onChangeEvent() called with: propIdName = DOOR_POS, areaId = 16, value = 0
+11-11 03:43:13.325 D/[Pleos][SDK]a(13804): [binder:13804_1]onChangeEvent() called with: propIdName = DOOR_POS, areaId = 1, value = 0
+11-11 03:43:13.325 D/[Pleos][SDK]a(13804): [binder:13804_1]onChangeEvent() called with: propIdName = DOOR_POS, areaId = 536870912, value = 0
+11-11 03:43:13.326 D/[Pleos][SDK]a(13804): [binder:13804_1]onChangeEvent() called with: propIdName = DOOR_POS, areaId = 4, value = 0
+11-11 03:43:13.326 D/[Pleos][SDK]a(13804): [binder:13804_1]onChangeEvent() called with: propIdName = DOOR_POS, areaId = 64, value = 0
+11-11 03:43:13.335 D/[Pleos][SDK]a(13804): [binder:13804_1]onChangeEvent() called with: propIdName = VENDOR_GEAR_SELECTION, areaId = 0, value = 4
+11-11 03:43:13.339 I/[Pleos][SDK]b(13804): [binder:13804_1]getProperty_onResult eventPropKey VENDOR_GEAR_SELECTION eventAreaId 0 eventValue 4
+11-11 03:43:13.354 D/libEGL  (13804): loaded /vendor/lib64/egl/libEGL_emulation.so
+11-11 03:43:13.355 D/libEGL  (13804): loaded /vendor/lib64/egl/libGLESv1_CM_emulation.so
+11-11 03:43:13.356 D/libEGL  (13804): loaded /vendor/lib64/egl/libGLESv2_emulation.so
+11-11 03:43:13.615 D/CompatibilityChangeReporter(13804): Compat change id reported: 237531167; UID 1010175; state: DISABLED
+11-11 03:43:13.616 W/OpenGLRenderer(13804): Unknown dataspace 0
+11-11 03:43:13.768 D/CompatibilityChangeReporter(13804): Compat change id reported: 171228096; UID 1010175; state: ENABLED
+11-11 03:43:13.809 I/[Pleos][SDK]b(13804): [binder:13804_1]getProperty_onResult eventPropKey DOOR_POS eventAreaId 1 eventValue 0
+11-11 03:43:14.766 W/OpenGLRenderer(13804): Failed to initialize 101010-2 format, error = EGL_SUCCESS
+11-11 03:43:14.804 D/[Pleos][SDK]a(13804): [binder:13804_3]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:43:15.230 I/Gralloc4(13804): mapper 4.x is not supported
+11-11 03:43:15.806 E/SurfaceSyncGroup(13804): Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(wmsSync-VRI[MainActivity]#0) as ready
+11-11 03:43:15.806 E/SurfaceSyncGroup(13804): Failed to receive transaction ready in 1000ms. Marking SurfaceSyncGroup(VRI[MainActivity]#1) as ready
+11-11 03:43:17.557 W/SurfaceSyncGroup(13804): Adding transaction to a completed SurfaceSyncGroup(VRI[MainActivity]#1).  Applying immediately
+11-11 03:43:17.615 I/Choreographer(13804): Skipped 233 frames!  The application may be doing too much work on its main thread.
+11-11 03:43:17.757 I/[Pleos][SDK]b(13804): [binder:13804_4]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:43:17.878 I/OpenGLRenderer(13804): Davey! duration=3811ms; Flags=1, FrameTimelineVsyncId=261252, IntendedVsync=406156428671, Vsync=406173095337, InputEventId=0, HandleInputStart=406182710261, AnimationStart=406182710591, PerformTraversalsStart=406182710742, DrawStart=408175584623, FrameDeadline=406173095337, FrameInterval=406182703972, FrameStartTime=16666666, SyncQueued=408216241167, SyncStart=408325960604, IssueDrawCommandsStart=408410605672, SwapBuffers=409867716769, FrameCompleted=410077303889, DequeueBufferDuration=4977, QueueBufferDuration=1259554, GpuCompleted=410077221897, SwapBuffersCompleted=410077303889, DisplayPresentTime=0, CommandSubmissionCompleted=409867716769, 
+11-11 03:43:17.999 I/OpenGLRenderer(13804): Davey! duration=4101ms; Flags=0, FrameTimelineVsyncId=261297, IntendedVsync=406239762001, Vsync=410123094946, InputEventId=0, HandleInputStart=410143943633, AnimationStart=410143944625, PerformTraversalsStart=410143944775, DrawStart=410144423457, FrameDeadline=410106428513, FrameInterval=410134838511, FrameStartTime=16666665, SyncQueued=410144565919, SyncStart=410144593249, IssueDrawCommandsStart=410147910573, SwapBuffers=410287399526, FrameCompleted=410340986767, DequeueBufferDuration=4647, QueueBufferDuration=559732, GpuCompleted=410340935260, SwapBuffersCompleted=410340986767, DisplayPresentTime=0, CommandSubmissionCompleted=410287399526, 
+11-11 03:43:18.473 D/ProfileInstaller(13804): Installing profile for com.chagok.app
+11-11 03:43:18.496 D/[Pleos][SDK]a(13804): [binder:13804_2]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:43:19.653 I/[Pleos][SDK]b(13804): [binder:13804_5]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:43:19.727 I/OpenGLRenderer(13804): Davey! duration=1267ms; Flags=0, FrameTimelineVsyncId=263585, IntendedVsync=410806428485, Vsync=410889761815, InputEventId=0, HandleInputStart=410895733846, AnimationStart=410895735008, PerformTraversalsStart=410909258081, DrawStart=410918633786, FrameDeadline=410823095151, FrameInterval=410895726485, FrameStartTime=16666666, SyncQueued=410918773343, SyncStart=410918786603, IssueDrawCommandsStart=410918887082, SwapBuffers=411042621544, FrameCompleted=412074221370, DequeueBufferDuration=50441222, QueueBufferDuration=133549, GpuCompleted=412074221370, SwapBuffersCompleted=411142184835, DisplayPresentTime=0, CommandSubmissionCompleted=411042621544, 
+11-11 03:43:21.648 I/[Pleos][SDK]b(13804): [binder:13804_4]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:43:22.482 D/[Pleos][SDK]a(13804): [binder:13804_4]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:43:23.656 I/[Pleos][SDK]b(13804): [binder:13804_4]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:43:25.692 I/[Pleos][SDK]b(13804): [binder:13804_4]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:43:26.494 D/[Pleos][SDK]a(13804): [binder:13804_4]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:43:27.658 I/[Pleos][SDK]b(13804): [binder:13804_4]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:43:29.666 I/[Pleos][SDK]b(13804): [binder:13804_4]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:43:30.767 D/EGL_emulation(13804): app_time_stats: avg=3289.72ms min=263.70ms max=12144.44ms count=4
+11-11 03:43:31.482 D/[Pleos][SDK]a(13804): [binder:13804_4]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:43:31.678 I/[Pleos][SDK]b(13804): [binder:13804_4]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:43:33.712 I/[Pleos][SDK]b(13804): [binder:13804_4]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:43:34.528 D/[Pleos][SDK]a(13804): [binder:13804_5]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:43:35.741 I/[Pleos][SDK]b(13804): [binder:13804_5]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:43:37.734 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:43:38.502 D/[Pleos][SDK]a(13804): [binder:13804_6]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:43:39.791 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:43:41.753 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:43:42.485 D/[Pleos][SDK]a(13804): [binder:13804_6]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:43:43.752 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:43:45.754 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:43:47.486 D/[Pleos][SDK]a(13804): [binder:13804_6]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:43:47.761 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:43:49.764 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:43:51.783 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:43:52.483 D/[Pleos][SDK]a(13804): [binder:13804_6]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:43:53.770 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:43:55.489 D/[Pleos][SDK]a(13804): [binder:13804_6]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:43:55.770 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:43:57.772 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:43:59.493 D/[Pleos][SDK]a(13804): [binder:13804_6]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:43:59.845 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:01.824 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:03.484 D/[Pleos][SDK]a(13804): [binder:13804_6]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:44:03.813 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:05.824 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:06.495 D/[Pleos][SDK]a(13804): [binder:13804_6]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:44:07.827 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:09.822 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:10.482 D/[Pleos][SDK]a(13804): [binder:13804_6]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:44:11.831 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:13.484 D/[Pleos][SDK]a(13804): [binder:13804_6]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:44:13.820 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:15.820 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:17.482 D/[Pleos][SDK]a(13804): [binder:13804_6]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:44:17.832 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:19.873 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:21.493 D/[Pleos][SDK]a(13804): [binder:13804_6]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:44:21.832 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:23.831 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:25.844 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:26.493 D/[Pleos][SDK]a(13804): [binder:13804_6]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:44:27.840 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:29.859 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:31.485 D/[Pleos][SDK]a(13804): [binder:13804_6]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:44:31.878 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:33.854 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:35.485 D/[Pleos][SDK]a(13804): [binder:13804_6]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:44:35.856 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:37.875 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:38.488 D/[Pleos][SDK]a(13804): [binder:13804_6]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:44:39.858 I/[Pleos][SDK]b(13804): [binder:13804_6]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:41.872 I/[Pleos][SDK]b(13804): [binder:13804_7]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:42.485 D/[Pleos][SDK]a(13804): [binder:13804_5]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:44:43.895 I/[Pleos][SDK]b(13804): [binder:13804_5]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:45.490 D/[Pleos][SDK]a(13804): [binder:13804_5]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:44:45.878 I/[Pleos][SDK]b(13804): [binder:13804_5]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:47.878 I/[Pleos][SDK]b(13804): [binder:13804_5]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:48.506 D/[Pleos][SDK]a(13804): [binder:13804_5]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:44:48.703 I/Chagok  (13804): export chagok_logbook_202611.csv bytes=661 lines=11
+11-11 03:44:48.994 W/WindowOnBackDispatcher(13804): OnBackInvokedCallback is not enabled for the application.
+11-11 03:44:48.994 W/WindowOnBackDispatcher(13804): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+11-11 03:44:49.665 D/EGL_emulation(13804): app_time_stats: avg=78897.61ms min=78897.61ms max=78897.61ms count=1
+11-11 03:44:49.765 I/OpenGLRenderer(13804): Davey! duration=974ms; Flags=0, FrameTimelineVsyncId=348670, IntendedVsync=501223102611, Vsync=501223102611, InputEventId=-158322793, HandleInputStart=501223681774, AnimationStart=501223682425, PerformTraversalsStart=501519740534, DrawStart=501519784960, FrameDeadline=501239769277, FrameInterval=501223678229, FrameStartTime=16666664, SyncQueued=501566296808, SyncStart=501574926723, IssueDrawCommandsStart=501575115294, SwapBuffers=501953960643, FrameCompleted=502206124248, DequeueBufferDuration=3895, QueueBufferDuration=202511, GpuCompleted=502206124248, SwapBuffersCompleted=502184332707, DisplayPresentTime=0, CommandSubmissionCompleted=501953960643, 
+11-11 03:44:50.508 I/OpenGLRenderer(13804): Davey! duration=1412ms; Flags=1, FrameTimelineVsyncId=348670, IntendedVsync=501223102611, Vsync=501223102611, InputEventId=0, HandleInputStart=501223681774, AnimationStart=501223682425, PerformTraversalsStart=501519740534, DrawStart=502294880271, FrameDeadline=501239769277, FrameInterval=501223678229, FrameStartTime=16666666, SyncQueued=502296633529, SyncStart=502651402534, IssueDrawCommandsStart=502651992932, SwapBuffers=502712528216, FrameCompleted=502989896318, DequeueBufferDuration=3405, QueueBufferDuration=166658, GpuCompleted=502989896318, SwapBuffersCompleted=502982346129, DisplayPresentTime=0, CommandSubmissionCompleted=502712528216, 
+11-11 03:44:50.740 I/Choreographer(13804): Skipped 104 frames!  The application may be doing too much work on its main thread.
+11-11 03:44:50.975 D/EGL_emulation(13804): app_time_stats: avg=241.74ms min=72.64ms max=553.79ms count=5
+11-11 03:44:51.608 D/[Pleos][SDK]a(13804): [binder:13804_2]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:44:51.814 I/Choreographer(13804): Skipped 61 frames!  The application may be doing too much work on its main thread.
+11-11 03:44:51.857 I/[Pleos][SDK]b(13804): [binder:13804_4]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:51.948 I/OpenGLRenderer(13804): Davey! duration=2583ms; Flags=0, FrameTimelineVsyncId=348944, IntendedVsync=501523102563, Vsync=503256435619, InputEventId=0, HandleInputStart=503292077826, AnimationStart=503292078086, PerformTraversalsStart=503301085713, DrawStart=503301138392, FrameDeadline=503739758101, FrameInterval=503259761901, FrameStartTime=16666666, SyncQueued=503301733286, SyncStart=503494144055, IssueDrawCommandsStart=503522257729, SwapBuffers=503689568561, FrameCompleted=504298538261, DequeueBufferDuration=591073533, QueueBufferDuration=119107, GpuCompleted=504297926462, SwapBuffersCompleted=504298538261, DisplayPresentTime=0, CommandSubmissionCompleted=503689568561, 
+11-11 03:44:52.182 I/OpenGLRenderer(13804): Davey! duration=2196ms; Flags=0, FrameTimelineVsyncId=348944, IntendedVsync=501523102563, Vsync=503256435619, InputEventId=0, HandleInputStart=503292077826, AnimationStart=503292078086, PerformTraversalsStart=503301085713, DrawStart=503521895790, FrameDeadline=503023102539, FrameInterval=503259761901, FrameStartTime=16666666, SyncQueued=503522027927, SyncStart=504298781934, IssueDrawCommandsStart=504310108620, SwapBuffers=504458913304, FrameCompleted=504496054258, DequeueBufferDuration=3505, QueueBufferDuration=154069, GpuCompleted=504496054258, SwapBuffersCompleted=504479127648, DisplayPresentTime=0, CommandSubmissionCompleted=504458913304, 
+11-11 03:44:52.187 D/EGL_emulation(13804): app_time_stats: avg=310.63ms min=213.34ms max=407.92ms count=2
+11-11 03:44:52.325 I/Choreographer(13804): Skipped 30 frames!  The application may be doing too much work on its main thread.
+11-11 03:44:52.566 I/OpenGLRenderer(13804): Davey! duration=1179ms; Flags=0, FrameTimelineVsyncId=350437, IntendedVsync=503306424785, Vsync=504323091411, InputEventId=0, HandleInputStart=504336929942, AnimationStart=504336930723, PerformTraversalsStart=504337090040, DrawStart=504337138302, FrameDeadline=504523102235, FrameInterval=504333215828, FrameStartTime=16666666, SyncQueued=504337142689, SyncStart=504715213371, IssueDrawCommandsStart=504715933111, SwapBuffers=504750836092, FrameCompleted=504863825312, DequeueBufferDuration=4126, QueueBufferDuration=502637, GpuCompleted=504863825312, SwapBuffersCompleted=504839567163, DisplayPresentTime=0, CommandSubmissionCompleted=504750836092, 
+11-11 03:44:52.859 I/OpenGLRenderer(13804): Davey! duration=1647ms; Flags=0, FrameTimelineVsyncId=350437, IntendedVsync=503306424785, Vsync=504323091411, InputEventId=0, HandleInputStart=504336929942, AnimationStart=504336930723, PerformTraversalsStart=504337090040, DrawStart=504715310996, FrameDeadline=504756424727, FrameInterval=504333215828, FrameStartTime=16666666, SyncQueued=504715922696, SyncStart=504839835782, IssueDrawCommandsStart=504844590264, SwapBuffers=505042455260, FrameCompleted=505077632199, DequeueBufferDuration=4136, QueueBufferDuration=191414, GpuCompleted=505077632199, SwapBuffersCompleted=505067295014, DisplayPresentTime=0, CommandSubmissionCompleted=505042455260, 
+11-11 03:44:53.788 I/[Pleos][SDK]b(13804): [binder:13804_5]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:55.788 I/[Pleos][SDK]b(13804): [binder:13804_5]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:56.487 D/[Pleos][SDK]a(13804): [binder:13804_5]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:44:57.790 I/[Pleos][SDK]b(13804): [binder:13804_5]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:44:59.562 D/[Pleos][SDK]a(13804): [binder:13804_5]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:44:59.791 I/[Pleos][SDK]b(13804): [binder:13804_5]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:45:00.586 D/EGL_emulation(13804): app_time_stats: avg=3374.30ms min=360.41ms max=8265.71ms count=3
+11-11 03:45:00.592 W/WindowOnBackDispatcher(13804): sendCancelIfRunning: isInProgress=falsecallback=android.view.ViewRootImpl$$ExternalSyntheticLambda17@d615c11
+11-11 03:45:00.940 D/OpenGLRenderer(13804): endAllActiveAnimators on 0x720015543380 (UnprojectedRipple) with handle 0x72007554c640
+11-11 03:45:01.097 I/Choreographer(13804): Skipped 30 frames!  The application may be doing too much work on its main thread.
+11-11 03:45:01.149 D/EGL_emulation(13804): app_time_stats: avg=2971.88ms min=265.02ms max=8289.88ms count=3
+11-11 03:45:01.515 I/OpenGLRenderer(13804): Davey! duration=861ms; Flags=0, FrameTimelineVsyncId=358692, IntendedVsync=512906424401, Vsync=513089757727, InputEventId=0, HandleInputStart=513090897253, AnimationStart=513090897543, PerformTraversalsStart=513575794164, DrawStart=513575844719, FrameDeadline=512923091067, FrameInterval=513090518660, FrameStartTime=16666666, SyncQueued=513578955606, SyncStart=513616489190, IssueDrawCommandsStart=513618565608, SwapBuffers=513620076545, FrameCompleted=513805952445, DequeueBufferDuration=3205, QueueBufferDuration=198826, GpuCompleted=513805952445, SwapBuffersCompleted=513668855955, DisplayPresentTime=0, CommandSubmissionCompleted=513620076545, 
+11-11 03:45:01.797 I/[Pleos][SDK]b(13804): [binder:13804_7]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:45:03.490 D/[Pleos][SDK]a(13804): [binder:13804_7]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3
+11-11 03:45:03.799 I/[Pleos][SDK]b(13804): [binder:13804_7]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:45:05.800 I/[Pleos][SDK]b(13804): [binder:13804_7]getProperty_onResult eventPropKey PERF_ODOMETER eventAreaId 0 eventValue 12517.3
+11-11 03:45:07.483 D/[Pleos][SDK]a(13804): [binder:13804_7]onChangeEvent() called with: propIdName = PERF_ODOMETER, areaId = 0, value = 12517.3

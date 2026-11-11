@@ -1,0 +1,423 @@
+178:+ permission:pleos.car.permission.NAVI_ROUTE_SEARCH
+179-  package:ai.pleos.playground.service.navi
+180-  label:null
+181-  description:null
+182-  protectionLevel:normal
+183-+ permission:android.car.permission.ACCESS_PRIVATE_DISPLAY_ID
+184-  package:com.android.car.updatable
+--
+268:+ permission:pleos.car.permission.HID_INPUT_MONITOR
+269-  package:ai.pleos.system.service.hid
+270-  label:HID input monitor permission
+271-  description:Receive HID attach/detach events, list connected HID devices, and subscribe to HID input reports.
+272-  protectionLevel:signature|privileged
+273-+ permission:android.permission.LIST_ENABLED_CREDENTIAL_PROVIDERS
+274-  package:android
+--
+541:+ permission:pleos.car.permission.ADAS_DRIVING_WARN
+542-  package:ai.pleos.playground.service.adas
+543-  label:ADAS_DRIVING_WARN permission
+544-  description:This permission is required to access observe driving warn api
+545-  protectionLevel:normal
+546-+ permission:android.permission.GET_APP_OPS_STATS
+547-  package:android
+--
+726:+ permission:pleos.car.permission.ACCESS_WIFI_STATE
+727-  package:ai.pleos.system.service.wifi
+728-  label:null
+729-  description:null
+730-  protectionLevel:signature|privileged
+731-+ permission:android.permission.SYSTEM_ALERT_WINDOW
+732-  package:android
+--
+1291:+ permission:pleos.car.permission.READ_VR_DB_VERSION
+1292-  package:ai.pleos.playground.caas
+1293-  label:null
+1294-  description:null
+1295-  protectionLevel:normal
+1296-+ permission:com.android.DeviceAsWebcam.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+1297-  package:com.android.DeviceAsWebcam
+--
+1311:+ permission:pleos.car.permission.CONTROL_ADAS_PARKING
+1312-  package:ai.pleos.playground.service.adas
+1313-  label:ADAS_PARKING_CONTROL permission
+1314-  description:This permission is required to access observe parking control api
+1315-  protectionLevel:signature|privileged
+1316-+ permission:android.permission.MASTER_CLEAR
+1317-  package:android
+--
+1406:+ permission:pleos.car.permission.CAR_PIN_MANAGE
+1407-  package:ai.pleos.service.trustagent
+1408-  label:null
+1409-  description:null
+1410-  protectionLevel:signature|privileged
+1411-+ permission:android.permission.ACCESS_CONTENT_PROVIDERS_EXTERNALLY
+1412-  package:android
+--
+1476:+ permission:pleos.car.permission.ADAS_TRACKED_OBJECT
+1477-  package:ai.pleos.playground.service.adas
+1478-  label:TRACKED_OBJECT permission
+1479-  description:This permission is required to access observe tracked object api
+1480-  protectionLevel:normal
+1481-+ permission:com.android.phone.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+1482-  package:com.android.phone
+--
+1521:+ permission:pleos.car.permission.HID_VIRTUAL_DEVICE
+1522-  package:ai.pleos.system.service.hid
+1523-  label:HID virtual device permission
+1524-  description:Register UHID devices and transmit virtual HID reports to the system.
+1525-  protectionLevel:signature|privileged
+1526-+ permission:android.permission.LOOP_RADIO
+1527-  package:android
+--
+1691:+ permission:pleos.car.permission.NAVI_NOTIFY
+1692-  package:ai.pleos.playground.service.navi
+1693-  label:null
+1694-  description:null
+1695-  protectionLevel:normal
+1696-+ permission:android.car.permission.GET_CAR_VENDOR_CATEGORY_MIRROR
+1697-  package:com.android.car.updatable
+--
+1701:+ permission:pleos.car.permission.NAVI_CUSTOM_ETC
+1702-  package:ai.pleos.playground.service.navi
+1703-  label:null
+1704-  description:null
+1705-  protectionLevel:normal
+1706:+ permission:pleos.car.permission.NAVI_CUSTOM_MAP
+1707-  package:ai.pleos.playground.service.navi
+1708-  label:null
+1709-  description:null
+1710-  protectionLevel:normal
+1711:+ permission:pleos.car.permission.CAR_PIN_QUERY
+1712-  package:ai.pleos.service.trustagent
+1713-  label:null
+1714-  description:null
+1715-  protectionLevel:signature|privileged
+1716-+ permission:android.car.permission.CONTROL_STEERING_WHEEL
+1717-  package:com.android.car.updatable
+--
+1751:+ permission:pleos.car.permission.PRIVATE_CAR_DOORS
+1752-  package:ai.pleos.playground.service.vehicle
+1753-  label:private car’s doors
+1754-  description:private car’s doors.
+1755-  protectionLevel:normal
+1756:+ permission:pleos.car.permission.PRIVATE_CAR_DRIVE
+1757-  package:ai.pleos.playground.service.vehicle
+1758-  label:access private car’s drive.
+1759-  description:access private car’s drive.
+1760-  protectionLevel:normal
+1761-+ permission:android.permission.MANAGE_SUBSCRIPTION_PLANS
+1762-  package:android
+--
+1781:+ permission:pleos.car.permission.PRIVATE_CAR_SEATS
+1782-  package:ai.pleos.playground.service.vehicle
+1783-  label:private car’s seats
+1784-  description:private car’s seats.
+1785-  protectionLevel:normal
+1786-+ permission:android.permission.REQUEST_COMPANION_PROFILE_GLASSES
+1787-  package:android
+--
+1836:+ permission:pleos.car.permission.CONTROL_CAR_DOORS
+1837-  package:ai.pleos.playground.service.vehicle
+1838-  label:control car’s doors
+1839-  description:Control car’s doors.
+1840-  protectionLevel:normal
+1841:+ permission:pleos.car.permission.CONTROL_CAR_DRIVE
+1842-  package:ai.pleos.playground.service.vehicle
+1843-  label:access control car’s drive.
+1844-  description:access control car’s drive.
+1845-  protectionLevel:normal
+1846-+ permission:android.permission.BIND_TRACE_REPORT_SERVICE
+1847-  package:android
+--
+1876:+ permission:pleos.car.permission.CONTROL_CAR_SEATS
+1877-  package:ai.pleos.playground.service.vehicle
+1878-  label:control car’s seats
+1879-  description:Control car’s seats.
+1880-  protectionLevel:normal
+1881-+ permission:ai.umos.applibrary.permission.WATCH_EDIT_MODE
+1882-  package:com.android.systemui
+--
+1951:+ permission:pleos.car.permission.NAVI_ROUTE
+1952-  package:ai.pleos.playground.service.navi
+1953-  label:null
+1954-  description:null
+1955-  protectionLevel:normal
+1956-+ permission:com.android.credentialmanager.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+1957-  package:com.android.credentialmanager
+--
+1991:+ permission:pleos.car.permission.READ_WIFI_CREDENTIAL
+1992-  package:ai.pleos.system.service.wifi
+1993-  label:null
+1994-  description:null
+1995-  protectionLevel:signature|privileged
+1996-+ permission:android.permission.CONTROL_DISPLAY_SATURATION
+1997-  package:android
+--
+2236:+ permission:pleos.car.permission.ADAS_LOCAL_MAP
+2237-  package:ai.pleos.playground.service.adas
+2238-  label:ADAS_LOCAL_MAP permission
+2239-  description:This permission is required to access observe local map api
+2240-  protectionLevel:normal
+2241-+ permission:android.permission.UPDATE_PACKAGES_WITHOUT_USER_ACTION
+2242-  package:android
+--
+2846:+ permission:pleos.car.permission.PRIVATE_CAR_ENERGY
+2847-  package:ai.pleos.playground.service.vehicle
+2848-  label:private car’s EV charge settings
+2849-  description:private your car’s EV charge settings.
+2850-  protectionLevel:normal
+2851-+ permission:android.permission.MOVE_PACKAGE
+2852-  package:android
+--
+3206:+ permission:pleos.car.permission.PRIVATE_CAR_INFO
+3207-  package:ai.pleos.playground.service.vehicle
+3208-  label:access private car’s basic information
+3209-  description:Access private car’s basic information.
+3210-  protectionLevel:normal
+3211:+ permission:pleos.car.permission.PRIVATE_CAR_TOLL
+3212-  package:ai.pleos.playground.service.vehicle
+3213-  label:access private car’s toll.
+3214-  description:access private car’s toll.
+3215-  protectionLevel:normal
+3216-+ permission:android.permission.REQUEST_INCIDENT_REPORT_APPROVAL
+3217-  package:android
+--
+3236:+ permission:pleos.car.permission.PRIVATE_CAR_LIGHTS
+3237-  package:ai.pleos.playground.service.vehicle
+3238-  label:access private car’s lights.
+3239-  description:access private car’s lights.
+3240-  protectionLevel:normal
+3241-+ permission:android.permission.TEST_BIOMETRIC
+3242-  package:android
+--
+3301:+ permission:pleos.car.permission.FUSED_LOCATION
+3302-  package:ai.pleos.playground.service.location.fused
+3303-  label:FUSED_LOCATION permission
+3304-  description:null
+3305-  protectionLevel:dangerous
+3306-+ permission:android.permission.INSTALL_DYNAMIC_SYSTEM
+3307-  package:android
+--
+3431:+ permission:pleos.car.permission.STT_SERVICE
+3432-  package:ai.pleos.playground.caas
+3433-  label:null
+3434-  description:null
+3435-  protectionLevel:normal
+3436-+ permission:android.permission.MANAGE_DEVICE_POLICY_USERS
+3437-  package:android
+--
+3446:+ permission:pleos.car.permission.TTS_SERVICE
+3447-  package:ai.pleos.playground.caas
+3448-  label:null
+3449-  description:null
+3450-  protectionLevel:normal
+3451-+ permission:com.android.ext.adservices.api.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+3452-  package:com.android.ext.adservices.api
+--
+3516:+ permission:pleos.car.permission.PRIVATE_CAR_SAFETY
+3517-  package:ai.pleos.playground.service.vehicle
+3518-  label:access private car’s safety.
+3519-  description:access private car’s safety.
+3520-  protectionLevel:normal
+3521-+ permission:android.permission.RECEIVE_STK_COMMANDS
+3522-  package:android
+--
+3576:+ permission:pleos.car.permission.ADAS_PARKING
+3577-  package:ai.pleos.playground.service.adas
+3578-  label:ADAS_PARKING permission
+3579-  description:This permission is required to access observe parking api
+3580-  protectionLevel:normal
+3581-+ permission:android.permission.FOREGROUND_SERVICE_DATA_SYNC
+3582-  package:android
+--
+3586:+ permission:pleos.car.permission.NAVI_CUSTOM_ROUTE
+3587-  package:ai.pleos.playground.service.navi
+3588-  label:null
+3589-  description:null
+3590-  protectionLevel:normal
+3591-+ permission:android.permission.SET_ORIENTATION
+3592-  package:android
+--
+3626:+ permission:pleos.car.permission.CAR_ENERGY
+3627-  package:ai.pleos.playground.service.vehicle
+3628-  label:access car’s energy information
+3629-  description:Access your car’s energy information.
+3630-  protectionLevel:normal
+3631-+ permission:android.permission.MANAGE_USERS
+3632-  package:android
+--
+3796:+ permission:pleos.car.permission.CAR_INFO
+3797-  package:ai.pleos.playground.service.vehicle
+3798-  label:access car’s basic information
+3799-  description:Access car’s basic information.
+3800-  protectionLevel:normal
+3801:+ permission:pleos.car.permission.CAR_TOLL
+3802-  package:ai.pleos.playground.service.vehicle
+3803-  label:access car’s toll.
+3804-  description:Access car’s toll.
+3805-  protectionLevel:normal
+3806-+ permission:android.permission.READ_LOGS
+3807-  package:android
+--
+3826:+ permission:pleos.car.permission.PRIVATE_CAR_CLIMATE
+3827-  package:ai.pleos.playground.service.vehicle
+3828-  label:access car’s hvac
+3829-  description:Access your car’s hvac.
+3830-  protectionLevel:normal
+3831-+ permission:android.permission.MANAGE_SPEECH_RECOGNITION
+3832-  package:android
+--
+3896:+ permission:pleos.car.permission.CAR_LIGHTS
+3897-  package:ai.pleos.playground.service.vehicle
+3898-  label:access car’s lights.
+3899-  description:access car’s lights.
+3900-  protectionLevel:normal
+3901-+ permission:ai.pleos.playground.caas.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+3902-  package:ai.pleos.playground.caas
+--
+4091:+ permission:pleos.car.permission.PRIVATE_CAR_MIRRORS
+4092-  package:ai.pleos.playground.service.vehicle
+4093-  label:private car’s mirrors
+4094-  description:private car’s mirrors.
+4095-  protectionLevel:normal
+4096-+ permission:android.permission.GET_ANY_PROVIDER_TYPE
+4097-  package:android
+--
+4176:+ permission:pleos.car.permission.CAR_SAFETY
+4177-  package:ai.pleos.playground.service.vehicle
+4178-  label:access car’s safety.
+4179-  description:access car’s safety.
+4180-  protectionLevel:normal
+4181-+ permission:android.permission.UPDATE_DEVICE_MANAGEMENT_RESOURCES
+4182-  package:android
+--
+4461:+ permission:pleos.car.permission.CAR_CLIMATE
+4462-  package:ai.pleos.playground.service.vehicle
+4463-  label:access car’s climate.
+4464-  description:access car’s climate.
+4465-  protectionLevel:normal
+4466-+ permission:android.permission.BIND_TELEPHONY_NETWORK_SERVICE
+4467-  package:android
+--
+4576:+ permission:pleos.car.permission.PRIVATE_CAR_WINDOWS
+4577-  package:ai.pleos.playground.service.vehicle
+4578-  label:private car’s windows
+4579-  description:private car’s windows.
+4580-  protectionLevel:normal
+4581-+ permission:android.permission.MANAGE_DEVICE_ADMINS
+4582-  package:android
+--
+4726:+ permission:pleos.car.permission.CAR_MIRRORS
+4727-  package:ai.pleos.playground.service.vehicle
+4728-  label:access car’s mirrors.
+4729-  description:access car’s mirrors.
+4730-  protectionLevel:normal
+4731-+ permission:android.permission.SET_POINTER_SPEED
+4732-  package:android
+--
+4761:+ permission:pleos.car.permission.CONTROL_CAR_CLIMATE
+4762-  package:ai.pleos.playground.service.vehicle
+4763-  label:access car’s hvac
+4764-  description:Access your car’s hvac.
+4765-  protectionLevel:normal
+4766-+ permission:android.permission.CHANGE_BACKGROUND_DATA_SETTING
+4767-  package:android
+--
+4991:+ permission:pleos.car.permission.LLM_SERVICE
+4992-  package:ai.pleos.playground.caas
+4993-  label:null
+4994-  description:null
+4995-  protectionLevel:normal
+4996-+ permission:android.permission.OVERRIDE_WIFI_CONFIG
+4997-  package:android
+--
+5006:+ permission:pleos.car.permission.CHANGE_WIFI_STATE
+5007-  package:ai.pleos.system.service.wifi
+5008-  label:null
+5009-  description:null
+5010-  protectionLevel:signature|privileged
+5011-+ permission:android.permission.FORCE_STOP_PACKAGES
+5012-  package:android
+--
+5026:+ permission:pleos.car.permission.CONTROL_CAR_MIRRORS
+5027-  package:ai.pleos.playground.service.vehicle
+5028-  label:control car’s mirrors
+5029-  description:Control car’s mirrors.
+5030-  protectionLevel:normal
+5031-+ permission:android.permission.MANAGE_CA_CERTIFICATES
+5032-  package:android
+--
+5061:+ permission:pleos.car.permission.CONTROL_CAR_ENERGY
+5062-  package:ai.pleos.playground.service.vehicle
+5063-  label:Control car’s EV charge settings
+5064-  description:Control your car’s EV charge settings.
+5065-  protectionLevel:normal
+5066-+ permission:android.car.permission.GET_CAR_VENDOR_CATEGORY_10
+5067-  package:com.android.car.updatable
+--
+5101:+ permission:pleos.car.permission.CAR_WINDOWS
+5102-  package:ai.pleos.playground.service.vehicle
+5103-  label:access car’s windows.
+5104-  description:access car’s windows.
+5105-  protectionLevel:normal
+5106-+ permission:android.permission.TRIGGER_LOST_MODE
+5107-  package:android
+--
+5336:+ permission:pleos.car.permission.CONTROL_CAR_INFO
+5337-  package:ai.pleos.playground.service.vehicle
+5338-  label:access control car’s basic information
+5339-  description:Access control car’s basic information.
+5340-  protectionLevel:normal
+5341:+ permission:pleos.car.permission.CONTROL_CAR_TOLL
+5342-  package:ai.pleos.playground.service.vehicle
+5343-  label:access control car’s toll.
+5344-  description:Access control car’s toll.
+5345-  protectionLevel:normal
+5346-+ permission:android.car.permission.SET_CAR_VENDOR_CATEGORY_LIGHT
+5347-  package:com.android.car.updatable
+--
+5406:+ permission:pleos.car.permission.CONTROL_CAR_LIGHTS
+5407-  package:ai.pleos.playground.service.vehicle
+5408-  label:access control car’s lights.
+5409-  description:access control car’s lights.
+5410-  protectionLevel:normal
+5411-+ permission:android.permission.CREATE_USERS
+5412-  package:android
+--
+5499:+ permission:pleos.car.permission.CONTROL_CAR_WINDOWS
+5500-  package:ai.pleos.playground.service.vehicle
+5501-  label:control car’s windows
+5502-  description:Control car’s windows.
+5503-  protectionLevel:normal
+5504-+ permission:android.permission.MANAGE_DEVICE_POLICY_PROFILES
+5505-  package:android
+--
+5634:+ permission:pleos.car.permission.CONTROL_CAR_SAFETY
+5635-  package:ai.pleos.playground.service.vehicle
+5636-  label:access control car’s safety.
+5637-  description:access control car’s safety.
+5638-  protectionLevel:normal
+5639-+ permission:android.permission.BIND_PHONE_ACCOUNT_SUGGESTION_SERVICE
+5640-  package:android
+--
+5754:+ permission:pleos.car.permission.CAR_DOORS
+5755-  package:ai.pleos.playground.service.vehicle
+5756-  label:access car’s doors.
+5757-  description:access car’s doors.
+5758-  protectionLevel:normal
+5759:+ permission:pleos.car.permission.CAR_DRIVE
+5760-  package:ai.pleos.playground.service.vehicle
+5761-  label:access car’s drive.
+5762-  description:access car’s drive.
+5763-  protectionLevel:normal
+5764-+ permission:android.permission.STATUS_BAR
+5765-  package:android
+--
+5784:+ permission:pleos.car.permission.CAR_SEATS
+5785-  package:ai.pleos.playground.service.vehicle
+5786-  label:access car’s seats.
+5787-  description:access car’s seats.
+5788-  protectionLevel:normal
+5789-+ permission:com.android.car.activityresolver.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+5790-  package:com.android.car.activityresolver
