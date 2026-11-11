@@ -339,21 +339,38 @@ private fun ExportDialog(engine: ChagokEngine, file: File, onDismiss: () -> Unit
     val payload = "CHAGOK|${file.name}|total=${km(s.totalKm)}|business=${km(s.businessUseKm)}|" +
         "ratio=${String.format(Locale.ROOT, "%.1f", s.ratio * 100)}|sealed=${engine.verifiedCount}/${engine.ledger.size}"
     val qr = remember(payload) { qrBitmap(payload, 480) }
+    // 대화상자는 별도 창에 그려져 화면 배율이 이어지지 않으므로, 본 화면과 같은 배율을 내용에 다시 적용
+    val scaled = LocalDensity.current
     AlertDialog(
         onDismissRequest = onDismiss,
-        confirmButton = { TextButton(onClick = onDismiss) { Text("닫기") } },
-        title = { Text("운행기록부 서식을 저장했습니다", fontWeight = FontWeight.Bold) },
+        confirmButton = {
+            CompositionLocalProvider(LocalDensity provides scaled) {
+                Button(
+                    onClick = onDismiss,
+                    shape = RoundedCornerShape(16.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = C.Mint, contentColor = C.Bg),
+                    modifier = Modifier.fillMaxWidth().height(60.dp),
+                ) { Text("닫기", fontSize = 20.sp, fontWeight = FontWeight.Bold) }
+            }
+        },
+        title = {
+            CompositionLocalProvider(LocalDensity provides scaled) {
+                Text("운행기록부 서식을 저장했습니다", fontSize = 22.sp, fontWeight = FontWeight.Bold)
+            }
+        },
         text = {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Image(bitmap = qr.asImageBitmap(), contentDescription = "운행기록부 내보내기 QR", modifier = Modifier.size(240.dp))
-                Spacer(Modifier.height(8.dp))
-                Text("업무용승용차 운행기록부 (CSV, 엑셀 호환)", fontSize = 15.sp)
-                Text(file.absolutePath, fontSize = 12.sp, color = C.Mute)
-                Spacer(Modifier.height(6.dp))
-                Text(
-                    "QR에는 기록 요약(총주행, 업무사용비율, 무결성 검증)이 담깁니다. 휴대폰 파일 전달은 개발 예정입니다",
-                    fontSize = 12.sp, color = C.Mute,
-                )
+            CompositionLocalProvider(LocalDensity provides scaled) {
+                Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+                    Image(bitmap = qr.asImageBitmap(), contentDescription = "운행기록부 내보내기 QR", modifier = Modifier.size(220.dp))
+                    Spacer(Modifier.height(10.dp))
+                    Text("업무용승용차 운행기록부 (CSV, 엑셀 호환)", fontSize = 17.sp)
+                    Text(file.absolutePath, fontSize = 13.sp, color = C.Mute)
+                    Spacer(Modifier.height(6.dp))
+                    Text(
+                        "QR에는 기록 요약(총주행, 업무사용비율, 무결성 검증)이 담깁니다. 휴대폰 파일 전달은 개발 예정입니다",
+                        fontSize = 13.sp, color = C.Mute,
+                    )
+                }
             }
         },
     )

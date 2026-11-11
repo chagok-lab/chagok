@@ -382,17 +382,17 @@ def main():
     put('/vehicle/body', door_fl='false')
     time.sleep(2)
 
-    # 2) 두 번째 운행: 23.7 km, 비업무로 확정
+    # 2) 두 번째 운행: 6.3 km, 비업무로 확정 (목적지를 저장하지 않는 경우)
     put('/vehicle/gear', gear='Drive')
     ev('trip2_gear_d')
     time.sleep(1)
     drive_start = time.time()
-    threading.Thread(target=drive_km, args=(23.7,), daemon=True).start()
+    threading.Thread(target=drive_km, args=(6.3,), daemon=True).start()
     nodes = wait_for('기록 중', 20)
     result('real_trip2_recording', 'yes' if nodes else 'no')
-    while odo['km'] < 12522.3 - 1e-6 and time.time() - drive_start < 60:
+    while odo['km'] < 12504.9 - 1e-6 and time.time() - drive_start < 60:
         time.sleep(0.5)
-    wait_for('23.7 km', 15)
+    wait_for('6.3 km', 15)
     snap('r2_driving_end')
     park()
     ev('trip2_gear_p')
@@ -436,7 +436,7 @@ def main():
     # 4) 리포트와 서식 내보내기
     nodes = snap('r4_report')
     result('real_report_three_trips', 'yes' if has(nodes, '오늘 운행 3건') else 'no')
-    result('real_no_double_count', 'yes' if has(nodes, '54.5 km') and not has(nodes, '오늘 운행 4건') else 'no')
+    result('real_no_double_count', 'yes' if has(nodes, '37.1 km') and not has(nodes, '오늘 운행 4건') else 'no')
     result('real_final_ratio', next((t for t, _ in nodes if t.endswith('%')), 'none'))
     ev('report')
     time.sleep(3)
@@ -471,6 +471,9 @@ def main():
     log_all = adb('logcat', '-d', '-v', 'time', timeout=60)
     with open(os.path.join(OUT, 'logcat_real_app.txt'), 'w') as f:
         f.write('\n'.join(line for line in log_all.splitlines() if 'Chagok' in line or (app_pid and f'({app_pid:>5})' in line))[-200_000:])
+    # 앱이 남긴 내보내기 로그(파일 이름·크기·줄 수). 파일을 기기 밖으로 꺼내지 못해도 저장 결과를 확인할 수 있음
+    export_lines = [line for line in log_all.splitlines() if 'Chagok' in line and 'export ' in line]
+    result('real_export_log', export_lines[-1].split('export ', 1)[1].strip()[:120] if export_lines else 'none')
     result('real_fatal_exceptions_app', sum(1 for i, line in enumerate(log_all.splitlines()) if 'FATAL EXCEPTION' in line and PKG in ' '.join(log_all.splitlines()[i:i + 3])))
 
 

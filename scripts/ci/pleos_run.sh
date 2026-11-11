@@ -74,6 +74,9 @@ if adb devices | grep -q unauthorized; then
   exit 0
 fi
 if wait_boot 120; then result booted yes; else result booted no; fi
+# 화면 시계를 한국 시간으로 맞춤 (앱의 운행 시각 표시와 같게). 실패해도 계속 진행
+adb shell cmd alarm set-timezone Asia/Seoul >>"$LOG" 2>&1 || true
+log "timezone: $(adb shell getprop persist.sys.timezone | tr -d '\r') / $(adb shell date | tr -d '\r')"
 grep -E "androidboot.qemu.skin|Setting display|emulator version" "$OUT/emulator.log" | cut -c1-200 | tee -a "$LOG"
 if [ "$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" != 1 ]; then
   adb logcat -d -v time 2>/dev/null | tail -n 400 > "$OUT/logcat_boot_tail.txt"

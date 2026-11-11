@@ -3,6 +3,7 @@ package com.chagok.app
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
@@ -385,7 +386,10 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
         val csv = NtsLogbookExporter.toCsv(ledger, carModel, plateNumber, zone)
         val month = LocalDate.now(zone).format(DateTimeFormatter.ofPattern("yyyyMM"))
         val dir = context.getExternalFilesDir(null) ?: context.filesDir
-        NtsLogbookExporter.write(dir, "chagok_logbook_$month.csv", csv)
+        val file = NtsLogbookExporter.write(dir, "chagok_logbook_$month.csv", csv)
+        // 내보낸 파일의 이름·크기·줄 수만 로그에 남김 (운행 내용은 로그에 쓰지 않음)
+        Log.i("Chagok", "export ${file.name} bytes=${file.length()} lines=${csv.lineSequence().count()}")
+        file
     } catch (t: Throwable) {
         status = "내보내기 실패: ${t.message ?: t.javaClass.simpleName}"
         null
