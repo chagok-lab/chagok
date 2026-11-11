@@ -24,6 +24,7 @@ import java.io.File
 import java.time.LocalDate
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 /**
  * 앱 상태 원천(Application 범위). 화면이 바뀌어도 운행 판정은 계속됩니다.
@@ -45,6 +46,8 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
     var status by mutableStateOf(""); private set
     var pendingTripId by mutableStateOf<Long?>(null); private set
     var verifiedCount by mutableStateOf(0); private set
+    /** 실차 모드인데 차량 신호(누적거리)가 오지 않는 상태: 화면에 '시뮬레이터로 시연하기' 버튼을 띄움 */
+    var noSignal by mutableStateOf(false); private set
     val ledger = mutableStateListOf<Trip>()
 
     /** 서식 ④ 사용자(부서, 성명), ② 자동차등록번호: 설정 화면 대신 예시 값 */
@@ -73,7 +76,8 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
             if (mode == Mode.PLEOS && odometerKm == null && signalWaitTicks < NO_SIGNAL_HINT_TICKS) {
                 signalWaitTicks++
                 if (signalWaitTicks == NO_SIGNAL_HINT_TICKS) {
-                    status = "차량 신호를 받지 못했습니다. 상단 '시뮬레이터' 스위치를 켜면 시연 흐름을 재현합니다"
+                    noSignal = true
+                    status = "차량 신호를 받지 못했습니다. '시뮬레이터로 시연하기'를 누르면 시연 흐름을 재현합니다"
                 }
             }
             main.postDelayed(this, 1_000L)
@@ -110,6 +114,7 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
         odometerKm = null
         destination = null
         signalWaitTicks = 0
+        noSignal = false
 
         var fallbackReason: String? = null
         if (target == Mode.PLEOS) {
@@ -133,8 +138,12 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
         fallbackReason?.let { status = "$it. 시뮬레이터 모드로 시연 흐름을 재현합니다" }
     }
 
-    /** 시뮬레이터 모드에서 운행 1건 재생 */
+    /** 시뮬레이터 모드에서 운행 1건 재생 (직전 운행의 정차 확인이 끝난 뒤에만) */
     fun simulateNextLeg() {
+        if (provisional != null) {
+            status = "직전 운행의 정차를 확인하는 중입니다. 잠시 후 다시 눌러 주세요"
+            return
+        }
         (signals as? SimulatedVehicleSignals)?.runNextLeg()
     }
 
@@ -143,6 +152,7 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
     // ---- VehicleSignals.Listener
     override fun onOdometerKm(km: Double) {
         odometerKm = km
+        noSignal = false
         if (!continuityChecked && mode == Mode.PLEOS) {   // 실차 값을 처음 받았을 때 1회
             continuityChecked = true
             reconcileGap(km)
@@ -170,7 +180,7 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
     }
 
     override fun onStatus(message: String) {
-        status = message
+        status = if (noSignal) "$message · 차량 신호가 없으면 '시뮬레이터로 시연하기'를 눌러 주세요" else message
     }
 
     private fun handle(event: TripDetector.Event) {
@@ -229,11 +239,14 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
         val chosen = provisionalPurpose
         val skipped = provisionalSkipped
         clearProvisional()
+        val km = String.format(Locale.ROOT, "%.1f", e.endOdoKm - e.startOdoKm)
         if (chosen != null) {
             TripStore.revise(ledger, tripId, chosen, note = null)?.let(::appendAndSave)
             if (pendingTripId == tripId) pendingTripId = null
-        } else if (!skipped) {
-            pendingTripId = tripId
+            status = "운행 기록 완료: ${chosen.label} $km km"
+        } else {
+            if (!skipped) pendingTripId = tripId
+            status = "운행 $km km를 기록했습니다. 용도를 확인해 주세요"
         }
     }
 
@@ -282,6 +295,7 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
         val rev = TripStore.revise(ledger, tripId, purpose, note = null) ?: return
         appendAndSave(rev)
         if (pendingTripId == tripId) pendingTripId = null
+        status = "용도 확정: ${purpose.label}"
     }
 
     fun skipConfirmation() {

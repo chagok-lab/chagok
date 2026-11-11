@@ -43,5 +43,17 @@ class ContinuityCheckerTest {
         val csv = NtsLogbookExporter.toCsv(listOf(gapTrip), "그랜저", "12가 3456")
         assertTrue(csv.contains("앱 미실행 구간 자동 보완"))
         assertTrue(csv.contains("12556.3") || csv.contains("12,556.3"))
+        assertTrue(!csv.contains("시뮬레이터로 재현한"))          // 실차 기록에는 시연 표시가 없음
+    }
+
+    @Test
+    fun exportFlagsSimulatedDemoRecords() {
+        val simulated = Trip(
+            seq = 0, tripId = 1, revision = 1, startEpochMs = 1_793_000_000_000, endEpochMs = 1_793_000_600_000,
+            startOdoKm = 12_480.2, endOdoKm = 12_498.6, destination = "회사", purpose = Purpose.COMMUTE,
+            suggested = Purpose.COMMUTE, user = "영업 김○○", source = "SIMULATOR", note = null, prevHash = "", hash = "",
+        )
+        val csv = NtsLogbookExporter.toCsv(listOf(simulated), "그랜저 (시뮬레이터)", "12가 3456")
+        assertTrue(csv.contains("시뮬레이터로 재현한 시연용 기록"))
     }
 }

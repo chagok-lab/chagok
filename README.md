@@ -29,7 +29,7 @@ Pleos Connect 차량에서 계기판 누적거리(Vehicle SDK Odometer)와 내�
 ```bash
 ./gradlew assembleDebug        # 디버그 APK
 ./gradlew assembleRelease      # 제출용 release APK (로컬 디버그 키로 서명되어 바로 설치 가능)
-./gradlew test                 # 단위 테스트 13개 (운행 판정, 누락 구간 보완, 해시 체인, 서식 계산·CSV, 용도 추천)
+./gradlew test                 # 단위 테스트 14개 (운행 판정, 누락 구간 보완, 해시 체인, 서식 계산·CSV, 용도 추천)
 adb install -r app/build/outputs/apk/release/app-release.apk
 ```
 
@@ -64,7 +64,7 @@ adb install -r app/build/outputs/apk/release/app-release.apk
 
 | 구분 | 내용 | 확인 방법 |
 |---|---|---|
-| 구현 | 운행 판정 상태 기계(도어 확정 대기·재출발 이어 기록), 누락 구간 보완, 해시 체인 원장, 서식 CSV, 용도 추천 규칙 | 로직 단위 테스트 13개 통과 |
+| 구현 | 운행 판정 상태 기계(도어 확정 대기·재출발 이어 기록), 누락 구간 보완, 해시 체인 원장, 서식 CSV, 용도 추천 규칙 | 로직 단위 테스트 14개 통과 |
 | 코드 작성 | Vehicle SDK(Odometer·Door·CarInfo·Fuel)·NaviHelper 연동, Jetpack Compose 화면 | Pleos 에뮬레이터 빌드·실연동 검증 예정(11월) |
 | 개발 예정 | QR 파일 전달, PDF 출력, 포그라운드 서비스 상시 기록, 확정 후 수정 화면, 계기판 값 수동 보정, Fleet 관리자 웹, 음성 확인(TTS·STT·Gleo AI) | 1차 결과 후~2차 PT |
 

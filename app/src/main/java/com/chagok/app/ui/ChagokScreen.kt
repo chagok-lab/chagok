@@ -22,7 +22,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -121,7 +123,11 @@ private fun Header(engine: ChagokEngine) {
 @Composable
 private fun StatusPane(engine: ChagokEngine) {
     val pending = engine.pendingTrip()
-    Column(Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(14.dp)) {
+    // 화면 높이가 낮은 차량 디스플레이에서도 버튼이 잘리지 않도록 세로 스크롤 허용
+    Column(
+        Modifier.fillMaxWidth().verticalScroll(rememberScrollState()),
+        verticalArrangement = Arrangement.spacedBy(14.dp),
+    ) {
         when {
             engine.driving -> DrivingCard(engine)
             pending != null -> ConfirmCard(engine, pending)
@@ -145,7 +151,8 @@ private fun DrivingCard(engine: ChagokEngine) {
             Text("기록 중", color = C.Mint, fontSize = 28.sp, fontWeight = FontWeight.ExtraBold)
         }
         Text("${km(now - start)} km", color = C.Text, fontSize = 96.sp, fontWeight = FontWeight.ExtraBold)
-        Text("출발 계기판 ${km(start)} km (Odometer)", color = C.Sub, fontSize = 22.sp)
+        val source = if (engine.mode == ChagokEngine.Mode.SIMULATOR) "시뮬레이터" else "Odometer"
+        Text("출발 계기판 ${km(start)} km ($source)", color = C.Sub, fontSize = 22.sp)
         engine.destination?.let { Text("내비 목적지: $it", color = C.Sky, fontSize = 20.sp) }
         Spacer(Modifier.height(8.dp))
         Text("● 주행 중에는 입력을 받지 않습니다", color = C.Amber, fontSize = 20.sp)
@@ -200,8 +207,21 @@ private fun IdleCard(engine: ChagokEngine) {
     CardBox {
         Text("정차 중", color = C.Sub, fontSize = 22.sp, fontWeight = FontWeight.Bold)
         Text(engine.odometerKm?.let { "${km(it)} km" } ?: "신호 대기 중", color = C.Text, fontSize = 64.sp, fontWeight = FontWeight.ExtraBold)
-        Text("현재 계기판 누적거리 (Vehicle SDK Odometer)", color = C.Sub, fontSize = 18.sp)
+        val source = if (engine.mode == ChagokEngine.Mode.SIMULATOR) "시뮬레이터 재현 값" else "Vehicle SDK Odometer"
+        Text("현재 계기판 누적거리 ($source)", color = C.Sub, fontSize = 18.sp)
         Text("출발하면 자동으로 기록을 시작합니다", color = C.Mint, fontSize = 20.sp)
+    }
+    if (engine.mode == ChagokEngine.Mode.PLEOS && engine.noSignal) {
+        // Pleos Connect 가 아닌 기기 등 차량 신호가 없을 때: 시연 흐름으로 바로 넘어가는 버튼
+        Button(
+            onClick = { engine.switchMode(ChagokEngine.Mode.SIMULATOR) },
+            modifier = Modifier.fillMaxWidth().height(72.dp),
+            shape = RoundedCornerShape(16.dp),
+            border = BorderStroke(2.dp, C.Amber),
+            colors = ButtonDefaults.buttonColors(containerColor = C.Card2, contentColor = C.Text),
+        ) {
+            Text("차량 신호 없음 · 시뮬레이터로 시연하기", fontSize = 22.sp, fontWeight = FontWeight.Bold)
+        }
     }
     if (engine.mode == ChagokEngine.Mode.SIMULATOR) {
         Button(
@@ -222,6 +242,7 @@ private fun ReportPane(engine: ChagokEngine, onExport: (File) -> Unit) {
     val withLog = LogbookCalculator.deductibleWon(annualCost, s.ratio, hasLog = true)
     val noLog = LogbookCalculator.deductibleWon(annualCost, s.ratio, hasLog = false)
     val extra = (withLog - noLog).coerceAtLeast(0L)
+    val hasData = s.totalKm > 0.0
     Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.spacedBy(12.dp)) {
         Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             Kpi("⑪ 총주행", "${km(s.totalKm)} km", Modifier.weight(1f))
@@ -231,10 +252,15 @@ private fun ReportPane(engine: ChagokEngine, onExport: (File) -> Unit) {
         Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             Kpi("용도 미확정", "${s.unconfirmedCount}건", Modifier.weight(1f))
             Kpi("무결성 검증", "${engine.verifiedCount} / ${engine.ledger.size}", Modifier.weight(1f))
-            Kpi("추가 인정 (예시)", "+${manwon(extra)}", Modifier.weight(1f))
+            Kpi("추가 인정 (계산 사례)", if (hasData) "+${manwon(extra)}" else "-", Modifier.weight(1f))
         }
         Text(
-            "예시: 연 관련비용 2,500만원 기준 미작성 시 ${manwon(noLog)} 인정, 기록 시 ${manwon(withLog)} 인정",
+            if (hasData) {
+                "계산 사례(가정: 연 관련비용 2,500만원): 미작성 시 ${manwon(noLog)}, 기록 시 ${manwon(withLog)} 인정. " +
+                    "실제 인정액은 법령, 보험 가입, 과세조건에 따라 달라집니다"
+            } else {
+                "운행 기록이 쌓이면 업무사용비율로 비용 인정액 계산 사례를 보여 줍니다 (가정: 연 관련비용 2,500만원)"
+            },
             color = C.Mute, fontSize = 14.sp,
         )
         TableHeader()
@@ -297,13 +323,18 @@ private fun ExportDialog(engine: ChagokEngine, file: File, onDismiss: () -> Unit
     AlertDialog(
         onDismissRequest = onDismiss,
         confirmButton = { TextButton(onClick = onDismiss) { Text("닫기") } },
-        title = { Text("휴대폰으로 받기", fontWeight = FontWeight.Bold) },
+        title = { Text("운행기록부 서식을 저장했습니다", fontWeight = FontWeight.Bold) },
         text = {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Image(bitmap = qr.asImageBitmap(), contentDescription = "운행기록부 내보내기 QR", modifier = Modifier.size(240.dp))
                 Spacer(Modifier.height(8.dp))
                 Text("업무용승용차 운행기록부 (CSV, 엑셀 호환)", fontSize = 15.sp)
                 Text(file.absolutePath, fontSize = 12.sp, color = C.Mute)
+                Spacer(Modifier.height(6.dp))
+                Text(
+                    "QR에는 기록 요약(총주행, 업무사용비율, 무결성 검증)이 담깁니다. 휴대폰 파일 전달은 개발 예정입니다",
+                    fontSize = 12.sp, color = C.Mute,
+                )
             }
         },
     )

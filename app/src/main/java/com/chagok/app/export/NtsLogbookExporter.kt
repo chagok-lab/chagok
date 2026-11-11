@@ -22,6 +22,9 @@ object NtsLogbookExporter {
         val sb = StringBuilder("﻿")
         sb.append("업무용승용차 운행기록부\n")
         sb.append("① 차종,").append(q(carModel)).append(",② 자동차등록번호,").append(q(plate)).append('\n')
+        if (trips.any { it.source == "SIMULATOR" }) {
+            sb.append("※ 시뮬레이터로 재현한 시연용 기록이 포함되어 있습니다\n")
+        }
         sb.append("③ 사용일자(요일),④ 사용자(부서·성명),⑤ 주행 전 계기판의 거리(km),⑥ 주행 후 계기판의 거리(km),")
             .append("⑦ 주행거리(km),⑧ 출·퇴근용(km),⑨ 일반 업무용(km),⑩ 비고\n")
         trips.forEach { t ->
