@@ -138,14 +138,15 @@ log "app start log lines: $(wc -l < "$OUT/logcat_app_start.txt"), service lines:
 
 log "== Virtual Console 확인"
 adb shell "ss -ltnp 2>/dev/null || netstat -ltnp 2>/dev/null" > "$OUT/ports.txt" 2>&1
-grep -E "LISTEN|:80" "$OUT/ports.txt" | head -30 | tee -a "$LOG"
-for p in ai.pleos.connectwebconsole ai.pleos.hardware.vehicle.emulator ai.pleos.playground.service.vehicle; do
-  adb shell dumpsys package "$p" 2>/dev/null | head -n 260 > "$OUT/pkg_$p.txt"
-done
 adb forward tcp:8088 tcp:8088 2>&1 | tee -a "$LOG"
-timeout 180 python3 scripts/ci/vc_fetch.py http://127.0.0.1:8088/ "$OUT/vc" 2>&1 | tail -n 80 | tee -a "$LOG"
-result virtual_console_http "$( [ -s "$OUT/vc/index.html" ] && echo yes || echo no )"
+curl -sS -m 8 http://127.0.0.1:8088/health 2>&1 | tee "$OUT/vc_health.json" | tee -a "$LOG"; echo | tee -a "$LOG"
+result virtual_console_http "$( grep -q '"status"' "$OUT/vc_health.json" && echo yes || echo no )"
 
+log "== 실제 차량 신호 시나리오 (Virtual Console 로 누적거리·기어·도어를 바꿈)"
+timeout 900 python3 scripts/ci/pleos_drive.py "$OUT" 2>&1 | tee -a "$LOG" | cut -c1-600
+sleep 2
+
+if [ "${PLEOS_SIM_FLOW:-no}" = yes ]; then
 log "== Pleos Connect 에뮬레이터에서 앱 내 시뮬레이터로 운행 3건"
 ( adb shell screenrecord --time-limit 170 --bit-rate 8000000 /sdcard/pleos_demo.mp4 >>"$LOG" 2>&1 ) &
 REC_T0=$(date +%s.%N)
@@ -189,6 +190,8 @@ sleep 4
 adb pull /sdcard/pleos_demo.mp4 "$OUT/pleos_demo.mp4" >>"$LOG" 2>&1 || true
 adb exec-out sh -c "cat /sdcard/Android/data/$PKG/files/*.csv" > "$OUT/export.csv" 2>>"$LOG" || true
 result export_csv_bytes "$(stat -c %s "$OUT/export.csv" 2>/dev/null || echo 0)"
+
+fi
 
 log "== 로그"
 adb logcat -d -v time > "$OUT/logcat_all.txt" 2>/dev/null

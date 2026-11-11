@@ -74,19 +74,39 @@ class TripDetectorTest {
     }
 
     @Test
-    fun gearParkShowsCardFirstAndDoorOpenAfterwardsIsNotCountedTwice() {
+    fun gearParkShowsCardFirstAndLateOdometerValueDoesNotResume() {
         val d = detector()
         d.onOdometer(300.0); d.onOdometer(300.4)                 // 운행 시작
         now += 900_000; d.onOdometer(323.7)
         val parkedAt = now
-        val arrived = d.onGearParked() as TripDetector.Event.Arrived     // 기어 P: 용도 확인 카드용 잠정 도착
+        val arrived = d.onGear(parked = true) as TripDetector.Event.Arrived   // 기어 P: 용도 확인 카드용 잠정 도착
         assertEquals(323.7, arrived.endOdoKm, 1e-9)
-        now += 5_000
+        now += 1_000
+        assertNull(d.onOdometer(323.8))                          // 기어 P 뒤에 늦게 도착한 값: 재출발이 아니라 끝 값에만 반영
+        now += 4_000
         assertNull(d.onDriverDoor(true))                         // 이어서 문을 열어도 같은 정차로 처리
         now += 56_000
         val ended = d.tick() as TripDetector.Event.Ended         // 기어 P 이후 60초 정지 → 종료 확정
         assertEquals(parkedAt, ended.endEpochMs)                 // 종료 시각 = 기어를 P 에 둔 시각
         assertEquals(300.0, ended.startOdoKm, 1e-9)
-        assertNull(d.onGearParked())                             // 주행 중이 아니면 무시
+        assertEquals(323.8, ended.endOdoKm, 1e-9)                // 서식 ⑥ = 마지막 계기판 값
+        assertNull(d.onGear(parked = true))                      // 주행 중이 아니면 무시
+    }
+
+    @Test
+    fun shiftingBackToDriveAfterParkContinuesSameTrip() {
+        val d = detector()
+        d.onOdometer(500.0); d.onOdometer(500.5)
+        now += 300_000; d.onOdometer(510.0)
+        assertTrue(d.onGear(parked = true) is TripDetector.Event.Arrived)     // 잠깐 주차
+        now += 20_000
+        assertNull(d.onGear(parked = false))                     // 다시 D
+        assertEquals(TripDetector.Event.Resumed, d.onOdometer(510.3))         // 0.1 km 이상 움직이면 같은 운행으로 이어감
+        now += 600_000; d.onOdometer(520.0)
+        d.onGear(parked = true)
+        now += 61_000
+        val ended = d.tick() as TripDetector.Event.Ended
+        assertEquals(500.0, ended.startOdoKm, 1e-9)
+        assertEquals(520.0, ended.endOdoKm, 1e-9)
     }
 }

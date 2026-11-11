@@ -54,7 +54,9 @@ class TripDetector(
     private var tripStartMs: Long = 0L
     private var lastMoveMs: Long = 0L
     private var arrived: Boolean = false
-    private var doorOpenedMs: Long? = null
+    private var doorOpenedMs: Long? = null      // 정차 신호(기어 P·도어 열림)를 받은 시각
+    private var stopOdoKm: Double? = null       // 정차 신호를 받았을 때의 누적거리
+    private var gearParked: Boolean = false
     private var destination: String? = null
 
     fun onOdometer(km: Double): Event? {
@@ -82,12 +84,18 @@ class TripDetector(
             }
             State.DRIVING -> {
                 if (previous == null || km > previous) {
-                    lastMoveMs = now
-                    arrived = false        // 다시 움직이면 도착 대기를 해제
-                    if (doorOpenedMs != null) {
-                        doorOpenedMs = null    // 문을 연 뒤 다시 출발하면 같은 운행으로 이어감
+                    val stopKm = stopOdoKm
+                    if (doorOpenedMs != null && stopKm != null) {
+                        // 정차 신호 뒤에 들어온 값: 기어가 P 이거나 0.1 km 미만이면 늦게 도착한 값으로 보고 운행 끝 값에만 반영
+                        if (gearParked || km - stopKm < startThresholdKm) return null
+                        doorOpenedMs = null    // 다시 출발하면 같은 운행으로 이어감
+                        stopOdoKm = null
+                        lastMoveMs = now
+                        arrived = false
                         return Event.Resumed
                     }
+                    lastMoveMs = now
+                    arrived = false        // 다시 움직이면 도착 대기를 해제
                 }
                 null
             }
@@ -97,8 +105,11 @@ class TripDetector(
     /** 운전석 도어 열림: 정차 신호 */
     fun onDriverDoor(open: Boolean): Event? = if (open) onStopSignal() else null
 
-    /** 기어 P(주차) 전환: 정차 신호 */
-    fun onGearParked(): Event? = onStopSignal()
+    /** 기어 위치 변화: P(주차)로 바뀌면 정차 신호. P 인 동안에는 누적거리 값이 늦게 들어와도 재출발로 보지 않음 */
+    fun onGear(parked: Boolean): Event? {
+        gearParked = parked
+        return if (parked) onStopSignal() else null
+    }
 
     /**
      * 정차 신호: 바로 끝내지 않고 Arrived(잠정 도착)를 보냅니다.
@@ -112,6 +123,7 @@ class TripDetector(
         val cur = currentOdoKm ?: return null
         val now = clock()
         doorOpenedMs = now
+        stopOdoKm = cur
         lastMoveMs = now
         return Event.Arrived(start, cur, tripStartMs, now, destination)
     }
@@ -145,6 +157,7 @@ class TripDetector(
         tripStartOdoKm = null
         arrived = false
         doorOpenedMs = null
+        stopOdoKm = null
         val dest = destination
         destination = null
         return if (endKm - start >= minTripKm) {

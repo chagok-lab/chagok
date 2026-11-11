@@ -179,7 +179,7 @@ class ChagokEngine(private val context: Context) : VehicleSignals.Listener {
 
     override fun onGear(position: String?) {
         gear = position
-        if (position == "P") detector.onGearParked()?.let(::handle)
+        detector.onGear(parked = position == "P")?.let(::handle)
     }
 
     override fun onSignalUnavailable(name: String) {
