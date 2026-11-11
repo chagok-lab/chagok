@@ -50,5 +50,8 @@ PY
   get "$g" "$a" "$v"
   sig "$a" "navi_dep_${a}_data.txt" '\.(DestinationInfo|DestinationArrivedInfo|RouteStartInfo|NavigationStatus)$'
 done
+# 재정의할 리스너 파라미터의 null 허용 여부 (Kotlin 이 붙이는 NotNull/Nullable 표시)
+javap -v -cp "$WORK/Vehicle/classes.jar" ai.pleos.playground.vehicle.listener.GearSelectionListener ai.pleos.playground.vehicle.listener.DistanceDrivenListener ai.pleos.playground.vehicle.listener.DoorPositionListener 2>&1 | grep -E "^  public|RuntimeInvisibleParameterAnnotations|Nullable|NotNull|parameter [0-9]" > "$OUT/listener_nullability.txt"
+cat "$OUT/listener_nullability.txt"
 grep -n -i -E "odometer|distance|door|carinfo|model|fuel|economy|efficien|gear|speed" "$OUT/vehicle_entry.txt" "$OUT/vehicle_api.txt" | cut -c1-220 | head -150
 exit 0
